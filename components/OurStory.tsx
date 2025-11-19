@@ -62,7 +62,7 @@ const OurStory: React.FC = () => {
     <section id="story" className="py-20 md:py-28 bg-rose-50">
       <div className="container mx-auto px-6">
         <div className="text-center mb-12 md:mb-16">
-          <h2 className="font-serif text-4xl md:text-5xl text-slate-800">Our Story</h2>
+          <h2 className="font-serif text-4xl md:text-5xl text-slate-800">Câu chuyện tình yêu</h2>
           <div className="w-24 h-1 bg-rose-300 mx-auto mt-4"></div>
         </div>
 
