@@ -1,6 +1,7 @@
 import React from 'react';
 import Header from './components/Header';
 import HeroSlider from './components/HeroSlider';
+import Countdown from './components/Countdown';
 import OurStory from './components/OurStory';
 import PhotoAlbum from './components/PhotoAlbum';
 import Footer from './components/Footer';
@@ -11,6 +12,7 @@ const App: React.FC = () => {
       <Header />
       <main>
         <HeroSlider />
+        <Countdown />
         <OurStory />
         <PhotoAlbum />
       </main>
