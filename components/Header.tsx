@@ -5,6 +5,7 @@ const navLinks = [
   { href: '#story', label: 'Chuyện tình yêu' },
   { href: '#album', label: 'Album ảnh' },
   { href: '#event', label: 'Sự kiện cưới' },
+  { href: '#guestbook', label: 'Sổ lưu bút' },
 ];
 
 const Header: React.FC = () => {
