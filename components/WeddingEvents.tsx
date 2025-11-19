@@ -30,7 +30,7 @@ const events: WeddingEvent[] = [
         mapEmbed: 'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d5280.758006742002!2d104.8428742!3d21.696897000000003!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3133455c8777a10f%3A0xca3d6e9f1102124e!2zRG9hbmggTmdoaeG7h3AgVMawIE5ow6JuIEjDgCBUSOG7plkgQU5I!5e1!3m2!1sen!2s!4v1763575119975!5m2!1sen!2s',
     },
     {
-        title: 'HÔN LỄ  TẠI NHÀ TRAI',
+        title: 'LỄ  THÀNH HÔN TẠI NHÀ TRAI',
         time: '09:00 AM',
         date: '31/12/2025',
         address: 'Số 5-D1, phố Hồng Quang, phường Định Công, Hà Nội',
