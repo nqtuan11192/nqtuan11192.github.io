@@ -2,9 +2,9 @@ import React, { useState } from 'react';
 
 const navLinks = [
   // { href: '#hero', label: 'Home' },
-  { href: '#event', label: 'Sự kiện cưới' },
   { href: '#story', label: 'Chuyện tình yêu' },
   { href: '#album', label: 'Album ảnh' },
+  { href: '#event', label: 'Sự kiện cưới' },
 ];
 
 const Header: React.FC = () => {

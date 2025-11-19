@@ -57,7 +57,7 @@ const Countdown: React.FC = () => {
   });
 
   return (
-    <section id="event" className="py-12 md:py-20 bg-rose-50">
+    <section className="py-12 md:py-20 bg-rose-50">
       <div className="container mx-auto px-4 text-center">
         <h2 className="text-2xl md:text-4xl font-script text-slate-800 mb-8">
           Đếm ngược đến ngày trọng đại của chúng mình
