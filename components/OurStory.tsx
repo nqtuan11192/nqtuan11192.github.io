@@ -3,9 +3,10 @@ import React from 'react';
 const storyMilestones = [
   {
     icon: 'M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z',
-    title: 'How We Met',
-    date: 'Summer 2019',
-    description: "Our story began on a sunny afternoon at a mutual friend's cafe. A shared love for coffee and conversation sparked a connection that would change our lives forever.",
+    title: 'Lớp học tiếng anh, chung nhóm thuyết trình, giảnh giải nhất',
+    date: 'Tháng 3 năm 2019',
+    description: "Chúng mình gặp nhau trong một lớp tiếng Anh và được xếp chung nhóm thuyết trình. Từ những buổi cùng chuẩn bị bài, cùng cố gắng luyện tập, tụi mình dần trở nên thân thiết hơn. Khi cả nhóm giành được giải nhất, đó cũng là lúc chúng mình nhận ra rằng bên nhau luôn là điều tự nhiên nhất.",
+    photo: '/images/HAN02209.JPG',
   },
   {
     icon: 'M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z',
@@ -26,7 +27,7 @@ const StoryItem: React.FC<{ milestone: typeof storyMilestones[0]; isLast: boolea
     <div className="relative">
       {/* Vertical line - hidden on the last item */}
       {!isLast && <div className="absolute top-5 left-5 h-full w-0.5 bg-rose-200" style={{ transform: 'translateX(-50%)' }}></div>}
-      
+
       <div className="flex items-start space-x-6">
         {/* Icon */}
         <div className="z-10 bg-rose-500 text-white p-3 rounded-full shadow-lg flex-shrink-0">
@@ -34,10 +35,19 @@ const StoryItem: React.FC<{ milestone: typeof storyMilestones[0]; isLast: boolea
             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d={milestone.icon} />
           </svg>
         </div>
-        
+
         {/* Card */}
         <div className="bg-white p-6 rounded-xl shadow-lg hover:shadow-xl transition-shadow duration-300 w-full">
           <p className="text-sm text-rose-600 font-semibold">{milestone.date}</p>
+          {milestone.photo && (
+            <div className="mt-4">
+              <img
+                src={milestone.photo}
+                alt={milestone.title}
+                className="w-full h-64 object-cover rounded-lg shadow-md hover:shadow-lg transition-shadow duration-300"
+              />
+            </div>
+          )}
           <h3 className="font-serif text-2xl text-slate-800 mt-1 mb-2">{milestone.title}</h3>
           <p className="text-slate-600 leading-relaxed">{milestone.description}</p>
         </div>
@@ -58,10 +68,10 @@ const OurStory: React.FC = () => {
 
         <div className="max-w-3xl mx-auto space-y-12">
           {storyMilestones.map((milestone, index) => (
-            <StoryItem 
-              key={index} 
-              milestone={milestone} 
-              isLast={index === storyMilestones.length - 1} 
+            <StoryItem
+              key={index}
+              milestone={milestone}
+              isLast={index === storyMilestones.length - 1}
             />
           ))}
         </div>
