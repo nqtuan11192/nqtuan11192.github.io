@@ -6,6 +6,7 @@ import WeddingEvents from './components/WeddingEvents';
 import OurStory from './components/OurStory';
 import PhotoAlbum from './components/PhotoAlbum';
 import Guestbook from './components/Guestbook';
+import GiftBox from './components/GiftBox';
 import Footer from './components/Footer';
 
 const App: React.FC = () => {
@@ -21,6 +22,7 @@ const App: React.FC = () => {
         <Guestbook />
       </main>
       <Footer />
+      <GiftBox />
     </div>
   );
 };
