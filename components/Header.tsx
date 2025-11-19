@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 
 const navLinks = [
   // { href: '#hero', label: 'Home' },
+  { href: '#couple', label: 'Cặp đôi' },
   { href: '#story', label: 'Câu chuyện tình yêu' },
   { href: '#album', label: 'Album ảnh' },
   { href: '#event', label: 'Sự kiện cưới' },
