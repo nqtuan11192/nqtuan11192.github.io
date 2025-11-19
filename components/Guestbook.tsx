@@ -68,7 +68,7 @@ const Guestbook: React.FC = () => {
     };
 
     return (
-        <section id="guestbook" className="py-20 md:py-28 bg-white">
+        <section id="guestbook" className="py-20 md:py-28 bg-rose-50">
             <div className="container mx-auto px-6">
                 {/* Section Header */}
                 <div className="text-center mb-12 md:mb-16">
