@@ -15,7 +15,12 @@ const events: WeddingEvent[] = [
         title: 'LỄ ĂN HỎI NHÀ GÁI',
         time: '08:00 AM',
         date: '21/12/2025',
-        address: 'DNTN Hà Thủy Anh, thôn Nước Mát, xã Âu Lâu, phường Yên Bái, tỉnh Lào Cai',
+        address: (
+            <>
+                DNTN Hà Thuỷ Anh, Tổ dân phố Nước Mát, phường Âu Lâu, tỉnh Lào Cai<br />
+                (gần nút giao IC13 cao tốc Nội Bài - Lào Cai)
+            </>
+        ),
         image: '/images/HAN02209.JPG',
         mapLink: 'https://maps.app.goo.gl/duiLH6DBvrXkGXRD8',
         mapEmbed: 'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d5280.758006742002!2d104.8428742!3d21.696897000000003!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3133455c8777a10f%3A0xca3d6e9f1102124e!2zRG9hbmggTmdoaeG7h3AgVMawIE5ow6JuIEjDgCBUSOG7plkgQU5I!5e1!3m2!1sen!2s!4v1763575119975!5m2!1sen!2s',
@@ -24,7 +29,12 @@ const events: WeddingEvent[] = [
         title: 'TIỆC CƯỚI NHÀ GÁI',
         time: '11:00 AM',
         date: '21/12/2025',
-        address: 'DNTN Hà Thủy Anh, thôn Nước Mát, xã Âu Lâu, phường Yên Bái, tỉnh Lào Cai',
+        address: (
+            <>
+                Hội trường bến xe Nước Mát, Tổ dân phố Nước Mát, phường Âu Lâu, tỉnh Lào Cai<br />
+                (nút giao IC13 cao tốc Nội Bài - Lào Cai)
+            </>
+        ),
         image: '/images/HAN02292.JPG',
         mapLink: 'https://maps.app.goo.gl/duiLH6DBvrXkGXRD8',
         mapEmbed: 'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d5280.758006742002!2d104.8428742!3d21.696897000000003!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3133455c8777a10f%3A0xca3d6e9f1102124e!2zRG9hbmggTmdoaeG7h3AgVMawIE5ow6JuIEjDgCBUSOG7plkgQU5I!5e1!3m2!1sen!2s!4v1763575119975!5m2!1sen!2s',

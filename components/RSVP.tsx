@@ -78,7 +78,7 @@ const RSVP: React.FC = () => {
                     <p className="text-slate-600 text-lg mb-2">
                         Đám cưới của
                     </p>
-                    <p className="text-slate-700 text-xl md:text-2xl font-medium">
+                    <p className="text-slate-700 text-xl md:text-2xl font-script">
                         Vân Anh <span className="text-rose-500">💕</span> Quốc Tuấn
                     </p>
                 </div>
@@ -87,14 +87,14 @@ const RSVP: React.FC = () => {
                 <div className="max-w-2xl mx-auto">
                     <form onSubmit={handleSubmit} className="space-y-6">
                         {/* Input Label */}
-                        <div className="text-center">
+                        {/* <div className="text-center">
                             <p className="text-slate-700 font-medium mb-2">
                                 Nhập Họ Tên và Số Điện thoại
                             </p>
                             <p className="text-slate-500 text-sm italic">
                                 Type your Name and Phone Number
                             </p>
-                        </div>
+                        </div> */}
 
                         {/* Input Field */}
                         <div>

@@ -32,7 +32,7 @@ const storyMilestones = [
     title: 'Lời cầu hôn - lời nguyện ước',
     date: 'Mùa xuân 2025',
     shortDescription: 'Mùa xuân năm 2025, trong chuyến đi ngắm hoa anh đào tại Tokyo, Tuấn đã cầu hôn Vân Anh. Một khoảnh khắc đặc biệt mà cả Tokyo dường như cũng mừng cho họ...',
-    fullDescription: 'Mùa xuân năm 2025, sau khi Tuấn xin phép gia đình được đón V.A đi chơi, chuyến đi "ngắm Nhật Bản mùa hoa anh đào" bắt đầu. Việc đầu tiên thấy V.A là…. Tuấn chụp ảnh gửi cho gia đình V.A "báo cáo" hihi. Có lẽ hai đứa cũng nhận được tín hiệu ủng hộ từ hai bên gia đình, hai trái tim thổn thức cuối cùng cũng tìm thấy nhau, và muốn rằng sẽ gắn kết bền lâu bằng một hành động cam kết cao hơn nữa. Ngay tối đón V.A, Tuấn đã sắp xếp…và cầu hôn, trước sự chứng kiến của Tokyo, và nhận được những lời chúc rất xinh đẹp từ mọi người xung quanh <3. Trên lối về, hai bên đường trải đầy hoa và ánh đèn đường ấm áp, gió khẽ lướt qua mang theo những cánh hoa anh đào, những bông hoa tuylip rực rỡ sắc màu, khẽ lạnh lạnh, hai bàn tay siết chặt lấy nhau hơn, mà tên bàn tay ai - giờ đã có thêm 1 chiếc nhẫn "cầu hôn" đêm theo những lời nguyện ước….đêm đó, bỗng, cũng có pháo hoa bắn từ xa, V.A khẽ thốt lên "hôm nay thật là một ngày đặc biệt"; có lẽ, cả Tokyo cũng mừng cho chúng mình.',
+    fullDescription: 'Mùa xuân năm 2025, sau khi Tuấn xin phép gia đình được đón V.A đi chơi, chuyến đi "ngắm Nhật Bản mùa hoa anh đào" bắt đầu. Việc đầu tiên thấy V.A là…. Tuấn chụp ảnh gửi cho gia đình V.A "báo cáo" hihi. Có lẽ hai đứa cũng nhận được tín hiệu ủng hộ từ hai bên gia đình, hai trái tim thổn thức cuối cùng cũng tìm thấy nhau, và muốn rằng sẽ gắn kết bền lâu bằng một hành động cam kết cao hơn nữa. Ngay tối đón V.A, Tuấn đã sắp xếp…và cầu hôn, trước sự chứng kiến của Tokyo, và nhận được những lời chúc rất xinh đẹp từ mọi người xung quanh <3. Trên lối về, hai bên đường trải đầy hoa và ánh đèn đường ấm áp, gió khẽ lướt qua mang theo những cánh hoa anh đào, những bông hoa tuylip rực rỡ sắc màu, khẽ lạnh lạnh, hai bàn tay siết chặt lấy nhau hơn, mà trên bàn tay ai - giờ đã có thêm 1 chiếc nhẫn "cầu hôn" đêm theo những lời nguyện ước….đêm đó, bỗng, cũng có pháo hoa bắn từ xa, V.A khẽ thốt lên "hôm nay thật là một ngày đặc biệt"; có lẽ, cả Tokyo cũng mừng cho chúng mình.',
     photo: '/images/kyniem03.jpg',
   },
 ];
@@ -103,6 +103,7 @@ const StoryItem: React.FC<{ milestone: typeof storyMilestones[0]; isLast: boolea
               <div className="mt-4">
                 <video
                   src={milestone.video}
+                  poster="/images/kyniem03.jpg"
                   controls
                   className="w-full h-64 object-cover rounded-lg shadow-md hover:shadow-lg transition-all duration-300"
                   playsInline
