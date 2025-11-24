@@ -72,7 +72,7 @@ const RSVP: React.FC = () => {
                         </div>
                     </div>
 
-                    <h2 className="font-bold text-3xl md:text-4xl text-slate-800 mb-4 uppercase tracking-wide">
+                    <h2 className="font-vietnamese-script text-2xl md:text-4xl text-slate-700 mb-4">
                         Xác nhận tham dự
                     </h2>
                     <p className="text-slate-600 text-lg mb-2">

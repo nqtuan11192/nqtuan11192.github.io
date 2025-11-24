@@ -193,7 +193,7 @@ const WeddingEvents: React.FC = () => {
             <div className="container mx-auto px-6">
                 {/* Section Header */}
                 <div className="text-center mb-12 md:mb-16">
-                    <h2 className="font-script text-4xl md:text-5xl text-slate-700 mb-4">
+                    <h2 className="font-vietnamese-script text-2xl md:text-5xl text-slate-700 mb-4">
                         Sự Kiện Cưới
                     </h2>
                     <div className="w-24 h-0.5 bg-rose-400 mx-auto mb-4"></div>

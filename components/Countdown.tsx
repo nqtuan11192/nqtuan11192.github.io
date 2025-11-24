@@ -59,14 +59,14 @@ const Countdown: React.FC = () => {
   return (
     <section className="py-12 md:py-20 bg-rose-50">
       <div className="container mx-auto px-4 text-center">
-        <h2 className="text-2xl md:text-4xl font-script text-slate-800 mb-8">
+        <h2 className="font-vietnamese-script text-2xl md:text-4xl text-slate-700 mb-4">
           Đếm ngược đến ngày trọng đại của chúng mình
         </h2>
         <div className="flex justify-center items-center">
           {timerComponents.length ? (
             timerComponents
           ) : (
-            <span className="text-2xl font-serif text-rose-600">Ngày trọng đại của chúng mình đã đến!</span>
+            <span className="text4xl font-sans text-rose-600">Ngày trọng đại của chúng mình đã đến!</span>
           )}
         </div>
         <div className="mt-8 text-slate-600 font-verdana italic text-2xl">

@@ -56,7 +56,7 @@ const PhotoAlbum: React.FC = () => {
         <div className="container mx-auto px-6">
           <div className="text-center mb-12 md:mb-16">
             {/* <h2 className="font-serif text-4xl md:text-5xl text-slate-800">Kỷ niệm của chúng mình</h2> */}
-            <h2 className="font-script text-4xl md:text-5xl text-slate-700 mb-4">
+            <h2 className="font-vietnamese-script text-2xl md:text-5xl text-slate-700 mb-4">
               Kỷ niệm của chúng mình
             </h2>
             <p className="text-slate-500 mt-4 max-w-2xl mx-auto">
