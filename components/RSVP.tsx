@@ -122,12 +122,18 @@ const RSVP: React.FC = () => {
                         {/* Phone/Code Input */}
                         <div>
                             <input
-                                type="text"
+                                type="tel"
                                 value={phone}
-                                onChange={(e) => setPhone(e.target.value)}
+                                onChange={(e) => {
+                                    // Only allow numbers
+                                    const value = e.target.value.replace(/[^0-9]/g, '');
+                                    setPhone(value);
+                                }}
                                 placeholder="Nhập số điện thoại*"
                                 className="w-full px-6 py-4 text-center text-lg border-2 border-slate-300 rounded-lg focus:border-rose-400 focus:outline-none focus:ring-2 focus:ring-rose-200 transition-all duration-300"
                                 disabled={isSubmitting}
+                                pattern="[0-9]*"
+                                inputMode="numeric"
                             />
                         </div>
 

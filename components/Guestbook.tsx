@@ -106,10 +106,16 @@ const Guestbook: React.FC = () => {
                                 <input
                                     type="tel"
                                     value={phone}
-                                    onChange={(e) => setPhone(e.target.value)}
+                                    onChange={(e) => {
+                                        // Only allow numbers
+                                        const value = e.target.value.replace(/[^0-9]/g, '');
+                                        setPhone(value);
+                                    }}
                                     placeholder="Nhập số điện thoại*"
                                     disabled={isSubmitting}
                                     className="w-full px-4 py-3 border-2 border-dashed border-rose-300 rounded-lg focus:outline-none focus:border-rose-400 transition-colors disabled:opacity-50"
+                                    pattern="[0-9]*"
+                                    inputMode="numeric"
                                 />
                                 <div className="absolute right-4 top-1/2 -translate-y-1/2">
                                     <svg className="w-6 h-6 text-rose-400" fill="currentColor" viewBox="0 0 20 20">
