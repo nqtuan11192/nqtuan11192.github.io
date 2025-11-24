@@ -81,8 +81,8 @@ const Guestbook: React.FC = () => {
                         </svg>
                     </div>
                     <p className="text-slate-600 italic max-w-2xl mx-auto">
-                        Cảm Ơn Bạn Rất Nhiều Vì Đã Gửi Những Lời Chúc Mừng<br />
-                        Tốt Đẹp Nhất Đến Đám Cưới Của Chúng Tôi!
+                        Cảm ơn bạn rất nhiều vì đã gửi<br />
+                        những lời chúc mừng tốt đẹp nhất đến đám cưới của chúng mình!
                     </p>
                 </div>
 
