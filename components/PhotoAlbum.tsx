@@ -59,7 +59,10 @@ const PhotoAlbum: React.FC = () => {
             <h2 className="font-script text-4xl md:text-5xl text-slate-700 mb-4">
               Kỷ niệm của chúng mình
             </h2>
-            <p className="text-slate-500 mt-4 max-w-2xl mx-auto">Những khoảnh khắc mà chúng mình sẽ nhớ mãi. Mỗi tấm hình là một phần câu chuyện trong hành trình đến bên nhau.</p>
+            <p className="text-slate-500 mt-4 max-w-2xl mx-auto">
+              Những khoảnh khắc mà chúng mình sẽ nhớ mãi.<br />
+              Mỗi tấm hình là một phần câu chuyện trong hành trình đến bên nhau.
+            </p>
             <div className="w-24 h-1 bg-rose-300 mx-auto mt-4"></div>
           </div>
 

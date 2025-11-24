@@ -186,7 +186,8 @@ const WeddingEvents: React.FC = () => {
                     </h2>
                     <div className="w-24 h-0.5 bg-rose-400 mx-auto mb-4"></div>
                     <p className="text-slate-500 italic max-w-2xl mx-auto">
-                        Đám cưới không phải là đích đến, nó là điểm khởi đầu của một hành trình mới bên nhau.
+                        Đám cưới không phải là đích đến,<br />
+                        nó là điểm khởi đầu của một hành trình mới bên nhau.
                     </p>
                 </div>
 
