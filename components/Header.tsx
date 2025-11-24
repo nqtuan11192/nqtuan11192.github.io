@@ -28,7 +28,7 @@ const Header: React.FC = () => {
       className={`sticky top-0 z-50 w-full transition-all duration-300 bg-rose-500 shadow-md`}
     >
       <div className="container mx-auto px-6 py-4 flex justify-between items-center">
-        <div className="text-xl md:text-2xl font-verdana text-white">
+        <div className="text-xl md:text-2xl font-script text-white">
           <a href="#hero">
             Vân Anh &#9829; Quốc Tuấn
           </a>

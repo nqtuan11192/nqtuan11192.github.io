@@ -29,7 +29,7 @@ const HeroSlider: React.FC = () => {
   const goToSlide = (slideIndex: number) => {
     setCurrentIndex(slideIndex);
   };
-  
+
   useEffect(() => {
     const sliderInterval = setInterval(goToNext, 5000); // Auto-play every 5 seconds
     return () => clearInterval(sliderInterval);
@@ -54,7 +54,7 @@ const HeroSlider: React.FC = () => {
       </div>
       <div className="absolute inset-0 bg-black/40"></div>
       <div className="absolute inset-0 flex flex-col justify-center items-center text-center text-white p-4">
-        <h1 className="font-verdana text-4xl md:text-6xl lg:text-7xl drop-shadow-lg">Vân Anh &#9829; Quốc Tuấn</h1>
+        <h1 className="font-script text-4xl md:text-6xl lg:text-7xl drop-shadow-lg">Vân Anh &#9829; Quốc Tuấn</h1>
         <p className="mt-4 text-lg md:text-2xl font-light tracking-wider drop-shadow-md">Our Love Journey</p>
       </div>
 
@@ -72,9 +72,8 @@ const HeroSlider: React.FC = () => {
           <button
             key={slideIndex}
             onClick={() => goToSlide(slideIndex)}
-            className={`w-3 h-3 rounded-full transition-all duration-300 ${
-              currentIndex === slideIndex ? 'bg-white scale-125' : 'bg-white/50'
-            }`}
+            className={`w-3 h-3 rounded-full transition-all duration-300 ${currentIndex === slideIndex ? 'bg-white scale-125' : 'bg-white/50'
+              }`}
           ></button>
         ))}
       </div>
