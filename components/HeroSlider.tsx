@@ -55,7 +55,8 @@ const HeroSlider: React.FC = () => {
       <div className="absolute inset-0 bg-black/40"></div>
       <div className="absolute inset-0 flex flex-col justify-center items-center text-center text-white p-4">
         <h1 className="font-script text-4xl md:text-6xl lg:text-7xl drop-shadow-lg">Vân Anh &#9829; Quốc Tuấn</h1>
-        <p className="mt-4 text-lg md:text-2xl font-light tracking-wider drop-shadow-md">Our Love Journey</p>
+        <p className="mt-4 text-lg md:text-2xl font-verdana tracking-wider drop-shadow-md">We'are Getting Married!</p>
+        <p className="text-lg md:text-2xl font-verdana tracking-wider drop-shadow-md">December 31, 2025</p>
       </div>
 
       {/* Slider Controls */}

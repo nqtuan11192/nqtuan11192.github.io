@@ -14,7 +14,7 @@ const events: WeddingEvent[] = [
     {
         title: 'LỄ ĂN HỎI NHÀ GÁI',
         time: '08:00 sáng',
-        date: '21/12/2025',
+        date: 'Chủ nhật 21/12/2025',
         address: (<>
             Tư gia nhà gái: DNTN Hà Thuỷ Anh, Tổ dân phố Nước Mát, P. Âu Lâu, tỉnh Lào Cai<br />
             (gần nút giao IC13 cao tốc Nội Bài - Lào Cai)
@@ -26,7 +26,7 @@ const events: WeddingEvent[] = [
     {
         title: 'TIỆC CƯỚI NHÀ GÁI',
         time: '11:00 trưa',
-        date: '21/12/2025',
+        date: 'Chủ nhật 21/12/2025',
         address: (<>
             Hội trường bến xe Nước Mát, Tổ dân phố Nước Mát, P. Âu Lâu, tỉnh Lào Cai<br />
             (gần nút giao IC13 cao tốc Nội Bài - Lào Cai)
@@ -36,9 +36,9 @@ const events: WeddingEvent[] = [
         mapEmbed: 'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d5280.758006742002!2d104.8428742!3d21.696897000000003!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3133455c8777a10f%3A0xca3d6e9f1102124e!2zRG9hbmggTmdoaeG7h3AgVMawIE5ow6JuIEjDgCBUSOG7plkgQU5I!5e1!3m2!1sen!2s!4v1763575119975!5m2!1sen!2s',
     },
     {
-        title: 'LỄ  THÀNH HÔN TẠI NHÀ TRAI',
+        title: 'LỄ  THÀNH HÔN NHÀ TRAI',
         time: '09:00 sáng',
-        date: '31/12/2025',
+        date: 'Thứ tư 31/12/2025',
         address: (<>
             Tư gia nhà trai: Số 5-D1, phố Hồng Quang, P. Định Công, Hà Nội<br />
             (gần trường quốc tế Reigate Grammar VN)
@@ -50,7 +50,7 @@ const events: WeddingEvent[] = [
     {
         title: 'TIỆC CƯỚI NHÀ TRAI',
         time: '11:30 trưa',
-        date: '31/12/2025',
+        date: 'Thứ tư 31/12/2025',
         address: (<>
             Sảnh tầng 5 Trung tâm tiệc cưới Mipec Palace, số 229 Tây Sơn, P. Kim Liên, Hà Nội<br />
             (gần Ngã Tư Sở)
@@ -129,7 +129,7 @@ const EventCard: React.FC<EventCardProps> = ({ event, onShowMap }) => {
 
             {/* Event Details */}
             <div className="p-6 text-center">
-                <h3 className="font-serif text-xl text-slate-700 mb-3 tracking-wide">
+                <h3 className="font-vietnamese-script text-lg text-slate-700 mb-3 tracking-wide">
                     {event.title}
                 </h3>
 
