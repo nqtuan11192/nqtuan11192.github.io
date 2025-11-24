@@ -95,13 +95,15 @@ const GiftBox: React.FC = () => {
                                 <svg xmlns="http://www.w3.org/2000/svg" className="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
                                 </svg>
-                                <h2 className="text-3xl font-bold">Hộp mừng cưới</h2>
+                                <h2 className="font-vietnamese-script md:text-4xl mb-1">
+
+                                    Hộp mừng cưới</h2>
                             </div>
                         </div>
 
                         {/* Content */}
                         <div className="p-6 md:p-8">
-                            <p className="text-center text-slate-600 mb-8 italic">
+                            <p className="text-center font-verdana text-slate-600 mb-8 italic text-xl">
                                 Thật hạnh phúc khi được chia sẻ niềm vui cùng bạn trong ngày trọng đại này!
                             </p>
 
@@ -198,8 +200,8 @@ const GiftBox: React.FC = () => {
                                     <svg className="w-6 h-6" fill="currentColor" viewBox="0 0 20 20">
                                         <path fillRule="evenodd" d="M3.172 5.172a4 4 0 015.656 0L10 6.343l1.172-1.171a4 4 0 115.656 5.656L10 17.657l-6.828-6.829a4 4 0 010-5.656z" clipRule="evenodd" />
                                     </svg>
-                                    <p className="text-slate-600 italic">
-                                        Cảm ơn bạn rất nhiều!
+                                    <p className="text-slate-600 italic font-vietnamese-script text-xl">
+                                        Trân trọng cảm ơn bạn rất nhiều!
                                     </p>
                                     <svg className="w-6 h-6" fill="currentColor" viewBox="0 0 20 20">
                                         <path fillRule="evenodd" d="M3.172 5.172a4 4 0 015.656 0L10 6.343l1.172-1.171a4 4 0 115.656 5.656L10 17.657l-6.828-6.829a4 4 0 010-5.656z" clipRule="evenodd" />
