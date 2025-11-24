@@ -38,18 +38,18 @@ const CoupleInfo: React.FC = () => {
                             </h3>
 
                             {/* Parents Info */}
-                            <div className="space-y-2 mb-6 text-slate-600">
+                            {/* <div className="space-y-2 mb-6 text-slate-600">
                                 <p className="text-sm">
                                     <span className="font-semibold">Con bà:</span> ĐINH NGỌC LAN
                                 </p>
                                 <p className="text-sm">
                                     <span className="font-semibold">Con ông:</span> NGUYỄN QUỐC NGHỀ
                                 </p>
-                            </div>
+                            </div> */}
 
                             {/* Description */}
                             <p className="text-slate-600 italic leading-relaxed">
-                                Là một chàng trai
+                                Là một giảng viên trẻ của trường CNTT&TT, ĐH Bách Khoa HN.
                             </p>
 
                             {/* View More Link
@@ -79,18 +79,18 @@ const CoupleInfo: React.FC = () => {
                             </h3>
 
                             {/* Parents Info */}
-                            <div className="space-y-2 mb-6 text-slate-600">
+                            {/* <div className="space-y-2 mb-6 text-slate-600">
                                 <p className="text-sm">
                                     <span className="font-semibold">Con bà:</span> NGUYỄN THỊ THỦY
                                 </p>
                                 <p className="text-sm">
                                     <span className="font-semibold">Con ông:</span> PHẠM THANH HÀ
                                 </p>
-                            </div>
+                            </div> */}
 
                             {/* Description */}
                             <p className="text-slate-600 italic leading-relaxed">
-                                Là một cô gái
+                                Là một cô gái thân thiện, năng động và luôn mang đến năng lượng tích cực cho mọi người xung quanh.
                             </p>
 
                             {/* View More Link
