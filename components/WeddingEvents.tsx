@@ -14,7 +14,10 @@ const events: WeddingEvent[] = [
     {
         title: 'LỄ ĂN HỎI NHÀ GÁI',
         time: '08:00 sáng',
-        date: 'Chủ nhật 21/12/2025',
+        date: (<>
+            Chủ nhật 21/12/2025<br />
+            (tức ngày 02 tháng 11 năm Ất Tỵ)
+        </>),
         address: (<>
             Tư gia nhà gái: DNTN Hà Thuỷ Anh, Tổ dân phố Nước Mát, P. Âu Lâu, tỉnh Lào Cai<br />
             (gần nút giao IC13 cao tốc Nội Bài - Lào Cai)
@@ -26,8 +29,10 @@ const events: WeddingEvent[] = [
     {
         title: 'TIỆC CƯỚI NHÀ GÁI',
         time: '11:00 trưa',
-        date: 'Chủ nhật 21/12/2025',
-        address: (<>
+        date: (<>
+            Chủ nhật 21/12/2025<br />
+            (tức ngày 02 tháng 11 năm Ất Tỵ)
+        </>), address: (<>
             Hội trường bến xe Nước Mát, Tổ dân phố Nước Mát, P. Âu Lâu, tỉnh Lào Cai<br />
             (gần nút giao IC13 cao tốc Nội Bài - Lào Cai)
         </>),
@@ -38,7 +43,10 @@ const events: WeddingEvent[] = [
     {
         title: 'LỄ  THÀNH HÔN NHÀ TRAI',
         time: '09:00 sáng',
-        date: 'Thứ tư 31/12/2025',
+        date: (<>
+            Thứ tư 31/12/2025<br />
+            (tức ngày 12 tháng 11 năm Ất Tỵ)
+        </>),
         address: (<>
             Tư gia nhà trai: Số 5-D1, phố Hồng Quang, P. Định Công, Hà Nội<br />
             (gần trường quốc tế Reigate Grammar VN)
@@ -50,7 +58,10 @@ const events: WeddingEvent[] = [
     {
         title: 'TIỆC CƯỚI NHÀ TRAI',
         time: '11:30 trưa',
-        date: 'Thứ tư 31/12/2025',
+        date: (<>
+            Thứ tư 31/12/2025<br />
+            (tức ngày 12 tháng 11 năm Ất Tỵ)
+        </>),
         address: (<>
             Sảnh tầng 5 Trung tâm tiệc cưới Mipec Palace, số 229 Tây Sơn, P. Kim Liên, Hà Nội<br />
             (gần Ngã Tư Sở)
