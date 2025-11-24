@@ -5,14 +5,14 @@ import { collection, addDoc, query, orderBy, onSnapshot, Timestamp } from 'fireb
 interface GuestbookEntry {
     id?: string;
     name: string;
-    email?: string;
+    phone?: string;
     message: string;
     timestamp: Date;
 }
 
 const Guestbook: React.FC = () => {
     const [name, setName] = useState('');
-    const [email, setEmail] = useState('');
+    const [phone, setPhone] = useState('');
     const [message, setMessage] = useState('');
     const [entries, setEntries] = useState<GuestbookEntry[]>([]);
     const [isSubmitting, setIsSubmitting] = useState(false);
@@ -28,7 +28,7 @@ const Guestbook: React.FC = () => {
                 entriesData.push({
                     id: doc.id,
                     name: data.name,
-                    email: data.email,
+                    phone: data.phone,
                     message: data.message,
                     timestamp: data.timestamp?.toDate() || new Date()
                 });
@@ -49,14 +49,14 @@ const Guestbook: React.FC = () => {
             try {
                 await addDoc(collection(db, 'guestbook'), {
                     name: name.trim(),
-                    email: email.trim() || null,
+                    phone: phone.trim() || null,
                     message: message.trim(),
                     timestamp: Timestamp.now()
                 });
 
                 // Clear form
                 setName('');
-                setEmail('');
+                setPhone('');
                 setMessage('');
             } catch (error) {
                 console.error('Error adding message:', error);
@@ -81,8 +81,8 @@ const Guestbook: React.FC = () => {
                         </svg>
                     </div>
                     <p className="text-slate-600 italic max-w-2xl mx-auto">
-                        Cảm ơn bạn rất nhiều vì đã gửi<br />
-                        những lời chúc mừng tốt đẹp nhất đến đám cưới của chúng mình!
+                        Dù bạn có thể rất bận rộn hoặc không thể đến dự đám cưới của chúng mình,<br />
+                        nhưng chúng mình rất mong nhận được lời chúc mừng của bạn. <br />
                     </p>
                 </div>
 
@@ -95,7 +95,7 @@ const Guestbook: React.FC = () => {
                                     type="text"
                                     value={name}
                                     onChange={(e) => setName(e.target.value)}
-                                    placeholder="Nhập họ tên*"
+                                    placeholder="Nhập họ tên của bạn*"
                                     required
                                     disabled={isSubmitting}
                                     className="w-full px-4 py-3 border-2 border-dashed border-rose-300 rounded-lg focus:outline-none focus:border-rose-400 transition-colors disabled:opacity-50"
@@ -104,10 +104,10 @@ const Guestbook: React.FC = () => {
 
                             <div className="relative">
                                 <input
-                                    type="email"
-                                    value={email}
-                                    onChange={(e) => setEmail(e.target.value)}
-                                    placeholder="Nhập email"
+                                    type="tel"
+                                    value={phone}
+                                    onChange={(e) => setPhone(e.target.value)}
+                                    placeholder="Nhập số điện thoại*"
                                     disabled={isSubmitting}
                                     className="w-full px-4 py-3 border-2 border-dashed border-rose-300 rounded-lg focus:outline-none focus:border-rose-400 transition-colors disabled:opacity-50"
                                 />
@@ -151,9 +151,9 @@ const Guestbook: React.FC = () => {
                                     {isSubmitting ? 'Đang gửi...' : 'Gửi Lời Chúc'}
                                 </button>
                                 <div className="mt-3">
-                                    <svg className="w-8 h-8 text-rose-400 mx-auto" fill="currentColor" viewBox="0 0 20 20">
+                                    {/* <svg className="w-8 h-8 text-rose-400 mx-auto" fill="currentColor" viewBox="0 0 20 20">
                                         <path fillRule="evenodd" d="M3.172 5.172a4 4 0 015.656 0L10 6.343l1.172-1.171a4 4 0 115.656 5.656L10 17.657l-6.828-6.829a4 4 0 010-5.656z" clipRule="evenodd" />
-                                    </svg>
+                                    </svg> */}
                                 </div>
                             </div>
                         </form>
@@ -198,6 +198,26 @@ const Guestbook: React.FC = () => {
                             )}
                         </div>
                     </div>
+                </div>
+            </div>
+
+            <div className="container mx-auto px-6">
+                <div className="mt-12 flex justify-center gap-2">
+                    <svg className="w-6 h-6 text-rose-400" fill="currentColor" viewBox="0 0 20 20">
+                        <path fillRule="evenodd" d="M3.172 5.172a4 4 0 015.656 0L10 6.343l1.172-1.171a4 4 0 115.656 5.656L10 17.657l-6.828-6.829a4 4 0 010-5.656z" clipRule="evenodd" />
+                    </svg>
+                    <svg className="w-6 h-6 text-rose-400" fill="currentColor" viewBox="0 0 20 20">
+                        <path fillRule="evenodd" d="M3.172 5.172a4 4 0 015.656 0L10 6.343l1.172-1.171a4 4 0 115.656 5.656L10 17.657l-6.828-6.829a4 4 0 010-5.656z" clipRule="evenodd" />
+                    </svg>
+                    <svg className="w-6 h-6 text-rose-400" fill="currentColor" viewBox="0 0 20 20">
+                        <path fillRule="evenodd" d="M3.172 5.172a4 4 0 015.656 0L10 6.343l1.172-1.171a4 4 0 115.656 5.656L10 17.657l-6.828-6.829a4 4 0 010-5.656z" clipRule="evenodd" />
+                    </svg>
+                </div>
+                <div className="text-center mb-12 md:mb-16">
+                    <p className="text-slate-600 italic max-w-2xl mx-auto">
+                        Cảm ơn các bạn rất nhiều vì đã gửi<br />
+                        những lời chúc phúc tốt đẹp nhất đến đám cưới của chúng mình!
+                    </p>
                 </div>
             </div>
         </section>

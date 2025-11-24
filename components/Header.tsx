@@ -6,6 +6,7 @@ const navLinks = [
   { href: '#story', label: 'Câu chuyện tình yêu' },
   { href: '#album', label: 'Album ảnh' },
   { href: '#event', label: 'Sự kiện cưới' },
+  { href: '#rsvp', label: 'Xác nhận tham dự' },
   { href: '#guestbook', label: 'Sổ lưu bút' },
 ];
 

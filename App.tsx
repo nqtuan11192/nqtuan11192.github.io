@@ -6,6 +6,7 @@ import Countdown from './components/Countdown';
 import WeddingEvents from './components/WeddingEvents';
 import OurStory from './components/OurStory';
 import PhotoAlbum from './components/PhotoAlbum';
+import RSVP from './components/RSVP';
 import Guestbook from './components/Guestbook';
 import GiftBox from './components/GiftBox';
 import Footer from './components/Footer';
@@ -21,6 +22,7 @@ const App: React.FC = () => {
         <PhotoAlbum />
         <Countdown />
         <WeddingEvents />
+        <RSVP />
         <Guestbook />
       </main>
       <Footer />
