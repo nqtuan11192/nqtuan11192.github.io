@@ -13,46 +13,48 @@ interface WeddingEvent {
 const events: WeddingEvent[] = [
     {
         title: 'LỄ ĂN HỎI NHÀ GÁI',
-        time: '08:00 AM',
+        time: '08:00 sáng',
         date: '21/12/2025',
-        address: (
-            <>
-                DNTN Hà Thuỷ Anh, Tổ dân phố Nước Mát, phường Âu Lâu, tỉnh Lào Cai<br />
-                (gần nút giao IC13 cao tốc Nội Bài - Lào Cai)
-            </>
-        ),
+        address: (<>
+            Tư gia nhà gái: DNTN Hà Thuỷ Anh, Tổ dân phố Nước Mát, P. Âu Lâu, tỉnh Lào Cai<br />
+            (gần nút giao IC13 cao tốc Nội Bài - Lào Cai)
+        </>),
         image: '/images/HAN02209.JPG',
         mapLink: 'https://maps.app.goo.gl/duiLH6DBvrXkGXRD8',
         mapEmbed: 'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d5280.758006742002!2d104.8428742!3d21.696897000000003!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3133455c8777a10f%3A0xca3d6e9f1102124e!2zRG9hbmggTmdoaeG7h3AgVMawIE5ow6JuIEjDgCBUSOG7plkgQU5I!5e1!3m2!1sen!2s!4v1763575119975!5m2!1sen!2s',
     },
     {
         title: 'TIỆC CƯỚI NHÀ GÁI',
-        time: '11:00 AM',
+        time: '11:00 trưa',
         date: '21/12/2025',
-        address: (
-            <>
-                Hội trường bến xe Nước Mát, Tổ dân phố Nước Mát, phường Âu Lâu, tỉnh Lào Cai<br />
-                (nút giao IC13 cao tốc Nội Bài - Lào Cai)
-            </>
-        ),
+        address: (<>
+            Hội trường bến xe Nước Mát, Tổ dân phố Nước Mát, P. Âu Lâu, tỉnh Lào Cai<br />
+            (gần nút giao IC13 cao tốc Nội Bài - Lào Cai)
+        </>),
         image: '/images/HAN02292.JPG',
         mapLink: 'https://maps.app.goo.gl/duiLH6DBvrXkGXRD8',
         mapEmbed: 'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d5280.758006742002!2d104.8428742!3d21.696897000000003!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3133455c8777a10f%3A0xca3d6e9f1102124e!2zRG9hbmggTmdoaeG7h3AgVMawIE5ow6JuIEjDgCBUSOG7plkgQU5I!5e1!3m2!1sen!2s!4v1763575119975!5m2!1sen!2s',
     },
     {
         title: 'LỄ  THÀNH HÔN TẠI NHÀ TRAI',
-        time: '09:00 AM',
+        time: '09:00 sáng',
         date: '31/12/2025',
-        address: 'Số 5-D1, phố Hồng Quang, phường Định Công, Hà Nội',
+        address: (<>
+            Tư gia nhà trai: Số 5-D1, phố Hồng Quang, P. Định Công, Hà Nội<br />
+            (gần trường quốc tế Reigate Grammar VN)
+        </>),
         image: '/images/HAN02316.JPG',
         mapLink: 'https://maps.app.goo.gl/bHKXmZNsxPZ7Q7Vw5',
         mapEmbed: 'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1326.7090476779058!2d105.83216456965982!3d20.974301798791362!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3135ac59da230777%3A0x624697cca65ddbdd!2zUC4gSOG7k25nIFF1YW5nLCBIb8OgbmcgTWFpLCBIw6AgTuG7mWksIFZpZXRuYW0!5e1!3m2!1sen!2sus!4v1763576544631!5m2!1sen!2sus'
     },
     {
         title: 'TIỆC CƯỚI NHÀ TRAI',
-        time: '11:40 AM',
+        time: '11:40 trưa',
         date: '31/12/2025',
-        address: 'Sảnh tầng 5 Trung tâm tiệc cưới Mipec Palace, số 229 Tây Sơn, Ngã Tư Sở, Hà Nội',
+        address: (<>
+            Sảnh tầng 5 Trung tâm tiệc cưới Mipec Palace, số 229 Tây Sơn, P. Kim Liên, Hà Nội<br />
+            (gần Ngã Tư Sở)
+        </>),
         image: '/images/HAN02325.JPG',
         mapLink: 'https://maps.app.goo.gl/SfVF5pmYJRs8u4bD9',
         mapEmbed: 'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d5305.746193351429!2d105.82437800000001!3d21.004978899999998!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3135ac8147919f77%3A0x10224af144ebb98e!2zVHJ1bmcgdMOibSBUaeG7h2MgY8aw4bubaSAmIEjhu5lpIE5naOG7iyBNaXBlYyBQYWxhY2UgLSBUw6J5IFPGoW4!5e1!3m2!1sen!2s!4v1763575903574!5m2!1sen!2s'
