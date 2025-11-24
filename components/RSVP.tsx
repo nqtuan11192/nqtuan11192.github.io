@@ -3,6 +3,8 @@ import React, { useState } from 'react';
 const RSVP: React.FC = () => {
     const [name, setName] = useState('');
     const [phone, setPhone] = useState('');
+    const [attendDec21, setAttendDec21] = useState(false);
+    const [attendDec31, setAttendDec31] = useState(false);
     const [isSubmitting, setIsSubmitting] = useState(false);
     const [submitStatus, setSubmitStatus] = useState<'idle' | 'success' | 'error'>('idle');
     const [errorMessage, setErrorMessage] = useState('');
@@ -15,6 +17,11 @@ const RSVP: React.FC = () => {
 
         if (!name.trim() || !phone.trim()) {
             setErrorMessage('Vui lòng nhập tên, số điện thoại để xác nhận tham dự giúp chúng mình nhé!');
+            return;
+        }
+
+        if (!attendDec21 && !attendDec31) {
+            setErrorMessage('Vui lòng chọn ít nhất một sự kiện bạn sẽ tham dự!');
             return;
         }
 
@@ -31,6 +38,8 @@ const RSVP: React.FC = () => {
                 body: JSON.stringify({
                     name: name.trim(),
                     phone: phone.trim(),
+                    attendDec21: attendDec21,
+                    attendDec31: attendDec31,
                     timestamp: new Date().toISOString(),
                 }),
             });
@@ -39,6 +48,8 @@ const RSVP: React.FC = () => {
             setSubmitStatus('success');
             setName('');
             setPhone('');
+            setAttendDec21(false);
+            setAttendDec31(false);
 
             setTimeout(() => {
                 setSubmitStatus('idle');
@@ -118,6 +129,51 @@ const RSVP: React.FC = () => {
                                 className="w-full px-6 py-4 text-center text-lg border-2 border-slate-300 rounded-lg focus:border-rose-400 focus:outline-none focus:ring-2 focus:ring-rose-200 transition-all duration-300"
                                 disabled={isSubmitting}
                             />
+                        </div>
+
+                        {/* Event Attendance Checkboxes */}
+                        <div className="bg-rose-50 border-2 border-rose-200 rounded-lg p-6 space-y-4">
+                            <p className="text-slate-700 font-medium text-center mb-4">
+                                Bạn sẽ tham dự sự kiện nào? *
+                            </p>
+
+                            {/* Dec 21 Checkbox */}
+                            <label className="flex items-start gap-3 cursor-pointer group">
+                                <input
+                                    type="checkbox"
+                                    checked={attendDec21}
+                                    onChange={(e) => setAttendDec21(e.target.checked)}
+                                    className="mt-1 w-5 h-5 text-rose-500 border-2 border-slate-300 rounded focus:ring-2 focus:ring-rose-300 cursor-pointer"
+                                    disabled={isSubmitting}
+                                />
+                                <div className="flex-1">
+                                    <p className="text-slate-700 font-medium group-hover:text-rose-600 transition-colors">
+                                        Tiệc cưới ngày 21/12/2025 (Chủ nhật)
+                                    </p>
+                                    <p className="text-slate-500 text-sm mt-1">
+                                        Tại Lào Cai
+                                    </p>
+                                </div>
+                            </label>
+
+                            {/* Dec 31 Checkbox */}
+                            <label className="flex items-start gap-3 cursor-pointer group">
+                                <input
+                                    type="checkbox"
+                                    checked={attendDec31}
+                                    onChange={(e) => setAttendDec31(e.target.checked)}
+                                    className="mt-1 w-5 h-5 text-rose-500 border-2 border-slate-300 rounded focus:ring-2 focus:ring-rose-300 cursor-pointer"
+                                    disabled={isSubmitting}
+                                />
+                                <div className="flex-1">
+                                    <p className="text-slate-700 font-medium group-hover:text-rose-600 transition-colors">
+                                        Tiệc cưới ngày 31/12/2025 (Thứ tư)
+                                    </p>
+                                    <p className="text-slate-500 text-sm mt-1">
+                                        Tại Hà Nội
+                                    </p>
+                                </div>
+                            </label>
                         </div>
 
                         {/* Error Message */}
