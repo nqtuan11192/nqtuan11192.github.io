@@ -3,8 +3,12 @@ import React, { useState } from 'react';
 interface WeddingEvent {
     title: string;
     time: string;
-    date: string;
-    address: string;
+    date: string | React.ReactElement;
+    dateISO: string; // ISO format for calendar: YYYYMMDD
+    startTime: string; // HH:MM format
+    endTime: string; // HH:MM format
+    address: string | React.ReactElement;
+    addressText: string; // Plain text for calendar
     image: string;
     mapLink?: string;
     mapEmbed?: string;
@@ -18,10 +22,14 @@ const events: WeddingEvent[] = [
             Chủ nhật 21/12/2025<br />
             (tức ngày 02 tháng 11 năm Ất Tỵ)
         </>),
+        dateISO: '20251221',
+        startTime: '08:00',
+        endTime: '10:30',
         address: (<>
             Tư gia nhà gái: DNTN Hà Thuỷ Anh, Tổ dân phố Nước Mát, P. Âu Lâu, tỉnh Lào Cai<br />
             (gần nút giao IC13 cao tốc Nội Bài - Lào Cai)
         </>),
+        addressText: 'DNTN Hà Thuỷ Anh, Tổ dân phố Nước Mát, P. Âu Lâu, tỉnh Lào Cai',
         image: '/images/HAN02209.JPG',
         mapLink: 'https://maps.app.goo.gl/duiLH6DBvrXkGXRD8',
         mapEmbed: 'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d5280.758006742002!2d104.8428742!3d21.696897000000003!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3133455c8777a10f%3A0xca3d6e9f1102124e!2zRG9hbmggTmdoaeG7h3AgVMawIE5ow6JuIEjDgCBUSOG7plkgQU5I!5e1!3m2!1sen!2s!4v1763575119975!5m2!1sen!2s',
@@ -32,13 +40,18 @@ const events: WeddingEvent[] = [
         date: (<>
             Chủ nhật 21/12/2025<br />
             (tức ngày 02 tháng 11 năm Ất Tỵ)
-        </>), address: (<>
+        </>),
+        dateISO: '20251221',
+        startTime: '11:00',
+        endTime: '13:30',
+        address: (<>
             Hội trường bến xe Nước Mát, Tổ dân phố Nước Mát, P. Âu Lâu, tỉnh Lào Cai<br />
             (gần nút giao IC13 cao tốc Nội Bài - Lào Cai)
         </>),
+        addressText: 'Hội trường bến xe Nước Mát, Tổ dân phố Nước Mát, P. Âu Lâu, tỉnh Lào Cai',
         image: '/images/HAN02292.JPG',
         mapLink: 'https://maps.app.goo.gl/duiLH6DBvrXkGXRD8',
-        mapEmbed: 'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d5280.758006742002!2d104.8428742!3d21.696897000000003!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3133455c8777a10f%3A0xca3d6e9f1102124e!2zRG9hbmggTmdoaeG7h3AgVMawIE5ow6JuIEjDgCBUSOG7plkgQU5I!5e1!3m2!1sen!2s!4v1763575119975!5m2!1sen!2s',
+        mapEmbed: 'https://www.google.com/maps/embed?pb=!1m18!1m12!1d5280.758006742002!2d104.8428742!3d21.696897000000003!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3133455c8777a10f%3A0xca3d6e9f1102124e!2zRG9hbmggTmdoaeG7h3AgVMawIE5ow6JuIEjDgCBUSOG7plkgQU5I!5e1!3m2!1sen!2s!4v1763575119975!5m2!1sen!2s',
     },
     {
         title: 'LỄ  THÀNH HÔN NHÀ TRAI',
@@ -47,10 +60,14 @@ const events: WeddingEvent[] = [
             Thứ tư 31/12/2025<br />
             (tức ngày 12 tháng 11 năm Ất Tỵ)
         </>),
+        dateISO: '20251231',
+        startTime: '09:00',
+        endTime: '10:30',
         address: (<>
             Tư gia nhà trai: Số 5-D1, phố Hồng Quang, P. Định Công, Hà Nội<br />
             (gần trường quốc tế Reigate Grammar VN)
         </>),
+        addressText: 'Số 5-D1, phố Hồng Quang, P. Định Công, Hà Nội',
         image: '/images/HAN02316.JPG',
         mapLink: 'https://maps.app.goo.gl/bHKXmZNsxPZ7Q7Vw5',
         mapEmbed: 'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1326.7090476779058!2d105.83216456965982!3d20.974301798791362!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3135ac59da230777%3A0x624697cca65ddbdd!2zUC4gSOG7k25nIFF1YW5nLCBIb8OgbmcgTWFpLCBIw6AgTuG7mWksIFZpZXRuYW0!5e1!3m2!1sen!2sus!4v1763576544631!5m2!1sen!2sus'
@@ -62,15 +79,40 @@ const events: WeddingEvent[] = [
             Thứ tư 31/12/2025<br />
             (tức ngày 12 tháng 11 năm Ất Tỵ)
         </>),
+        dateISO: '20251231',
+        startTime: '11:30',
+        endTime: '13:30',
         address: (<>
             Sảnh tầng 5 Trung tâm tiệc cưới Mipec Palace, số 229 Tây Sơn, P. Kim Liên, Hà Nội<br />
             (gần Ngã Tư Sở)
         </>),
+        addressText: 'Sảnh tầng 5 Trung tâm tiệc cưới Mipec Palace, số 229 Tây Sơn, P. Kim Liên, Hà Nội',
         image: '/images/HAN02325.JPG',
         mapLink: 'https://maps.app.goo.gl/SfVF5pmYJRs8u4bD9',
         mapEmbed: 'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d5305.746193351429!2d105.82437800000001!3d21.004978899999998!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3135ac8147919f77%3A0x10224af144ebb98e!2zVHJ1bmcgdMOibSBUaeG7h2MgY8aw4bubaSAmIEjhu5lpIE5naOG7iyBNaXBlYyBQYWxhY2UgLSBUw6J5IFPGoW4!5e1!3m2!1sen!2s!4v1763575903574!5m2!1sen!2s'
     },
 ];
+
+// Function to add event to calendar
+const addToCalendar = (event: WeddingEvent) => {
+    // Format: YYYYMMDDTHHmmss
+    const formatTime = (time: string) => time.replace(':', '');
+    const startDateTime = `${event.dateISO}T${formatTime(event.startTime)}00`;
+    const endDateTime = `${event.dateISO}T${formatTime(event.endTime)}00`;
+
+    // Create Google Calendar URL
+    const params = new URLSearchParams({
+        action: 'TEMPLATE',
+        text: `${event.title} - Vân Anh & Quốc Tuấn`,
+        dates: `${startDateTime}/${endDateTime}`,
+        details: `Đám cưới Vân Anh & Quốc Tuấn - ${event.title}`,
+        location: event.addressText,
+        trp: 'false'
+    });
+
+    const url = `https://calendar.google.com/calendar/render?${params.toString()}`;
+    window.open(url, '_blank');
+};
 
 interface MapModalProps {
     isOpen: boolean;
@@ -161,7 +203,10 @@ const EventCard: React.FC<EventCardProps> = ({ event, onShowMap }) => {
 
                 {/* Action Buttons */}
                 <div className="space-y-2">
-                    <button className="w-full py-2 px-4 border-2 border-slate-300 text-slate-700 rounded-full hover:bg-slate-50 transition-colors duration-200 flex items-center justify-center">
+                    <button
+                        onClick={() => addToCalendar(event)}
+                        className="w-full py-2 px-4 border-2 border-slate-300 text-slate-700 rounded-full hover:bg-slate-50 transition-colors duration-200 flex items-center justify-center"
+                    >
                         <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
                         </svg>
