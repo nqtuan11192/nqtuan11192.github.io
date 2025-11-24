@@ -49,7 +49,7 @@ const events: WeddingEvent[] = [
     },
     {
         title: 'TIỆC CƯỚI NHÀ TRAI',
-        time: '11:40 trưa',
+        time: '11:30 trưa',
         date: '31/12/2025',
         address: (<>
             Sảnh tầng 5 Trung tâm tiệc cưới Mipec Palace, số 229 Tây Sơn, P. Kim Liên, Hà Nội<br />

@@ -9,7 +9,7 @@ interface TimeLeft {
 
 const Countdown: React.FC = () => {
   const calculateTimeLeft = (): TimeLeft => {
-    const difference = +new Date('2025-12-31T00:00:00') - +new Date();
+    const difference = +new Date('2025-12-31T12:00:00') - +new Date();
     let timeLeft: TimeLeft = {
       days: 0,
       hours: 0,
@@ -69,8 +69,11 @@ const Countdown: React.FC = () => {
             <span className="text-2xl font-serif text-rose-600">Ngày trọng đại của chúng mình đã đến!</span>
           )}
         </div>
-        <div className="mt-8 text-slate-600 font-light italic">
-          Thứ tư, ngày 31 tháng 12 năm 2025 (tức ngày 12 tháng 11 năm Ất Tỵ)
+        <div className="mt-8 text-slate-600 font-verdana italic text-2xl">
+          Thứ tư, ngày 31 tháng 12 năm 2025
+        </div>
+        <div className="text-slate-600 font-verdana italic text-lg">
+          (tức ngày 12 tháng 11 năm Ất Tỵ)
         </div>
       </div>
     </section>
