@@ -121,10 +121,10 @@ const StoryItem: React.FC<{ milestone: typeof storyMilestones[0]; isLast: boolea
               </div>
             )}
 
-            <h3 className="font-serif text-2xl text-slate-800 mt-1 mb-2">{milestone.title}</h3>
+            <h3 className="font-sans text-2xl text-slate-800 mt-1 mb-2 font-medium">{milestone.title}</h3>
 
             {/* Description with expand/collapse */}
-            <div className="text-slate-600 leading-relaxed">
+            <div className="text-slate-600 leading-relaxed font-sans">
               {isExpanded ? milestone.fullDescription : milestone.shortDescription}
             </div>
 
