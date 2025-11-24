@@ -3,8 +3,8 @@ import Lightbox from './Lightbox';
 
 const base = import.meta.env.BASE_URL
 
-const galleryImages = [
-  { id: 0, url: `${base}images/HAN02209.JPG`, alt: 'I can conquer the world with one hand, as long as you’re holding the other.' },
+const galleryImages1 = [
+  { id: 0, url: `${base}images/HAN02209.JPG`, alt: 'I can conquer the world with one hand, as long as you are holding the other.' },
   { id: 1, url: `${base}images/HAN02292.JPG`, alt: 'Together is our favorite place to be.' },
   { id: 2, url: `${base}images/HAN02316.JPG`, alt: 'Together is our favorite place to be.' },
   { id: 3, url: `${base}images/HAN02438.JPG`, alt: 'Every love story is beautiful, but ours is my favorite.' },
@@ -20,35 +20,103 @@ const galleryImages = [
   { id: 13, url: `${base}images/HAN03279.JPG`, alt: 'Lost in your eyes and the beauty of this moment.' },
 ]
 
+// Second gallery - you can add different images here
+const galleryImages2 = [
+  { id: 0, url: `${base}images/HAN02325.JPG`, alt: 'Beautiful moments together' },
+  { id: 1, url: `${base}images/HAN02472.JPG`, alt: 'Our journey continues' },
+  { id: 2, url: `${base}images/HAN02520.JPG`, alt: 'Love in every moment' },
+  { id: 3, url: `${base}images/HAN02564.JPG`, alt: 'Forever and always' },
+  { id: 4, url: `${base}images/HAN02790.JPG`, alt: 'Together forever' },
+]
+
+// Third gallery
+const galleryImages3 = [
+  { id: 0, url: `${base}images/HAN02209.JPG`, alt: 'Precious memories' },
+  { id: 1, url: `${base}images/HAN02292.JPG`, alt: 'Love and laughter' },
+  { id: 2, url: `${base}images/HAN02316.JPG`, alt: 'Our special day' },
+  { id: 3, url: `${base}images/HAN02325.JPG`, alt: 'Together always' },
+  { id: 4, url: `${base}images/HAN02438.JPG`, alt: 'Forever in love' },
+]
+
 // export default galleryImages
 
 
 const PhotoAlbum: React.FC = () => {
-  const [currentImageIndex, setCurrentImageIndex] = useState<number | null>(null);
+  const [currentImageIndex1, setCurrentImageIndex1] = useState<number | null>(null);
+  const [currentImageIndex2, setCurrentImageIndex2] = useState<number | null>(null);
+  const [currentImageIndex3, setCurrentImageIndex3] = useState<number | null>(null);
 
-  const openLightbox = (index: number) => {
-    setCurrentImageIndex(index);
+  const openLightbox1 = (index: number) => {
+    setCurrentImageIndex1(index);
   };
 
-  const closeLightbox = () => {
-    setCurrentImageIndex(null);
+  const closeLightbox1 = () => {
+    setCurrentImageIndex1(null);
   };
 
-  const goToNext = () => {
-    if (currentImageIndex === null) return;
-    setCurrentImageIndex((prevIndex) => (prevIndex! + 1) % galleryImages.length);
+  const goToNext1 = () => {
+    if (currentImageIndex1 === null) return;
+    setCurrentImageIndex1((prevIndex) => (prevIndex! + 1) % galleryImages1.length);
   };
 
-  const goToPrevious = () => {
-    if (currentImageIndex === null) return;
-    setCurrentImageIndex((prevIndex) => (prevIndex! + galleryImages.length - 1) % galleryImages.length);
+  const goToPrevious1 = () => {
+    if (currentImageIndex1 === null) return;
+    setCurrentImageIndex1((prevIndex) => (prevIndex! + galleryImages1.length - 1) % galleryImages1.length);
   };
 
-  const goToImage = (index: number) => {
-    setCurrentImageIndex(index);
+  const goToImage1 = (index: number) => {
+    setCurrentImageIndex1(index);
   };
 
-  const isLightboxOpen = currentImageIndex !== null;
+  // Second gallery functions
+  const openLightbox2 = (index: number) => {
+    setCurrentImageIndex2(index);
+  };
+
+  const closeLightbox2 = () => {
+    setCurrentImageIndex2(null);
+  };
+
+  const goToNext2 = () => {
+    if (currentImageIndex2 === null) return;
+    setCurrentImageIndex2((prevIndex) => (prevIndex! + 1) % galleryImages2.length);
+  };
+
+  const goToPrevious2 = () => {
+    if (currentImageIndex2 === null) return;
+    setCurrentImageIndex2((prevIndex) => (prevIndex! + galleryImages2.length - 1) % galleryImages2.length);
+  };
+
+  const goToImage2 = (index: number) => {
+    setCurrentImageIndex2(index);
+  };
+
+  // Third gallery functions
+  const openLightbox3 = (index: number) => {
+    setCurrentImageIndex3(index);
+  };
+
+  const closeLightbox3 = () => {
+    setCurrentImageIndex3(null);
+  };
+
+  const goToNext3 = () => {
+    if (currentImageIndex3 === null) return;
+    setCurrentImageIndex3((prevIndex) => (prevIndex! + 1) % galleryImages3.length);
+  };
+
+  const goToPrevious3 = () => {
+    if (currentImageIndex3 === null) return;
+    setCurrentImageIndex3((prevIndex) => (prevIndex! + galleryImages3.length - 1) % galleryImages3.length);
+  };
+
+  const goToImage3 = (index: number) => {
+    setCurrentImageIndex3(index);
+  };
+
+  const isLightboxOpen1 = currentImageIndex1 !== null;
+  const isLightboxOpen2 = currentImageIndex2 !== null;
+  const isLightboxOpen3 = currentImageIndex3 !== null;
 
   return (
     <>
@@ -66,33 +134,107 @@ const PhotoAlbum: React.FC = () => {
             <div className="w-24 h-1 bg-rose-300 mx-auto mt-4"></div>
           </div>
 
-          <div className="columns-1 sm:columns-2 md:columns-3 lg:columns-4 gap-4 md:gap-6 space-y-4 md:space-y-6">
-            {galleryImages.map((image, index) => (
-              <div
-                key={image.id}
-                className="break-inside-avoid group overflow-hidden rounded-xl shadow-md cursor-pointer"
-                onClick={() => openLightbox(index)}
-              >
-                <img
-                  src={image.url}
-                  alt={image.alt}
-                  loading="lazy"
-                  className="w-full h-auto object-cover transition-transform duration-500 ease-in-out group-hover:scale-110"
-                />
-              </div>
-            ))}
+          {/* First Gallery */}
+          <div className="mb-16">
+            <h3 className="font-vietnamese-script text-xl md:text-3xl text-slate-600 mb-6 text-center">
+              Album 1: Bộ ảnh cưới tại Nhật Bản - nơi tình yêu bắt đầu
+            </h3>
+            <div className="columns-1 sm:columns-2 md:columns-3 lg:columns-4 gap-4 md:gap-6 space-y-4 md:space-y-6">
+              {galleryImages1.map((image, index) => (
+                <div
+                  key={image.id}
+                  className="break-inside-avoid group overflow-hidden rounded-xl shadow-md cursor-pointer"
+                  onClick={() => openLightbox1(index)}
+                >
+                  <img
+                    src={image.url}
+                    alt={image.alt}
+                    loading="lazy"
+                    className="w-full h-auto object-cover transition-transform duration-500 ease-in-out group-hover:scale-110"
+                  />
+                </div>
+              ))}
+            </div>
+          </div>
+
+          {/* Second Gallery */}
+          <div>
+            <h3 className="font-vietnamese-script text-xl md:text-3xl text-slate-600 mb-6 text-center">
+              Album 2: Bộ ảnh cưới tại Việt Nam
+            </h3>
+            <div className="columns-1 sm:columns-2 md:columns-3 lg:columns-4 gap-4 md:gap-6 space-y-4 md:space-y-6">
+              {galleryImages2.map((image, index) => (
+                <div
+                  key={image.id}
+                  className="break-inside-avoid group overflow-hidden rounded-xl shadow-md cursor-pointer"
+                  onClick={() => openLightbox2(index)}
+                >
+                  <img
+                    src={image.url}
+                    alt={image.alt}
+                    loading="lazy"
+                    className="w-full h-auto object-cover transition-transform duration-500 ease-in-out group-hover:scale-110"
+                  />
+                </div>
+              ))}
+            </div>
+          </div>
+
+          {/* Third Gallery */}
+          <div className="mt-16">
+            <h3 className="font-vietnamese-script text-xl md:text-3xl text-slate-600 mb-6 text-center">
+              Album 3: Những chuyến đi bên nhau
+            </h3>
+            <div className="columns-1 sm:columns-2 md:columns-3 lg:columns-4 gap-4 md:gap-6 space-y-4 md:space-y-6">
+              {galleryImages3.map((image, index) => (
+                <div
+                  key={image.id}
+                  className="break-inside-avoid group overflow-hidden rounded-xl shadow-md cursor-pointer"
+                  onClick={() => openLightbox3(index)}
+                >
+                  <img
+                    src={image.url}
+                    alt={image.alt}
+                    loading="lazy"
+                    className="w-full h-auto object-cover transition-transform duration-500 ease-in-out group-hover:scale-110"
+                  />
+                </div>
+              ))}
+            </div>
           </div>
         </div>
       </section>
 
-      {isLightboxOpen && (
+      {isLightboxOpen1 && (
         <Lightbox
-          images={galleryImages}
-          currentIndex={currentImageIndex}
-          onClose={closeLightbox}
-          onNext={goToNext}
-          onPrev={goToPrevious}
-          onSelect={goToImage}
+          images={galleryImages1}
+          currentIndex={currentImageIndex1}
+          onClose={closeLightbox1}
+          onNext={goToNext1}
+          onPrev={goToPrevious1}
+          onSelect={goToImage1}
+        />
+      )}
+
+      {isLightboxOpen2 && (
+        <Lightbox
+          images={galleryImages2}
+          currentIndex={currentImageIndex2}
+          onClose={closeLightbox2}
+          onNext={goToNext2}
+          onPrev={goToPrevious2}
+          onSelect={goToImage2}
+        />
+      )}
+
+      {isLightboxOpen3 && (
+        <Lightbox
+          images={galleryImages3}
+          currentIndex={currentImageIndex3}
+          onClose={closeLightbox3}
+          onNext={goToNext3}
+          onPrev={goToPrevious3}
+          onSelect={goToImage3}
         />
       )}
     </>
