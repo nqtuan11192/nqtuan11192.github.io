@@ -1,58 +1,120 @@
-import React from 'react';
+import React, { useState } from 'react';
 
 const storyMilestones = [
   {
     icon: 'M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z',
-    title: 'Lớp học tiếng anh, chung nhóm thuyết trình, giảnh giải nhất',
+    title: 'Lớp học định mệnh - chút cảm mến lần đầu',
     date: 'Tháng 3 năm 2019',
-    description: "Chúng mình gặp nhau trong một lớp tiếng Anh và được xếp chung nhóm thuyết trình. Từ những buổi cùng chuẩn bị bài, cùng cố gắng luyện tập, tụi mình dần trở nên thân thiết hơn. Khi cả nhóm giành được giải nhất, đó cũng là lúc chúng mình nhận ra rằng bên nhau luôn là điều tự nhiên nhất.",
-    photo: '/images/HAN02209.JPG',
+    description: (
+      <>
+        Tháng 3 năm 2019, chúng mình gặp nhau trong một lớp tiếng Anh và tình cờ được xếp vào cùng nhóm thuyết trình cho chủ đề Science. <br />
+        Tuấn lo phần kỹ thuật, lên kịch bản và dựng video; Vân Anh thì đảm nhiệm phần thuyết trình. <br />
+        Từ những buổi cùng chuẩn bị bài, cùng tập luyện, tụi mình dần trở nên thân thiết hơn.<br />
+        Khi cả nhóm bất ngờ giành được giải nhất và kéo nhau đi liên hoan, bọn mình có dịp nhìn thấy cuộc sống của nhau ngoài khuôn khổ lớp học. <br />
+        Cả Tuấn và Vân Anh đều giữ trong lòng những ấn tượng đặc biệt, những rung động mơ hồ… nhưng không ai nói thành lời. <br />
+        Tuấn khi ấy đã ấp ủ kế hoạch sang Nhật du học, còn Vân Anh vẫn miệt mài với học tập, bạn bè và những hoạt động xã hội.<br />
+        Hai người, hai lối rẽ, nhưng lại từng có một đoạn đường ngắn ngủi và dịu dàng đi chung - đủ để trái tim ghi nhớ mãi...
+      </>
+    ),
+    photo: '/images/kyniem01.jpeg',
   },
   {
     icon: 'M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z',
-    title: 'A Memorable Moment',
-    date: 'Spring 2021',
-    description: 'Under a sky full of stars during a camping trip, we realized we were meant for each other. That quiet moment in nature solidified our bond and our shared dreams.',
+    title: 'Hôm ấy khoảnh khắc giao thừa -  tuyết lần đầu rơi',
+    date: 'Giao thừa 2025',
+    description: 'Tưởng rằng họ đã lạc nhau giữa những lối rẽ riêng, nhưng hóa ra định mệnh chỉ chờ lúc cả hai chín muồi hơn. Sau 5 năm, tháng 1/2025, VA có chuyến nghỉ lễ du lịch tới Nhật, nhờ Tuấn giúp đỡ tư vấn lịch trình, còn Tuấn thì đã âm thầm biến chuyến đi ấy thành một “giấc mơ nhỏ”, tỉ mỉ lên kế hoạch, chỉnh từng lịch trình, chuẩn bị chu đáo, để VA có thể thực hiện hóa “Chuyến đi trong mơ tới Nhật Bản” mà VA từng nói với Tuấn - khi cả 2 còn là bạn. Có lẽ đó là thời khắc chào đón ngày đầu tiên của 2025, Tuấn không biết từ khi nào đã chuẩn bị pháo sẵn sàng, mang ra công viên, hai đứa lạnh cóng tay đốt mãi không được, khi ánh sáng lóe lên, những bông tuyết đầu tiên trong đêm cũng khẽ rơi xuống, dưới ánh đèn đường, hai con người, hai trái tim bỗng dưng hòa chung 1 nhịp đập, Tuấn ngỏ lời, họ chính thức trở thành người yêu của nhau.',
   },
   {
     icon: 'M5 8h14M5 8a2 2 0 110-4h14a2 2 0 110 4M5 8v10a2 2 0 002 2h10a2 2 0 002-2V8m-9 4h4',
-    title: 'The Proposal',
-    date: 'Winter 2023',
-    description: 'At our favorite spot overlooking the city, a promise was made. It was a simple, heartfelt "yes" to a lifetime of adventures and endless love together.',
+    title: 'Lời cầu hôn - lời nguyện ước',
+    date: 'Mùa xuân 2025',
+    description: 'T4/2025, sau khi Tuấn xin phép gia đình được đón VA đi chơi, chuyến đi “ngắm Nhật Bản mùa hoa anh đào” bắt đầu. Việc đầu tiên thấy VA là…. Tuấn chụp ảnh gửi cho gia đình VA “báo cáo” hihi. Có lẽ hai đứa cũng nhận được tín hiệu ủng hộ từ hai bên gia đình, hai trái tim thổn thức cuối cùng cũng tìm thấy nhau, và muốn rằng sẽ gắn kết bền lâu bằng một hành động cam kết cao hơn nữa. Ngay tối đón VA, Tuấn đã sắp xếp…và cầu hôn, trước sự chứng kiến của Tokyo, và nhận được những lời chúc rất xinh đẹp từ mn xung quanh <3. Trên lối về, hai bên đường trải đầy hoa và ánh đèn đường ấm áp, gió khẽ lướt qua mang theo những cánh hoa anh đào, những bông hoa tuylip rực rỡ sắc màu, khẽ lạnh lạnh, hai bàn tay siết chặt lấy nhau hơn, mà tên bàn tay ai - giờ đã có thêm 1 chiếc nhẫn “cầu hôn” đêm theo những lời nguyện ước….đêm đó, bỗng, cũng có pháo hoa bắn từ xa, VA khẽ thốt lên “hôm nay thật là một ngày đặc biệt”; có lẽ, cả Tokyo cũng mừng cho chúng mình.',
   },
 ];
 
 const StoryItem: React.FC<{ milestone: typeof storyMilestones[0]; isLast: boolean }> = ({ milestone, isLast }) => {
+  const [isFullscreen, setIsFullscreen] = useState(false);
+
+  const openFullscreen = () => {
+    if (milestone.photo) {
+      setIsFullscreen(true);
+      document.body.style.overflow = 'hidden'; // Prevent scrolling when modal is open
+    }
+  };
+
+  const closeFullscreen = () => {
+    setIsFullscreen(false);
+    document.body.style.overflow = 'unset';
+  };
+
+  // Close on ESC key
+  React.useEffect(() => {
+    const handleEsc = (e: KeyboardEvent) => {
+      if (e.key === 'Escape') closeFullscreen();
+    };
+    if (isFullscreen) {
+      window.addEventListener('keydown', handleEsc);
+    }
+    return () => window.removeEventListener('keydown', handleEsc);
+  }, [isFullscreen]);
+
   return (
-    <div className="relative">
-      {/* Vertical line - hidden on the last item */}
-      {!isLast && <div className="absolute top-5 left-5 h-full w-0.5 bg-rose-200" style={{ transform: 'translateX(-50%)' }}></div>}
+    <>
+      <div className="relative">
+        {/* Vertical line - hidden on the last item */}
+        {!isLast && <div className="absolute top-5 left-5 h-full w-0.5 bg-rose-200" style={{ transform: 'translateX(-50%)' }}></div>}
 
-      <div className="flex items-start space-x-6">
-        {/* Icon */}
-        <div className="z-10 bg-rose-500 text-white p-3 rounded-full shadow-lg flex-shrink-0">
-          <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d={milestone.icon} />
-          </svg>
-        </div>
+        <div className="flex items-start space-x-6">
+          {/* Icon */}
+          <div className="z-10 bg-rose-500 text-white p-3 rounded-full shadow-lg flex-shrink-0">
+            <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d={milestone.icon} />
+            </svg>
+          </div>
 
-        {/* Card */}
-        <div className="bg-white p-6 rounded-xl shadow-lg hover:shadow-xl transition-shadow duration-300 w-full">
-          <p className="text-sm text-rose-600 font-semibold">{milestone.date}</p>
-          {milestone.photo && (
-            <div className="mt-4">
-              <img
-                src={milestone.photo}
-                alt={milestone.title}
-                className="w-full h-64 object-cover rounded-lg shadow-md hover:shadow-lg transition-shadow duration-300"
-              />
-            </div>
-          )}
-          <h3 className="font-serif text-2xl text-slate-800 mt-1 mb-2">{milestone.title}</h3>
-          <p className="text-slate-600 leading-relaxed">{milestone.description}</p>
+          {/* Card */}
+          <div className="bg-white p-6 rounded-xl shadow-lg hover:shadow-xl transition-shadow duration-300 w-full">
+            <p className="text-sm text-rose-600 font-semibold">{milestone.date}</p>
+            {milestone.photo && (
+              <div className="mt-4">
+                <img
+                  src={milestone.photo}
+                  alt={milestone.title}
+                  onClick={openFullscreen}
+                  className="w-full h-64 object-cover rounded-lg shadow-md hover:shadow-lg transition-all duration-300 cursor-pointer hover:scale-[1.02]"
+                />
+              </div>
+            )}
+            <h3 className="font-serif text-2xl text-slate-800 mt-1 mb-2">{milestone.title}</h3>
+            <p className="text-slate-600 leading-relaxed">{milestone.description}</p>
+          </div>
         </div>
       </div>
-    </div>
+
+      {/* Fullscreen Modal */}
+      {isFullscreen && milestone.photo && (
+        <div
+          className="fixed inset-0 z-50 bg-black bg-opacity-95 flex items-center justify-center p-4 animate-fadeIn"
+          onClick={closeFullscreen}
+        >
+          <button
+            onClick={closeFullscreen}
+            className="absolute top-4 right-4 text-white hover:text-rose-300 transition-colors duration-200 z-10"
+            aria-label="Close fullscreen"
+          >
+            <svg xmlns="http://www.w3.org/2000/svg" className="h-10 w-10" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+            </svg>
+          </button>
+          <img
+            src={milestone.photo}
+            alt={milestone.title}
+            className="max-w-full max-h-full object-contain rounded-lg shadow-2xl"
+            onClick={(e) => e.stopPropagation()}
+          />
+        </div>
+      )}
+    </>
   );
 };
 
@@ -62,7 +124,9 @@ const OurStory: React.FC = () => {
     <section id="story" className="py-20 md:py-28 bg-rose-50">
       <div className="container mx-auto px-6">
         <div className="text-center mb-12 md:mb-16">
-          <h2 className="font-serif text-4xl md:text-5xl text-slate-800">Câu chuyện tình yêu</h2>
+          <h2 className="font-script text-4xl md:text-5xl text-slate-700 mb-4">
+            Câu chuyện tình yêu
+          </h2>
           <div className="w-24 h-1 bg-rose-300 mx-auto mt-4"></div>
         </div>
 

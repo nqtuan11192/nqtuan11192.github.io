@@ -55,8 +55,11 @@ const PhotoAlbum: React.FC = () => {
       <section id="album" className="py-20 md:py-28 bg-white">
         <div className="container mx-auto px-6">
           <div className="text-center mb-12 md:mb-16">
-            <h2 className="font-serif text-4xl md:text-5xl text-slate-800">Kỷ niệm của chúng mình</h2>
-            <p className="text-slate-500 mt-4 max-w-2xl mx-auto">A collection of moments we will cherish forever. Each picture tells a part of our story.</p>
+            {/* <h2 className="font-serif text-4xl md:text-5xl text-slate-800">Kỷ niệm của chúng mình</h2> */}
+            <h2 className="font-script text-4xl md:text-5xl text-slate-700 mb-4">
+              Kỷ niệm của chúng mình
+            </h2>
+            <p className="text-slate-500 mt-4 max-w-2xl mx-auto">Những khoảnh khắc mà chúng mình sẽ nhớ mãi. Mỗi tấm hình là một phần câu chuyện trong hành trình đến bên nhau.</p>
             <div className="w-24 h-1 bg-rose-300 mx-auto mt-4"></div>
           </div>
 
