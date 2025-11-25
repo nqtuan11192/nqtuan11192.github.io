@@ -114,12 +114,52 @@ const galleryImages2 = [
 
 // Third gallery
 const galleryImages3 = [
-  // { id: 0, url: `${base}images/HAN02209.JPG`, alt: 'Precious memories' },
-  // { id: 1, url: `${base}images/HAN02292.JPG`, alt: 'Love and laughter' },
-  // { id: 2, url: `${base}images/HAN02316.JPG`, alt: 'Our special day' },
-  // { id: 3, url: `${base}images/HAN02325.JPG`, alt: 'Together always' },
-  // { id: 4, url: `${base}images/HAN02438.JPG`, alt: 'Forever in love' },
-]
+  { id: 0, url: `${base}images/album_3/IMG_0118.jpg`, alt: "Image IMG_0118" },
+  { id: 1, url: `${base}images/album_3/IMG_0215.jpg`, alt: "Image IMG_0215" },
+  { id: 2, url: `${base}images/album_3/IMG_0420.jpg`, alt: "Image IMG_0420" },
+  { id: 3, url: `${base}images/album_3/IMG_0445.jpg`, alt: "Image IMG_0445" },
+  { id: 4, url: `${base}images/album_3/IMG_0476.jpg`, alt: "Image IMG_0476" },
+  { id: 5, url: `${base}images/album_3/IMG_0499.jpg`, alt: "Image IMG_0499" },
+  { id: 6, url: `${base}images/album_3/IMG_0507.jpg`, alt: "Image IMG_0507" },
+  { id: 7, url: `${base}images/album_3/IMG_0520.jpg`, alt: "Image IMG_0520" },
+  { id: 8, url: `${base}images/album_3/IMG_0563.jpg`, alt: "Image IMG_0563" },
+  { id: 9, url: `${base}images/album_3/IMG_0656.jpg`, alt: "Image IMG_0656" },
+
+  { id: 10, url: `${base}images/album_3/IMG_0683.jpg`, alt: "Image IMG_0683" },
+  { id: 11, url: `${base}images/album_3/IMG_0717.jpg`, alt: "Image IMG_0717" },
+  { id: 12, url: `${base}images/album_3/IMG_0993.jpg`, alt: "Image IMG_0993" },
+  { id: 13, url: `${base}images/album_3/IMG_1071.jpg`, alt: "Image IMG_1071" },
+  { id: 14, url: `${base}images/album_3/IMG_1545.jpg`, alt: "Image IMG_1545" },
+  { id: 15, url: `${base}images/album_3/IMG_1554.jpg`, alt: "Image IMG_1554" },
+  { id: 16, url: `${base}images/album_3/IMG_1601.jpg`, alt: "Image IMG_1601" },
+  { id: 17, url: `${base}images/album_3/IMG_1824.jpg`, alt: "Image IMG_1824" },
+  { id: 18, url: `${base}images/album_3/IMG_2026.jpg`, alt: "Image IMG_2026" },
+  { id: 19, url: `${base}images/album_3/IMG_2326.jpg`, alt: "Image IMG_2326" },
+
+  { id: 20, url: `${base}images/album_3/IMG_2349.jpg`, alt: "Image IMG_2349" },
+  { id: 21, url: `${base}images/album_3/IMG_2578.jpg`, alt: "Image IMG_2578" },
+  { id: 22, url: `${base}images/album_3/IMG_2760.jpg`, alt: "Image IMG_2760" },
+  { id: 23, url: `${base}images/album_3/IMG_2810.jpg`, alt: "Image IMG_2810" },
+  { id: 24, url: `${base}images/album_3/IMG_2839.jpg`, alt: "Image IMG_2839" },
+  { id: 25, url: `${base}images/album_3/IMG_2840.jpg`, alt: "Image IMG_2840" },
+  { id: 26, url: `${base}images/album_3/IMG_2907.jpg`, alt: "Image IMG_2907" },
+  { id: 27, url: `${base}images/album_3/IMG_2920.jpg`, alt: "Image IMG_2920" },
+  { id: 28, url: `${base}images/album_3/IMG_2923.jpg`, alt: "Image IMG_2923" },
+  { id: 29, url: `${base}images/album_3/IMG_4913.jpg`, alt: "Image IMG_4913" },
+
+  { id: 30, url: `${base}images/album_3/IMG_5344.jpg`, alt: "Image IMG_5344" },
+  { id: 31, url: `${base}images/album_3/IMG_5347.jpg`, alt: "Image IMG_5347" },
+  { id: 32, url: `${base}images/album_3/IMG_5417.jpg`, alt: "Image IMG_5417" },
+  { id: 33, url: `${base}images/album_3/IMG_5499.JPEG`, alt: "Image IMG_5499" },
+  { id: 34, url: `${base}images/album_3/IMG_5797.jpg`, alt: "Image IMG_5797" },
+  { id: 35, url: `${base}images/album_3/IMG_6009.jpg`, alt: "Image IMG_6009" },
+  { id: 36, url: `${base}images/album_3/IMG_6097.jpg`, alt: "Image IMG_6097" },
+  { id: 37, url: `${base}images/album_3/IMG_6784.jpg`, alt: "Image IMG_6784" },
+  { id: 38, url: `${base}images/album_3/IMG_7167.jpg`, alt: "Image IMG_7167" },
+  { id: 39, url: `${base}images/album_3/IMG_7266.jpg`, alt: "Image IMG_7266" },
+
+  { id: 40, url: `${base}images/album_3/IMG_7420.jpg`, alt: "Image IMG_7420" },
+];
 
 // export default galleryImages
 
