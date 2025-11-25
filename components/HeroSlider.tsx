@@ -10,6 +10,7 @@ const slides = [
   { url: `${base}images/album_1/HAN02565.jpg`, alt: 'HAN02565' },
   { url: `${base}images/album_1/HAN02641.jpg`, alt: 'HAN02641' },
   { url: `${base}images/album_1/HAN02790.jpg`, alt: 'HAN02790' },
+  { url: `${base}images/album_1/HAN02743.jpg`, alt: 'HAN02743' },
   { url: `${base}images/album_2/DMI_3044.jpg`, alt: 'DMI_3044' },
   { url: `${base}images/album_2/DMI_3574.jpg`, alt: 'DMI_3574' },
   { url: `${base}images/album_2/DMI_3802.jpg`, alt: 'DMI_3802' },

@@ -83,7 +83,7 @@ const galleryImages2 = [
   { id: 10, url: `${base}images/album_2/DMI_4090.jpg`, alt: "Image DMI_4090" },
   { id: 11, url: `${base}images/album_2/DMI_4092.jpg`, alt: "Image DMI_4092" },
   { id: 12, url: `${base}images/album_2/DMI_4152.jpg`, alt: "Image DMI_4152" },
-  { id: 13, url: `${base}images/album_2/DMI_4269.jpg}`, alt: "Image DMI_4269" },
+  { id: 13, url: `${base}images/album_2/DMI_4269.jpg`, alt: "Image DMI_4269" },
   { id: 14, url: `${base}images/album_2/DMI_4365.jpg`, alt: "Image DMI_4365" },
   { id: 15, url: `${base}images/album_2/DMI_4387.jpg`, alt: "Image DMI_4387" },
   { id: 16, url: `${base}images/album_2/DMI_4544.jpg`, alt: "Image DMI_4544" },
