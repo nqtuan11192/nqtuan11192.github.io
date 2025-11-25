@@ -4,11 +4,17 @@ import React, { useState, useEffect, useCallback } from 'react';
 const base = import.meta.env.BASE_URL
 
 const slides = [
-  { url: `${base}images/HAN02325.JPG`, alt: 'Vân Anh and Quốc Tuấn in a beautiful landscape' },
-  { url: `${base}images/HAN02472.JPG`, alt: 'A close-up shot of the couple smiling' },
-  { url: `${base}images/HAN02520.JPG`, alt: 'The couple holding hands during sunset' },
-  { url: `${base}images/HAN02564.JPG`, alt: 'The couple holding hands during sunset' },
-  { url: `${base}images/HAN02790.JPG`, alt: 'The couple holding hands during sunset' },
+  { url: `${base}images/album_1/HAN02210.jpg`, alt: 'HAN02210' },
+  { url: `${base}images/album_1/HAN02296.jpg`, alt: 'HAN02296' },
+  { url: `${base}images/album_1/HAN02313.jpg`, alt: 'HAN02267' },
+  { url: `${base}images/album_1/HAN02565.jpg`, alt: 'HAN02565' },
+  { url: `${base}images/album_1/HAN02790.jpg`, alt: 'HAN02790' },
+  { url: `${base}images/HAN02641.JPG`, alt: 'HAN02641' },
+  { url: `${base}images/album_2/DMI_3044.jpg`, alt: 'DMI_3044' },
+  { url: `${base}images/album_2/DMI_3574.jpg`, alt: 'DMI_3574' },
+  { url: `${base}images/album_2/DMI_3802.jpg`, alt: 'DMI_3802' },
+  { url: `${base}images/album_2/DMI_4604.JPG`, alt: 'DMI_4604' },
+  { url: `${base}images/album_2/DMI_4922.JPG`, alt: 'DMI_4922' },
 ]
 
 const HeroSlider: React.FC = () => {

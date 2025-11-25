@@ -3,39 +3,122 @@ import Lightbox from './Lightbox';
 
 const base = import.meta.env.BASE_URL
 
+// const galleryImages1 = [
+//   { id: 0, url: `${base}images/HAN02209.JPG`, alt: 'I can conquer the world with one hand, as long as you are holding the other.' },
+//   { id: 1, url: `${base}images/HAN02292.JPG`, alt: 'Together is our favorite place to be.' },
+//   { id: 2, url: `${base}images/HAN02316.JPG`, alt: 'Together is our favorite place to be.' },
+//   { id: 3, url: `${base}images/HAN02438.JPG`, alt: 'Every love story is beautiful, but ours is my favorite.' },
+//   { id: 4, url: `${base}images/HAN02486.JPG`, alt: 'Walking side-by-side into our forever.' },
+//   { id: 5, url: `${base}images/HAN02510.JPG`, alt: 'You are my today and all of my tomorrows.' },
+//   { id: 6, url: `${base}images/HAN02613.JPG`, alt: 'A quiet moment, a lifetime of love.' },
+//   { id: 7, url: `${base}images/HAN02641.JPG`, alt: 'Finding paradise wherever you are.' },
+//   { id: 8, url: `${base}images/HAN02686.JPG`, alt: 'The best things in life are better with you.' },
+//   { id: 9, url: `${base}images/HAN02886.JPG`, alt: 'The best things in life are better with you.' },
+//   { id: 10, url: `${base}images/HAN02915.JPG`, alt: 'A glance, a smile, a love story unfolds.' },
+//   { id: 11, url: `${base}images/HAN02927.JPG`, alt: 'Two hearts, one journey.' },
+//   { id: 12, url: `${base}images/HAN03231.JPG`, alt: 'Two hearts, one journey.' },
+//   { id: 13, url: `${base}images/HAN03279.JPG`, alt: 'Lost in your eyes and the beauty of this moment.' },
+// ]
 const galleryImages1 = [
-  { id: 0, url: `${base}images/HAN02209.JPG`, alt: 'I can conquer the world with one hand, as long as you are holding the other.' },
-  { id: 1, url: `${base}images/HAN02292.JPG`, alt: 'Together is our favorite place to be.' },
-  { id: 2, url: `${base}images/HAN02316.JPG`, alt: 'Together is our favorite place to be.' },
-  { id: 3, url: `${base}images/HAN02438.JPG`, alt: 'Every love story is beautiful, but ours is my favorite.' },
-  { id: 4, url: `${base}images/HAN02486.JPG`, alt: 'Walking side-by-side into our forever.' },
-  { id: 5, url: `${base}images/HAN02510.JPG`, alt: 'You are my today and all of my tomorrows.' },
-  { id: 6, url: `${base}images/HAN02613.JPG`, alt: 'A quiet moment, a lifetime of love.' },
-  { id: 7, url: `${base}images/HAN02641.JPG`, alt: 'Finding paradise wherever you are.' },
-  { id: 8, url: `${base}images/HAN02686.JPG`, alt: 'The best things in life are better with you.' },
-  { id: 9, url: `${base}images/HAN02886.JPG`, alt: 'The best things in life are better with you.' },
-  { id: 10, url: `${base}images/HAN02915.JPG`, alt: 'A glance, a smile, a love story unfolds.' },
-  { id: 11, url: `${base}images/HAN02927.JPG`, alt: 'Two hearts, one journey.' },
-  { id: 12, url: `${base}images/HAN03231.JPG`, alt: 'Two hearts, one journey.' },
-  { id: 13, url: `${base}images/HAN03279.JPG`, alt: 'Lost in your eyes and the beauty of this moment.' },
-]
+  { id: 0, url: `${base}images/album_1/HAN02210.jpg`, alt: "Image HAN02210" },
+  { id: 1, url: `${base}images/album_1/HAN02267.jpg`, alt: "Image HAN02267" },
+  { id: 2, url: `${base}images/album_1/HAN02296.jpg`, alt: "Image HAN02296" },
+  { id: 3, url: `${base}images/album_1/HAN02313.jpg`, alt: "Image HAN02313" },
+  { id: 4, url: `${base}images/album_1/HAN02325.jpg`, alt: "Image HAN02325" },
+  { id: 5, url: `${base}images/album_1/HAN02427.jpg`, alt: "Image HAN02427" },
+  { id: 6, url: `${base}images/album_1/HAN02436.jpg`, alt: "Image HAN02436" },
+  { id: 7, url: `${base}images/album_1/HAN02452.jpg`, alt: "Image HAN02452" },
+  { id: 8, url: `${base}images/album_1/HAN02473.jpg`, alt: "Image HAN02473" },
+  { id: 9, url: `${base}images/album_1/HAN02565.jpg`, alt: "Image HAN02565" },
+
+  { id: 10, url: `${base}images/album_1/HAN02586.jpg`, alt: "Image HAN02586" },
+  // { id: 11, url: `${base}images/album_1/HAN02617.jpg`, alt: "Image HAN02617" },
+  { id: 12, url: `${base}images/album_1/HAN02641.jpg`, alt: "Image HAN02641" },
+  { id: 13, url: `${base}images/album_1/HAN02686.jpg`, alt: "Image HAN02686" },
+  { id: 14, url: `${base}images/album_1/HAN02714.jpg`, alt: "Image HAN02714" },
+  { id: 15, url: `${base}images/album_1/HAN02715.jpg`, alt: "Image HAN02715" },
+  { id: 16, url: `${base}images/album_1/HAN02719.jpg`, alt: "Image HAN02719" },
+  { id: 17, url: `${base}images/album_1/HAN02726.jpg`, alt: "Image HAN02726" },
+  { id: 18, url: `${base}images/album_1/HAN02743.jpg`, alt: "Image HAN02743" },
+  { id: 19, url: `${base}images/album_1/HAN02744.jpg`, alt: "Image HAN02744" },
+
+  { id: 20, url: `${base}images/album_1/HAN02790.jpg`, alt: "Image HAN02790" },
+  { id: 21, url: `${base}images/album_1/HAN02796.jpg`, alt: "Image HAN02796" },
+  { id: 22, url: `${base}images/album_1/HAN02814.jpg`, alt: "Image HAN02814" },
+  { id: 23, url: `${base}images/album_1/HAN02872.jpg`, alt: "Image HAN02872" },
+  { id: 24, url: `${base}images/album_1/HAN02892.jpg`, alt: "Image HAN02892" },
+  { id: 25, url: `${base}images/album_1/HAN02910.jpg`, alt: "Image HAN02910" },
+  { id: 26, url: `${base}images/album_1/HAN02917.jpg`, alt: "Image HAN02917" },
+  { id: 27, url: `${base}images/album_1/HAN02963.jpg`, alt: "Image HAN02963" },
+  { id: 28, url: `${base}images/album_1/HAN02967.jpg`, alt: "Image HAN02967" },
+  { id: 29, url: `${base}images/album_1/HAN02993.jpg`, alt: "Image HAN02993" },
+
+  { id: 30, url: `${base}images/album_1/HAN03001.jpg`, alt: "Image HAN03001" },
+  { id: 31, url: `${base}images/album_1/HAN03052.jpg`, alt: "Image HAN03052" },
+  { id: 32, url: `${base}images/album_1/HAN03061.jpg`, alt: "Image HAN03061" },
+  { id: 33, url: `${base}images/album_1/HAN03119.jpg`, alt: "Image HAN03119" },
+  { id: 34, url: `${base}images/album_1/HAN03162.jpg`, alt: "Image HAN03162" },
+  { id: 35, url: `${base}images/album_1/HAN03183.jpg`, alt: "Image HAN03183" },
+  { id: 36, url: `${base}images/album_1/HAN03207.jpg`, alt: "Image HAN03207" },
+  { id: 37, url: `${base}images/album_1/HAN03231.jpg`, alt: "Image HAN03231" },
+  { id: 38, url: `${base}images/album_1/HAN03264.jpg`, alt: "Image HAN03264" },
+  { id: 39, url: `${base}images/album_1/HAN03279.jpg`, alt: "Image HAN03279" },
+];
+
+
 
 // Second gallery - you can add different images here
 const galleryImages2 = [
-  { id: 0, url: `${base}images/HAN02325.JPG`, alt: 'Beautiful moments together' },
-  { id: 1, url: `${base}images/HAN02472.JPG`, alt: 'Our journey continues' },
-  { id: 2, url: `${base}images/HAN02520.JPG`, alt: 'Love in every moment' },
-  { id: 3, url: `${base}images/HAN02564.JPG`, alt: 'Forever and always' },
-  { id: 4, url: `${base}images/HAN02790.JPG`, alt: 'Together forever' },
-]
+  { id: 0, url: `${base}images/album_2/DMI_1726.jpg`, alt: "Image DMI_1726" },
+  { id: 1, url: `${base}images/album_2/DMI_1856.jpg`, alt: "Image DMI_1856" },
+  { id: 2, url: `${base}images/album_2/DMI_1868.jpg`, alt: "Image DMI_1868" },
+  { id: 3, url: `${base}images/album_2/DMI_2496.jpg`, alt: "Image DMI_2496" },
+  { id: 4, url: `${base}images/album_2/DMI_2877.jpg`, alt: "Image DMI_2877" },
+  { id: 5, url: `${base}images/album_2/DMI_2923.jpg`, alt: "Image DMI_2923" },
+  { id: 6, url: `${base}images/album_2/DMI_3001.jpg`, alt: "Image DMI_3001" },
+  { id: 7, url: `${base}images/album_2/DMI_3044.jpg`, alt: "Image DMI_3044" },
+  { id: 8, url: `${base}images/album_2/DMI_3574.jpg`, alt: "Image DMI_3574" },
+  { id: 9, url: `${base}images/album_2/DMI_3802.jpg`, alt: "Image DMI_3802" },
+
+  { id: 10, url: `${base}images/album_2/DMI_4090.jpg`, alt: "Image DMI_4090" },
+  { id: 11, url: `${base}images/album_2/DMI_4092.jpg`, alt: "Image DMI_4092" },
+  { id: 12, url: `${base}images/album_2/DMI_4152.jpg`, alt: "Image DMI_4152" },
+  { id: 13, url: `${base}images/album_2/DMI_4269.jpg}`, alt: "Image DMI_4269" },
+  { id: 14, url: `${base}images/album_2/DMI_4365.jpg`, alt: "Image DMI_4365" },
+  { id: 15, url: `${base}images/album_2/DMI_4387.jpg`, alt: "Image DMI_4387" },
+  { id: 16, url: `${base}images/album_2/DMI_4544.jpg`, alt: "Image DMI_4544" },
+  { id: 17, url: `${base}images/album_2/DMI_4575.jpg`, alt: "Image DMI_4575" },
+  { id: 18, url: `${base}images/album_2/DMI_4604.JPG`, alt: "Image DMI_4604" },   // NEW
+  { id: 19, url: `${base}images/album_2/DMI_4696.jpg`, alt: "Image DMI_4696" },
+
+  { id: 20, url: `${base}images/album_2/DMI_4831.jpg`, alt: "Image DMI_4831" },
+  { id: 21, url: `${base}images/album_2/DMI_4904.jpg`, alt: "Image DMI_4904" },
+  { id: 22, url: `${base}images/album_2/DMI_4922.JPG`, alt: "Image DMI_4922" },  // NEW
+  { id: 23, url: `${base}images/album_2/DMI_4967.jpg`, alt: "Image DMI_4967" },
+  { id: 24, url: `${base}images/album_2/DMI_4987.jpg`, alt: "Image DMI_4987" },
+  { id: 25, url: `${base}images/album_2/DMI_5099.jpg`, alt: "Image DMI_5099" },
+  { id: 26, url: `${base}images/album_2/DMI_5230.jpg`, alt: "Image DMI_5230" },
+  { id: 27, url: `${base}images/album_2/DMI_5303.jpg`, alt: "Image DMI_5303" },
+  { id: 28, url: `${base}images/album_2/DMI_5435.jpg`, alt: "Image DMI_5435" },
+  { id: 29, url: `${base}images/album_2/DMI_5463.jpg`, alt: "Image DMI_5463" },
+
+  { id: 30, url: `${base}images/album_2/DMI_5705.jpg`, alt: "Image DMI_5705" },
+  { id: 31, url: `${base}images/album_2/DMI_5757.jpg`, alt: "Image DMI_5757" },
+  { id: 32, url: `${base}images/album_2/DMI_5874.jpg`, alt: "Image DMI_5874" },
+  { id: 33, url: `${base}images/album_2/DMI_5930.jpg`, alt: "Image DMI_5930" },
+  { id: 34, url: `${base}images/album_2/DMI_5938.jpg`, alt: "Image DMI_5938" },
+  { id: 35, url: `${base}images/album_2/DMI_6184.jpg`, alt: "Image DMI_6184" },
+];
+
+
 
 // Third gallery
 const galleryImages3 = [
-  { id: 0, url: `${base}images/HAN02209.JPG`, alt: 'Precious memories' },
-  { id: 1, url: `${base}images/HAN02292.JPG`, alt: 'Love and laughter' },
-  { id: 2, url: `${base}images/HAN02316.JPG`, alt: 'Our special day' },
-  { id: 3, url: `${base}images/HAN02325.JPG`, alt: 'Together always' },
-  { id: 4, url: `${base}images/HAN02438.JPG`, alt: 'Forever in love' },
+  // { id: 0, url: `${base}images/HAN02209.JPG`, alt: 'Precious memories' },
+  // { id: 1, url: `${base}images/HAN02292.JPG`, alt: 'Love and laughter' },
+  // { id: 2, url: `${base}images/HAN02316.JPG`, alt: 'Our special day' },
+  // { id: 3, url: `${base}images/HAN02325.JPG`, alt: 'Together always' },
+  // { id: 4, url: `${base}images/HAN02438.JPG`, alt: 'Forever in love' },
 ]
 
 // export default galleryImages
