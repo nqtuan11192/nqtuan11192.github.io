@@ -25,7 +25,7 @@ const CoupleInfo: React.FC = () => {
                             <div className="mb-6 flex justify-center">
                                 <div className="w-48 h-48 rounded-full overflow-hidden border-4 border-rose-300 shadow-lg">
                                     <img
-                                        src="/images/tuannq.jpg"
+                                        src="/images/tuannq.gif"
                                         alt="Nguyễn Quốc Tuấn"
                                         className="w-full h-full object-cover"
                                     />
@@ -66,7 +66,7 @@ const CoupleInfo: React.FC = () => {
                             <div className="mb-6 flex justify-center">
                                 <div className="w-48 h-48 rounded-full overflow-hidden border-4 border-rose-300 shadow-lg">
                                     <img
-                                        src="/images/anhptv.jpg"
+                                        src="/images/anhptv.gif"
                                         alt="Phạm Thị Vân Anh"
                                         className="w-full h-full object-cover"
                                     />
