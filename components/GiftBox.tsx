@@ -108,49 +108,6 @@ const GiftBox: React.FC = () => {
                             </p>
 
                             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                                {/* Groom Card */}
-                                <div className="border-4 border-rose-400 rounded-xl p-6 bg-rose-50">
-                                    <h3 className="text-xl font-bold text-center text-slate-800 mb-4">
-                                        Mừng Cưới Đến {brideInfo.name}
-                                    </h3>
-
-                                    {/* QR Code */}
-                                    <div className="bg-white p-4 rounded-lg mb-4 flex items-center justify-center">
-                                        <img
-                                            src={brideInfo.qrCode}
-                                            alt={`QR Code ${brideInfo.name}`}
-                                            className="w-64 h-64 object-contain cursor-pointer hover:opacity-80 transition-opacity"
-                                            onClick={() => handleQRClick(brideInfo.qrCode)}
-                                            title="Click để xem kích thước đầy đủ"
-                                            onError={(e) => {
-                                                e.currentTarget.style.display = 'none';
-                                                e.currentTarget.nextElementSibling?.classList.remove('hidden');
-                                            }}
-                                        />
-                                        <div className="hidden w-64 h-64 bg-gradient-to-br from-rose-100 to-rose-200 rounded-lg flex items-center justify-center border-2 border-rose-300">
-                                            <div className="text-center">
-                                                <svg xmlns="http://www.w3.org/2000/svg" className="h-16 w-16 mx-auto text-rose-400 mb-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 4v1m6 11h2m-6 0h-2v4m0-11v3m0 0h.01M12 12h4.01M16 20h4M4 12h4m12 0h.01M5 8h2a1 1 0 001-1V5a1 1 0 00-1-1H5a1 1 0 00-1 1v2a1 1 0 001 1zm12 0h2a1 1 0 001-1V5a1 1 0 00-1-1h-2a1 1 0 00-1 1v2a1 1 0 001 1zM5 20h2a1 1 0 001-1v-2a1 1 0 00-1-1H5a1 1 0 00-1 1v2a1 1 0 001 1z" />
-                                                </svg>
-                                                <p className="text-sm text-slate-500">QR Code</p>
-                                                {/* <p className="text-xs text-slate-400 mt-1">Thêm ảnh QR vào<br />/public/images/qr_tuannq.png</p> */}
-                                            </div>
-                                        </div>
-                                    </div>
-
-                                    <div className="space-y-2 text-center">
-                                        <p className="text-slate-700">
-                                            <span className="font-semibold">Ngân hàng:</span> {brideInfo.bank}
-                                        </p>
-                                        <p className="text-slate-700">
-                                            <span className="font-semibold">Tên tài khoản:</span> {brideInfo.accountName}
-                                        </p>
-                                        <p className="text-slate-700">
-                                            <span className="font-semibold">Số tài khoản:</span> {brideInfo.accountNumber}
-                                        </p>
-                                    </div>
-                                </div>
-
                                 {/* Bride Card */}
                                 <div className="border-4 border-rose-400 rounded-xl p-6 bg-rose-50">
                                     <h3 className="text-xl font-bold text-center text-slate-800 mb-4">
@@ -190,6 +147,49 @@ const GiftBox: React.FC = () => {
                                         </p>
                                         <p className="text-slate-700">
                                             <span className="font-semibold">Số tài khoản:</span> {groomInfo.accountNumber}
+                                        </p>
+                                    </div>
+                                </div>
+
+                                {/* Groom Card */}
+                                <div className="border-4 border-rose-400 rounded-xl p-6 bg-rose-50">
+                                    <h3 className="text-xl font-bold text-center text-slate-800 mb-4">
+                                        Mừng Cưới Đến {brideInfo.name}
+                                    </h3>
+
+                                    {/* QR Code */}
+                                    <div className="bg-white p-4 rounded-lg mb-4 flex items-center justify-center">
+                                        <img
+                                            src={brideInfo.qrCode}
+                                            alt={`QR Code ${brideInfo.name}`}
+                                            className="w-64 h-64 object-contain cursor-pointer hover:opacity-80 transition-opacity"
+                                            onClick={() => handleQRClick(brideInfo.qrCode)}
+                                            title="Click để xem kích thước đầy đủ"
+                                            onError={(e) => {
+                                                e.currentTarget.style.display = 'none';
+                                                e.currentTarget.nextElementSibling?.classList.remove('hidden');
+                                            }}
+                                        />
+                                        <div className="hidden w-64 h-64 bg-gradient-to-br from-rose-100 to-rose-200 rounded-lg flex items-center justify-center border-2 border-rose-300">
+                                            <div className="text-center">
+                                                <svg xmlns="http://www.w3.org/2000/svg" className="h-16 w-16 mx-auto text-rose-400 mb-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 4v1m6 11h2m-6 0h-2v4m0-11v3m0 0h.01M12 12h4.01M16 20h4M4 12h4m12 0h.01M5 8h2a1 1 0 001-1V5a1 1 0 00-1-1H5a1 1 0 00-1 1v2a1 1 0 001 1zm12 0h2a1 1 0 001-1V5a1 1 0 00-1-1h-2a1 1 0 00-1 1v2a1 1 0 001 1zM5 20h2a1 1 0 001-1v-2a1 1 0 00-1-1H5a1 1 0 00-1 1v2a1 1 0 001 1z" />
+                                                </svg>
+                                                <p className="text-sm text-slate-500">QR Code</p>
+                                                {/* <p className="text-xs text-slate-400 mt-1">Thêm ảnh QR vào<br />/public/images/qr_tuannq.png</p> */}
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div className="space-y-2 text-center">
+                                        <p className="text-slate-700">
+                                            <span className="font-semibold">Ngân hàng:</span> {brideInfo.bank}
+                                        </p>
+                                        <p className="text-slate-700">
+                                            <span className="font-semibold">Tên tài khoản:</span> {brideInfo.accountName}
+                                        </p>
+                                        <p className="text-slate-700">
+                                            <span className="font-semibold">Số tài khoản:</span> {brideInfo.accountNumber}
                                         </p>
                                     </div>
                                 </div>
