@@ -76,7 +76,7 @@ const RSVP: React.FC = () => {
                     <div className="mb-8 flex justify-center">
                         <div className="w-40 h-40 md:w-48 md:h-48 rounded-full overflow-hidden border-4 border-rose-400 shadow-lg">
                             <img
-                                src="/images/couple_kimono.png"
+                                src="/images/couple_kimono.gif"
                                 alt="Vân Anh & Quốc Tuấn"
                                 className="w-full h-full object-cover"
                             />
