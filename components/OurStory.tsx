@@ -79,16 +79,7 @@ const StoryItem: React.FC<{ milestone: typeof storyMilestones[0]; isLast: boolea
   return (
     <>
       <div className="relative">
-        {/* Vertical line - hidden on the last item */}
-        {!isLast && <div className="absolute top-5 left-5 h-full w-0.5 bg-rose-200" style={{ transform: 'translateX(-50%)' }}></div>}
-
         <div className="flex items-start space-x-6">
-          {/* Icon */}
-          <div className="z-10 bg-rose-500 text-white p-3 rounded-full shadow-lg flex-shrink-0">
-            <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d={milestone.icon} />
-            </svg>
-          </div>
 
           {/* Card */}
           <div className="bg-white p-6 rounded-xl shadow-lg hover:shadow-xl transition-shadow duration-300 w-full">
@@ -149,6 +140,16 @@ const StoryItem: React.FC<{ milestone: typeof storyMilestones[0]; isLast: boolea
                 </>
               )}
             </button>
+          </div>
+
+          {/* Vertical line - hidden on the last item */}
+          {!isLast && <div className="absolute top-5 right-5 h-full w-0.5 bg-rose-200" style={{ transform: 'translateX(-50%)' }}></div>}
+
+          {/* Icon */}
+          <div className="z-10 bg-rose-500 text-white p-3 rounded-full shadow-lg flex-shrink-0">
+            <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d={milestone.icon} />
+            </svg>
           </div>
         </div>
       </div>

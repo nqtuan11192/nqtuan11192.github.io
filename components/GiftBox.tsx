@@ -54,7 +54,7 @@ const GiftBox: React.FC = () => {
             {/* Floating Gift Button */}
             <button
                 onClick={() => setIsModalOpen(true)}
-                className="fixed bottom-8 right-8 z-40 bg-rose-500 hover:bg-rose-600 text-white p-4 rounded-full shadow-2xl transition-all duration-300 hover:scale-110 group"
+                className="fixed bottom-8 right-8 z-40 bg-rose-500 hover:bg-rose-600 text-white p-1 rounded-full shadow-2xl transition-all duration-300 hover:scale-110 group"
                 aria-label="Hộp mừng cưới"
             >
                 <div className="relative">
