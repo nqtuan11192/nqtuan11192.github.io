@@ -8,9 +8,14 @@ const storyMilestones = [
     shortDescription: 'Tháng 3 năm 2019, chúng mình gặp nhau trong một lớp tiếng Anh và tình cờ được xếp vào cùng nhóm thuyết trình. Từ những buổi cùng chuẩn bị bài, tụi mình dần trở nên thân thiết hơn...',
     fullDescription: (
       <>
-        Tháng 3 năm 2019, chúng mình gặp nhau trong một lớp tiếng Anh và tình cờ được xếp vào cùng nhóm thuyết trình cho chủ đề Science. Tuấn lo phần kỹ thuật, lên kịch bản và dựng video; Vân Anh thì đảm nhiệm phần thuyết trình. Từ những buổi cùng chuẩn bị bài, cùng tập luyện, tụi mình dần trở nên thân thiết hơn. Khi cả nhóm bất ngờ giành được giải nhất và kéo nhau đi liên hoan, bọn mình có dịp nhìn thấy cuộc sống của nhau ngoài khuôn khổ lớp học. <br />
-        Cả Tuấn và Vân Anh đều giữ trong lòng những ấn tượng đặc biệt, những rung động mơ hồ… nhưng không ai nói thành lời. Tuấn khi ấy đã ấp ủ kế hoạch sang Nhật du học, còn Vân Anh vẫn miệt mài với học tập, bạn bè và những hoạt động xã hội.<br />
-        Hai người, hai lối rẽ, nhưng lại từng có một đoạn đường ngắn ngủi và dịu dàng đi chung - đủ để trái tim ghi nhớ mãi...
+        Tháng 3 năm 2019, chúng mình gặp nhau trong một lớp tiếng Anh và vô tình được xếp chung nhóm thuyết trình về chủ đề Science. Tuấn phụ trách phần kỹ thuật, lên kịch bản và dựng video; còn Vân Anh đảm nhiệm phần thuyết trình.
+        Từ những buổi cùng chuẩn bị bài, cùng tập luyện, tụi mình dần trở nên thân thiết.
+        Khi cả nhóm bất ngờ giành giải nhất và rủ nhau đi liên hoan, đó cũng là lần đầu bọn mình được nhìn thấy cuộc sống của nhau ngoài khuôn khổ lớp học.<br />
+
+        Cả Tuấn và Vân Anh đều giữ trong lòng những ấn tượng đặc biệt, những rung động nhẹ nhàng… nhưng chẳng ai nói ra.
+        Tuấn khi ấy đang ấp ủ kế hoạch sang Nhật du học, còn Vân Anh thì vẫn miệt mài với học tập, bạn bè và các hoạt động xã hội.<br />
+
+        Hai người, hai hướng đi, nhưng vẫn từng có một quãng đường ngắn ngủi và dịu dàng song hành — đủ để trái tim ghi nhớ mãi…
       </>
     ),
     photo: '/images/kyniem01.jpeg',
@@ -22,9 +27,18 @@ const storyMilestones = [
     shortDescription: 'Sau hơn 5 năm, những ngày cuối năm 2024, họ gặp lại nhau tại Nhật Bản. Trong khoảnh khắc chào đón năm mới, khi tuyết lần đầu rơi, hai trái tim cuối cùng đã hòa chung nhịp đập...',
     fullDescription: (
       <>
-        Tưởng rằng họ đã lạc nhau giữa những lối rẽ riêng, nhưng hóa ra định mệnh chỉ chờ lúc cả hai chín muồi hơn. <br />
-        Sau hơn 5 năm, những ngày cuối năm 2024 đầu năm 2025, V.A có chuyến nghỉ lễ du lịch tới Nhật. V.A nhờ Tuấn giúp đỡ tư vấn lịch trình, còn Tuấn thì đã âm thầm biến chuyến đi ấy thành một "giấc mơ nhỏ", tỉ mỉ lên kế hoạch, chỉnh từng lịch trình, chuẩn bị chu đáo, để V.A có thể  hiện thực hóa "Chuyến đi trong mơ tới Nhật Bản" mà V.A đã từng nói với Tuấn - hồi cả 2 còn là bạn. <br />
-        Có lẽ đó là thời khắc chào đón ngày đầu tiên của 2025, Tuấn không biết từ khi nào đã chuẩn bị pháo sẵn sàng, mang ra công viên, hai đứa lạnh cóng tay đốt mãi không được, khi ánh sáng lóe lên, những bông tuyết đầu tiên trong đêm cũng khẽ rơi xuống, dưới ánh đèn đường, hai con người, hai trái tim bỗng dưng hòa chung 1 nhịp đập, Tuấn ngỏ lời, họ chính thức trở thành người yêu của nhau.
+        Tưởng rằng họ đã lạc nhau giữa những lối rẽ riêng, nhưng hóa ra định mệnh chỉ đang chờ thời điểm cả hai đủ chín muồi để gặp lại.<br />
+
+        Sau hơn 5 năm, vào những ngày cuối năm 2024 – đầu năm 2025, V.A có chuyến du lịch nghỉ lễ tại Nhật.
+        V.A nhờ Tuấn hỗ trợ tư vấn lịch trình, còn Tuấn thì âm thầm biến chuyến đi ấy thành một “giấc mơ nhỏ”,
+        tỉ mỉ sắp xếp từng chặng, chỉnh từng hoạt động, chuẩn bị mọi thứ chu đáo để V.A thực sự có được
+        “Chuyến đi trong mơ tới Nhật Bản” – điều mà V.A từng nhắc với Tuấn từ thuở cả hai vẫn chỉ là bạn.<br />
+
+        Và có lẽ vào khoảnh khắc chuyển giao sang ngày đầu tiên của năm 2025 ấy,
+        khi Tuấn mang pháo hoa ra công viên, hai đứa lạnh cóng loay hoay mãi mới đốt được,
+        ánh sáng vừa bùng lên thì những bông tuyết đầu tiên trong đêm cũng khẽ rơi.
+        Dưới ánh đèn vàng, giữa cái rét tê buốt, hai con người – hai trái tim – bỗng hòa chung một nhịp.
+        Tuấn ngỏ lời. Và họ chính thức trở thành người yêu của nhau.
       </>
     ),
     video: '/images/kyniem02.mp4',
@@ -36,9 +50,21 @@ const storyMilestones = [
     shortDescription: 'Mùa xuân năm 2025, trong chuyến đi ngắm hoa anh đào tại Tokyo, Tuấn đã cầu hôn Vân Anh. Một khoảnh khắc đặc biệt mà cả Tokyo dường như cũng mừng cho họ...',
     fullDescription: (
       <>
-        Mùa xuân năm 2025, sau khi Tuấn xin phép gia đình được đón V.A đi chơi, chuyến đi "ngắm Nhật Bản mùa hoa anh đào" bắt đầu. Việc đầu tiên khi thấy V.A là…. Tuấn chụp ảnh gửi cho gia đình V.A và "báo cáo" 😊.<br />
-        Có lẽ hai đứa cũng nhận được tín hiệu ủng hộ từ hai bên gia đình, hai trái tim thổn thức cuối cùng cũng tìm thấy nhau, và muốn rằng sẽ gắn kết bền lâu bằng một hành động cam kết cao hơn nữa. Ngay tối đón V.A, Tuấn đã sắp xếp…và cầu hôn, trước sự chứng kiến của Tokyo, và nhận được những lời chúc rất xinh đẹp từ mọi người xung quanh 💕💕💕.<br />
-        Trên lối về, hai bên đường trải đầy hoa và ánh đèn đường ấm áp, gió khẽ lướt qua mang theo những cánh hoa anh đào, những bông hoa tuylip rực rỡ sắc màu, khẽ lạnh lạnh, hai bàn tay siết chặt lấy nhau hơn, mà trên bàn tay ai - giờ đã có thêm 1 chiếc nhẫn "cầu hôn" đêm theo những lời nguyện ước….đêm đó, bỗng, cũng có pháo hoa bắn từ xa, V.A khẽ thốt lên "hôm nay thật là một ngày đặc biệt"; có lẽ, cả Tokyo cũng mừng cho chúng mình.
+        Mùa xuân năm 2025, sau khi Tuấn xin phép gia đình được đón V.A đi chơi,
+        chuyến đi "ngắm Nhật Bản mùa hoa anh đào" bắt đầu.
+        Việc đầu tiên khi thấy V.A là…. Tuấn chụp ảnh gửi cho gia đình V.A và "báo cáo" 😊.<br />
+
+        Có lẽ hai đứa cũng nhận được tín hiệu ủng hộ từ hai bên gia đình,
+        hai trái tim thổn thức cuối cùng cũng tìm thấy nhau,
+        và muốn rằng sẽ gắn kết bền lâu bằng một hành động cam kết cao hơn nữa.
+        Ngay tối đón V.A, Tuấn đã sắp xếp…và cầu hôn, trước sự chứng kiến của Tokyo,
+        và nhận được những lời chúc rất xinh đẹp từ mọi người xung quanh 💕💕💕.<br />
+
+        Trên lối về, hai bên đường trải đầy hoa và ánh đèn đường ấm áp,
+        gió khẽ lướt qua mang theo những cánh hoa anh đào, những bông hoa tuylip rực rỡ sắc màu,
+        khẽ lạnh lạnh, hai bàn tay siết chặt lấy nhau hơn, mà trên bàn tay ai - giờ đã có thêm 1 chiếc nhẫn "cầu hôn" đêm theo những lời nguyện ước…
+        Đêm đó, bỗng, cũng có pháo hoa bắn từ xa, V.A khẽ thốt lên "hôm nay thật là một ngày đặc biệt";
+        có lẽ, cả Tokyo cũng mừng cho chúng mình. 🎉🎉🎉
       </>
     ),
     photo: '/images/kyniem03.jpg',
