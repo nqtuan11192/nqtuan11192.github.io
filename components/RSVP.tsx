@@ -193,7 +193,7 @@ const RSVP: React.FC = () => {
                         {submitStatus === 'success' && (
                             <div className="bg-green-50 border-2 border-green-400 rounded-lg p-4 text-center">
                                 <p className="text-green-700 font-medium">
-                                    ✓ Cảm ơn bạn đã xác nhận tham dự!
+                                    ✓ Xin chân thành cảm ơn bạn đã xác nhận tham dự!
                                 </p>
                             </div>
                         )}
