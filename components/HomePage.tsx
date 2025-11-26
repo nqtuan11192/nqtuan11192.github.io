@@ -8,6 +8,7 @@ import OurStory from './OurStory';
 import RSVP from './RSVP';
 import Guestbook from './Guestbook';
 import WishNotifications from './WishNotifications';
+import SakuraFalling from './SakuraFalling';
 
 const base = import.meta.env.BASE_URL;
 
@@ -38,6 +39,7 @@ const HomePage: React.FC = () => {
 
     return (
         <>
+            <SakuraFalling count={25} speed="medium" />
             <WishNotifications />
             <HeroSlider />
             <CoupleInfo />

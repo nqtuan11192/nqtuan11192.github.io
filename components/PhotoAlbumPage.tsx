@@ -2,6 +2,7 @@ import React, { useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import PhotoAlbum from './PhotoAlbum';
 import WishNotifications from './WishNotifications';
+import SakuraFalling from './SakuraFalling';
 
 const PhotoAlbumPage: React.FC = () => {
     const location = useLocation();
@@ -23,6 +24,7 @@ const PhotoAlbumPage: React.FC = () => {
 
     return (
         <div className="min-h-screen bg-white">
+            <SakuraFalling count={25} speed="medium" />
             <WishNotifications />
             {/* Back to Home Button */}
             <div className="bg-rose-50 py-6 sticky top-16 z-40 shadow-sm">
