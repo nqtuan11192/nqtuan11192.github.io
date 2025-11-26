@@ -50,9 +50,10 @@ const CoupleInfo: React.FC = () => {
 
                             {/* Description */}
                             <p className="text-slate-600 italic leading-relaxed">
-                                Tốt nghiệp Tiến sĩ Tin học tại Nhật Bản, là một chàng trai trầm tính, luôn ấm áp với những người xung quanh.
-                                Với châm ngôn nói ít làm nhiều, Tuấn luôn cẩn trọng trong suy nghĩ và kỹ càng trong hành động.
-                                Tuấn hiện đang là một giảng viên trẻ của trường CNTT&TT, ĐH Bách Khoa Hà Nội.
+                                Tốt nghiệp Tiến sĩ Tin học tại Nhật Bản, Tuấn là chàng trai trầm tính, điềm đạm nhưng luôn ấm áp và tinh tế trong cách đối đãi với mọi người.
+                                Với châm ngôn “nói ít, làm nhiều”, Tuấn luôn suy nghĩ thấu đáo và tỉ mỉ trong từng hành động.
+                                Sự chững chạc và trách nhiệm khiến Tuấn trở thành điểm tựa vững vàng cho những người thân yêu.
+                                Hiện Tuấn là giảng viên trẻ của Trường CNTT&TT, ĐH Bách Khoa Hà Nội.
                             </p>
 
                             {/* View More Link
@@ -94,8 +95,10 @@ const CoupleInfo: React.FC = () => {
 
                             {/* Description */}
                             <p className="text-slate-600 italic leading-relaxed">
-                                Tốt nghiệp đại học Ngoại Thương, là một cô gái năng động, hoạt bát, hướng ngoại. Vân Anh ghi điểm trong mắt mọi người với nụ cười rạng rỡ, mang đến năng lượng tích cực và sự gắn kết mọi người xung quanh.
-                                Vân Anh hiện là Account Manager tại công ty công nghệ CMC-APAC, Singapore.
+                                Tốt nghiệp Đại học Ngoại Thương, Vân Anh là cô gái năng động, hoạt bát và hướng ngoại.
+                                Nụ cười rạng rỡ cùng nguồn năng lượng tích cực của Vân Anh luôn khiến mọi người cảm thấy vui vẻ và được tiếp thêm tinh thần.
+                                Với sự tinh tế và khéo léo trong cách giao tiếp, Vân Anh dễ dàng tạo dựng sự gắn kết và thiện cảm ở bất kỳ nơi nào.
+                                Hiện Vân Anh là Account Manager tại công ty công nghệ CMC-APAC, Singapore.
                             </p>
 
                             {/* View More Link
