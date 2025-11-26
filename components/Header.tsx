@@ -1,14 +1,16 @@
 import React, { useState } from 'react';
+import { Link, useLocation } from 'react-router-dom';
 
 const navLinks = [
   // { href: '#hero', label: 'Home' },
-  { href: '#couple', label: 'Cặp đôi' },
-  { href: '#story', label: 'Câu chuyện tình yêu' },
-  { href: '#album', label: 'Album ảnh' },
-  { href: '#event', label: 'Sự kiện cưới' },
-  { href: '#rsvp', label: 'Xác nhận tham dự' },
-  { href: '#guestbook', label: 'Sổ lưu bút' },
+  { href: '#couple', label: 'Cặp đôi', isAnchor: true },
+  { href: '#story', label: 'Câu chuyện tình yêu', isAnchor: true },
+  { href: '/album', label: 'Album ảnh', isAnchor: false },
+  { href: '#event', label: 'Sự kiện cưới', isAnchor: true },
+  { href: '#rsvp', label: 'Xác nhận tham dự', isAnchor: true },
+  { href: '#guestbook', label: 'Sổ lưu bút', isAnchor: true },
 ];
+
 
 const Header: React.FC = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -30,19 +32,29 @@ const Header: React.FC = () => {
     >
       <div className="container mx-auto px-6 py-4 flex justify-between items-center">
         <div className="text-xl md:text-2xl font-script text-white">
-          <a href="#hero">
+          <Link to="/">
             Vân Anh &#9829; Quốc Tuấn
-          </a>
+          </Link>
         </div>
         <nav className="hidden md:flex space-x-8">
           {navLinks.map((link) => (
-            <a
-              key={link.href}
-              href={link.href}
-              className="text-white/90 hover:text-white transition-colors duration-300 font-medium"
-            >
-              {link.label}
-            </a>
+            link.isAnchor ? (
+              <a
+                key={link.href}
+                href={link.href}
+                className="text-white/90 hover:text-white transition-colors duration-300 font-medium"
+              >
+                {link.label}
+              </a>
+            ) : (
+              <Link
+                key={link.href}
+                to={link.href}
+                className="text-white/90 hover:text-white transition-colors duration-300 font-medium"
+              >
+                {link.label}
+              </Link>
+            )
           ))}
           <button
             onClick={handleGiftBoxClick}
@@ -72,14 +84,25 @@ const Header: React.FC = () => {
       <div className={`md:hidden ${isMenuOpen ? 'block' : 'hidden'} bg-rose-500`}>
         <nav className="flex flex-col items-center space-y-4 py-4">
           {navLinks.map((link) => (
-            <a
-              key={link.href}
-              href={link.href}
-              onClick={handleLinkClick}
-              className="text-white/90 hover:text-white transition-colors duration-300 font-medium text-lg"
-            >
-              {link.label}
-            </a>
+            link.isAnchor ? (
+              <a
+                key={link.href}
+                href={link.href}
+                onClick={handleLinkClick}
+                className="text-white/90 hover:text-white transition-colors duration-300 font-medium text-lg"
+              >
+                {link.label}
+              </a>
+            ) : (
+              <Link
+                key={link.href}
+                to={link.href}
+                onClick={handleLinkClick}
+                className="text-white/90 hover:text-white transition-colors duration-300 font-medium text-lg"
+              >
+                {link.label}
+              </Link>
+            )
           ))}
           <button
             onClick={handleGiftBoxClick}
