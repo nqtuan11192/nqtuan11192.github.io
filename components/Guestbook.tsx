@@ -16,6 +16,27 @@ const Guestbook: React.FC = () => {
     const [message, setMessage] = useState('');
     const [entries, setEntries] = useState<GuestbookEntry[]>([]);
     const [isSubmitting, setIsSubmitting] = useState(false);
+    const [searchWish, setSearchWish] = useState('');
+    const [showWishSuggestions, setShowWishSuggestions] = useState(false);
+
+    // Suggested wishes
+    const suggestedWishes = [
+        "Chúc mừng! Chúc hai bạn trăm năm hạnh phúc!",
+        "Chúc mừng ngày trọng đại của hai bạn. Hạnh phúc bền lâu và trọn vẹn nhé!",
+        "Chúc mừng hạnh phúc hai bạn. Chúc sớm có thiên thần nhỏ nhé!",
+        "Gửi ngàn lời chúc hạnh phúc đến bạn tôi! Mãi hạnh phúc nhé!",
+        "Chúc chị Vân Anh - anh Quốc Tuấn thiệt là hạnh phúc nhaaaaaaa Yêu thương nà <3❤️",
+        "Chúc mừng hạnh phúc hai em",
+        "Chúc hai bạn trăm năm hạnh phúc",
+        "Chúc mừng hạnh phúc! Mãi bên nhau và yêu thương nhé! 💕",
+        "Chúc hai bạn luôn hạnh phúc, yêu thương và thấu hiểu lẫn nhau. Trăm năm hạnh phúc! 🌸",
+        "Chúc cô dâu chú rể trăm năm hạnh phúc, sớm có tin vui! 🎉",
+        "Chúc mừng ngày vui của hai bạn! Hãy luôn giữ gìn hạnh phúc này nhé! 💑",
+    ];
+
+    const filteredWishes = suggestedWishes.filter(wish =>
+        wish.toLowerCase().includes(searchWish.toLowerCase())
+    );
 
     // Real-time listener for guestbook entries
     useEffect(() => {
@@ -170,6 +191,20 @@ const Guestbook: React.FC = () => {
                                 </div>
                             </div>
 
+                            {/* Wish Suggestions Button */}
+                            <div className="text-center">
+                                <button
+                                    type="button"
+                                    onClick={() => setShowWishSuggestions(true)}
+                                    className="inline-flex items-center gap-2 px-4 py-2 bg-white border-2 border-rose-300 text-rose-600 rounded-lg hover:bg-rose-50 transition-colors text-sm font-medium"
+                                >
+                                    <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z" />
+                                    </svg>
+                                    Xem gợi ý lời chúc
+                                </button>
+                            </div>
+
                             <div className="text-center">
                                 <button
                                     type="submit"
@@ -248,6 +283,76 @@ const Guestbook: React.FC = () => {
                     </p>
                 </div>
             </div>
+
+            {/* Wish Suggestions Modal */}
+            {showWishSuggestions && (
+                <div
+                    className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black bg-opacity-50 backdrop-blur-sm"
+                    onClick={() => setShowWishSuggestions(false)}
+                >
+                    <div
+                        className="bg-white rounded-2xl shadow-2xl w-full max-w-2xl max-h-[80vh] overflow-hidden"
+                        onClick={(e) => e.stopPropagation()}
+                    >
+                        {/* Modal Header */}
+                        <div className="bg-rose-500 text-white p-6 rounded-t-2xl relative">
+                            <button
+                                onClick={() => setShowWishSuggestions(false)}
+                                className="absolute top-4 right-4 text-white hover:text-rose-100 transition-colors"
+                            >
+                                <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+                                </svg>
+                            </button>
+                            <div className="flex items-center justify-center gap-3">
+                                <svg xmlns="http://www.w3.org/2000/svg" className="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z" />
+                                </svg>
+                                <h2 className="font-vietnamese-script text-3xl md:text-4xl">Gợi ý lời chúc</h2>
+                            </div>
+                        </div>
+
+                        {/* Modal Content */}
+                        <div className="p-6 overflow-y-auto max-h-[calc(80vh-120px)]">
+                            {/* Search box */}
+                            <div className="relative mb-4">
+                                <input
+                                    type="text"
+                                    value={searchWish}
+                                    onChange={(e) => setSearchWish(e.target.value)}
+                                    placeholder="Tìm kiếm lời chúc..."
+                                    className="w-full px-4 py-3 pr-10 border-2 border-rose-200 rounded-lg focus:outline-none focus:border-rose-400 transition-colors"
+                                />
+                                <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 text-slate-400 absolute right-3 top-1/2 -translate-y-1/2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
+                                </svg>
+                            </div>
+
+                            {/* Suggested wishes list */}
+                            <div className="space-y-3">
+                                {filteredWishes.length > 0 ? (
+                                    filteredWishes.map((wish, index) => (
+                                        <button
+                                            key={index}
+                                            type="button"
+                                            onClick={() => {
+                                                setMessage(wish);
+                                                setShowWishSuggestions(false);
+                                                setSearchWish('');
+                                            }}
+                                            className="w-full text-left px-4 py-3 bg-rose-50 hover:bg-rose-100 border-2 border-rose-200 hover:border-rose-300 rounded-lg transition-all text-slate-700 hover:text-rose-700"
+                                        >
+                                            {wish}
+                                        </button>
+                                    ))
+                                ) : (
+                                    <p className="text-slate-500 text-center py-8">Không tìm thấy lời chúc phù hợp</p>
+                                )}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            )}
         </section>
     );
 };
