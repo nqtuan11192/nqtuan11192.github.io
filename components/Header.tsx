@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 
 const navLinks = [
@@ -21,6 +21,16 @@ const albumLinks = [
 const Header: React.FC = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isAlbumDropdownOpen, setIsAlbumDropdownOpen] = useState(false);
+  const [isScrolled, setIsScrolled] = useState(false);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      setIsScrolled(window.scrollY > 50);
+    };
+
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
 
   const handleLinkClick = () => {
     setIsMenuOpen(false);
@@ -36,7 +46,10 @@ const Header: React.FC = () => {
 
   return (
     <header
-      className={`sticky top-0 z-50 w-full transition-all duration-300 bg-rose-500 shadow-md`}
+      className={`sticky top-0 z-50 w-full transition-all duration-300 ${isScrolled
+        ? 'bg-rose-500 shadow-md'
+        : 'bg-rose-500/15 backdrop-blur-md shadow-lg border-b border-white/20'
+        }`}
     >
       <div className="container mx-auto px-6 py-4 flex justify-between items-center">
         <div className="text-xl md:text-2xl font-script text-white">
