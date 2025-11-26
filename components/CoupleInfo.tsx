@@ -50,8 +50,8 @@ const CoupleInfo: React.FC = () => {
 
                             {/* Description */}
                             <p className="text-slate-600 italic leading-relaxed">
-                                Tốt nghiệp Tiến sĩ Tin học tại Nhật, là một chàng trai trầm tính, luôn ấm áp với những người xung quanh.
-                                Với châm ngôn nói ít làm nhiều, Tuấn luôn cẩn trọng trong suy nghĩ và kỹ càng trong mọi việc.
+                                Tốt nghiệp Tiến sĩ Tin học tại Nhật Bản, là một chàng trai trầm tính, luôn ấm áp với những người xung quanh.
+                                Với châm ngôn nói ít làm nhiều, Tuấn luôn cẩn trọng trong suy nghĩ và kỹ càng trong hành động.
                                 Tuấn hiện đang là một giảng viên trẻ của trường CNTT&TT, ĐH Bách Khoa Hà Nội.
                             </p>
 
@@ -94,7 +94,7 @@ const CoupleInfo: React.FC = () => {
 
                             {/* Description */}
                             <p className="text-slate-600 italic leading-relaxed">
-                                Tốt nghiệp đại học Ngoại Thương, là một cô gái năng động, hoạt bát, hướng ngoại. Vân Anh ghi điểm trong mắt mọi người với nụ cười rạng rỡ, mang đến năng lượng tích cực và gắn kết mọi người xung quanh.
+                                Tốt nghiệp đại học Ngoại Thương, là một cô gái năng động, hoạt bát, hướng ngoại. Vân Anh ghi điểm trong mắt mọi người với nụ cười rạng rỡ, mang đến năng lượng tích cực và sự gắn kết mọi người xung quanh.
                                 Vân Anh hiện là Account Manager tại công ty công nghệ CMC-APAC, Singapore.
                             </p>
 
