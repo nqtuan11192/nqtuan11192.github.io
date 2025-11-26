@@ -7,7 +7,7 @@ const CoupleInfo: React.FC = () => {
                 {/* Section Header */}
                 <div className="text-center mb-12 md:mb-16">
                     <h2 className="font-vietnamese-script text-2xl md:text-5xl text-slate-700 mb-4">
-                        Cặp Đôi
+                        Chúng mình là
                     </h2>
                     <div className="flex justify-center mb-4">
                         <svg className="w-6 h-6 text-rose-400" fill="currentColor" viewBox="0 0 20 20">
@@ -33,8 +33,9 @@ const CoupleInfo: React.FC = () => {
                             </div>
 
                             {/* Name */}
-                            <h3 className="font-script text-3xl text-slate-800 mb-4">
-                                Nguyễn Quốc Tuấn
+                            <h3 className="text-3xl text-slate-800 mb-4">
+                                <span className="font-bold">Chú rể:    </span>
+                                <span className="font-script">Nguyễn Quốc Tuấn</span>
                             </h3>
 
                             {/* Parents Info */}
@@ -49,7 +50,9 @@ const CoupleInfo: React.FC = () => {
 
                             {/* Description */}
                             <p className="text-slate-600 italic leading-relaxed">
-                                Là một giảng viên trẻ của trường CNTT&TT, ĐH Bách Khoa HN.
+                                Tốt nghiệp Tiến sĩ Tin học tại Nhật, là một chàng trai trầm tính, luôn ấm áp với những người xung quanh.
+                                Với châm ngôn nói ít làm nhiều, Tuấn luôn cẩn trọng trong suy nghĩ và kỹ càng trong mọi việc.
+                                Tuấn hiện đang là một giảng viên trẻ của trường CNTT&TT, ĐH Bách Khoa Hà Nội.
                             </p>
 
                             {/* View More Link
@@ -74,8 +77,9 @@ const CoupleInfo: React.FC = () => {
                             </div>
 
                             {/* Name */}
-                            <h3 className="font-script text-3xl text-slate-800 mb-4">
-                                Phạm Thị Vân Anh
+                            <h3 className="text-3xl text-slate-800 mb-4">
+                                <span className="font-bold">Cô dâu: </span>
+                                <span className="font-script">Phạm Thị Vân Anh</span>
                             </h3>
 
                             {/* Parents Info */}
@@ -90,7 +94,8 @@ const CoupleInfo: React.FC = () => {
 
                             {/* Description */}
                             <p className="text-slate-600 italic leading-relaxed">
-                                Là một cô gái thân thiện, năng động và luôn mang đến năng lượng tích cực cho mọi người xung quanh.
+                                Tốt nghiệp đại học Ngoại Thương, là một cô gái năng động, hoạt bát, hướng ngoại. Vân Anh ghi điểm trong mắt mọi người với nụ cười rạng rỡ, mang đến năng lượng tích cực và gắn kết mọi người xung quanh.
+                                Vân Anh hiện là Account Manager tại công ty công nghệ CMC-APAC, Singapore.
                             </p>
 
                             {/* View More Link

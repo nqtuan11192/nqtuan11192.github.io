@@ -250,12 +250,15 @@ const WeddingEvents: React.FC = () => {
                 {/* Section Header */}
                 <div className="text-center mb-12 md:mb-16">
                     <h2 className="font-vietnamese-script text-2xl md:text-5xl text-slate-700 mb-4">
-                        Sự Kiện Cưới
+                        Thiệp Mời Cưới
                     </h2>
                     <div className="w-24 h-0.5 bg-rose-400 mx-auto mb-4"></div>
-                    <p className="text-slate-500 italic max-w-2xl mx-auto">
-                        Đám cưới không phải là đích đến,<br />
-                        nó là điểm khởi đầu của một hành trình mới...
+                    <p className="text-slate-500 italic max-w-2xl mx-auto text-xl">
+                        Gia đình trân trọng kính mời Quý khách
+                        đến tham dự lễ Vu Quy và lễ Thành Hôn. <br />
+                        Sự hiện diện của Quý khách
+                        là niềm vui và hạnh phúc của gia đình. <br />
+                        Hân hạnh được đón tiếp.
                     </p>
                 </div>
 
