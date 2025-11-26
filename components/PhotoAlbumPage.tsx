@@ -24,7 +24,7 @@ const PhotoAlbumPage: React.FC = () => {
 
     return (
         <div className="min-h-screen bg-white">
-            <SakuraFalling count={25} speed="medium" />
+            <SakuraFalling count={10} speed="medium" />
             <WishNotifications />
             {/* Back to Home Button */}
             <div className="bg-rose-50 py-6 sticky top-16 z-40 shadow-sm">

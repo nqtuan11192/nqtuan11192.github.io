@@ -17,7 +17,7 @@ interface SakuraFallingProps {
 }
 
 const SakuraFalling: React.FC<SakuraFallingProps> = ({
-    count = 20,
+    count = 10,
     speed = 'slow',
     images
 }) => {

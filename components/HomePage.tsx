@@ -39,7 +39,7 @@ const HomePage: React.FC = () => {
 
     return (
         <>
-            <SakuraFalling count={25} speed="medium" />
+            <SakuraFalling count={10} speed="medium" />
             <WishNotifications />
             <HeroSlider />
             <CoupleInfo />
