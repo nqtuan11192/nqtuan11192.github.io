@@ -155,7 +155,8 @@ const Header: React.FC = () => {
       {/* Mobile Menu */}
       <div className={`md:hidden ${isMenuOpen ? 'block' : 'hidden'} bg-rose-500`}>
         <nav className="flex flex-col items-center space-y-4 py-4">
-          {navLinks.map((link) => (
+          {/* First 2 items */}
+          {navLinks.slice(0, 2).map((link) => (
             link.isAnchor ? (
               <a
                 key={link.href}
@@ -177,7 +178,7 @@ const Header: React.FC = () => {
             )
           ))}
 
-          {/* Mobile Album Dropdown */}
+          {/* Mobile Album Dropdown - 3rd position */}
           <div className="w-full">
             <button
               onClick={() => setIsAlbumDropdownOpen(!isAlbumDropdownOpen)}
@@ -203,6 +204,29 @@ const Header: React.FC = () => {
               </div>
             )}
           </div>
+
+          {/* Remaining items */}
+          {navLinks.slice(2).map((link) => (
+            link.isAnchor ? (
+              <a
+                key={link.href}
+                href={link.href}
+                onClick={handleLinkClick}
+                className="text-white/90 hover:text-white transition-colors duration-300 font-medium text-lg"
+              >
+                {link.label}
+              </a>
+            ) : (
+              <Link
+                key={link.href}
+                to={link.href}
+                onClick={handleLinkClick}
+                className="text-white/90 hover:text-white transition-colors duration-300 font-medium text-lg"
+              >
+                {link.label}
+              </Link>
+            )
+          ))}
 
           <button
             onClick={handleGiftBoxClick}
