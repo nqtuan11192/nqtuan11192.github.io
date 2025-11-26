@@ -33,6 +33,26 @@ const Lightbox: React.FC<LightboxProps> = ({ images, currentIndex, onClose, onNe
     return () => window.removeEventListener('keydown', handleKeyDown);
   }, [onClose, onNext, onPrev]);
 
+  // Block all page interactions when lightbox is open
+  useEffect(() => {
+    // Save original body styles
+    const originalOverflow = document.body.style.overflow;
+    const originalPosition = document.body.style.position;
+    const originalWidth = document.body.style.width;
+
+    // Lock body scroll and prevent all interactions
+    document.body.style.overflow = 'hidden';
+    document.body.style.position = 'fixed';
+    document.body.style.width = '100%';
+
+    // Cleanup: restore original styles when lightbox closes
+    return () => {
+      document.body.style.overflow = originalOverflow;
+      document.body.style.position = originalPosition;
+      document.body.style.width = originalWidth;
+    };
+  }, []);
+
   // Touch event handlers for swipe detection
   const handleTouchStart = (e: React.TouchEvent) => {
     touchStartX.current = e.touches[0].clientX;
