@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
 import HeroSlider from './HeroSlider';
 import CoupleInfo from './CoupleInfo';
 import Countdown from './Countdown';
@@ -21,10 +21,19 @@ const previewImages = [
 ];
 
 const HomePage: React.FC = () => {
-    // Scroll to top when component mounts
+    const location = useLocation();
+
+    // Scroll to top or hash when component mounts
     useEffect(() => {
-        window.scrollTo(0, 0);
-    }, []);
+        if (location.hash) {
+            const element = document.getElementById(location.hash.substring(1));
+            if (element) {
+                element.scrollIntoView({ behavior: 'smooth' });
+            }
+        } else {
+            window.scrollTo(0, 0);
+        }
+    }, [location]);
 
     return (
         <>
