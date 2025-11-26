@@ -7,6 +7,7 @@ import WeddingEvents from './WeddingEvents';
 import OurStory from './OurStory';
 import RSVP from './RSVP';
 import Guestbook from './Guestbook';
+import WishNotifications from './WishNotifications';
 
 const base = import.meta.env.BASE_URL;
 
@@ -37,6 +38,7 @@ const HomePage: React.FC = () => {
 
     return (
         <>
+            <WishNotifications />
             <HeroSlider />
             <CoupleInfo />
             <OurStory />
