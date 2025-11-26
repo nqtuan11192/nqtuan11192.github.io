@@ -150,7 +150,7 @@ const galleryImages3 = [
   { id: 30, url: `${base}images/album_3/IMG_5344.jpg`, alt: "Image IMG_5344" },
   { id: 31, url: `${base}images/album_3/IMG_5347.jpg`, alt: "Image IMG_5347" },
   { id: 32, url: `${base}images/album_3/IMG_5417.jpg`, alt: "Image IMG_5417" },
-  { id: 33, url: `${base}images/album_3/IMG_5499.JPEG`, alt: "Image IMG_5499" },
+  { id: 33, url: `${base}images/album_3/IMG_5499.jpg`, alt: "Image IMG_5499" },
   { id: 34, url: `${base}images/album_3/IMG_5797.jpg`, alt: "Image IMG_5797" },
   { id: 35, url: `${base}images/album_3/IMG_6009.jpg`, alt: "Image IMG_6009" },
   { id: 36, url: `${base}images/album_3/IMG_6097.jpg`, alt: "Image IMG_6097" },
