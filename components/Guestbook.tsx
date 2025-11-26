@@ -16,8 +16,19 @@ const Guestbook: React.FC = () => {
     const [message, setMessage] = useState('');
     const [entries, setEntries] = useState<GuestbookEntry[]>([]);
     const [isSubmitting, setIsSubmitting] = useState(false);
-    const [searchWish, setSearchWish] = useState('');
     const [showWishSuggestions, setShowWishSuggestions] = useState(false);
+    const [showEmojiPicker, setShowEmojiPicker] = useState(false);
+    const [emojiPage, setEmojiPage] = useState(0);
+
+    // Emoji categories for picker
+    const emojiCategories = [
+        { name: 'Hearts', emojis: ['💕', '❤️', '💖', '💗', '💓', '💝', '💘', '💞', '💟'] },
+        { name: 'Smileys', emojis: ['😊', '😍', '🥰', '😘', '🤗', '😄', '😁', '🎉', '🎊'] },
+        { name: 'Flowers', emojis: ['🌸', '🌺', '🌹', '🌷', '🌻', '💐', '🌼', '🏵️', '💮'] },
+        { name: 'Celebration', emojis: ['🎂', '🍰', '🥂', '🍾', '🎁', '🎈', '🎀', '✨', '⭐'] },
+        { name: 'Wedding', emojis: ['👰', '🤵', '💑', '👫', '💏', '💍', '💒', '🕊️', '🦢'] },
+        { name: 'Others', emojis: ['🎶', '🎵', '🔔', '🌟', '💫', '🌈', '☀️', '🌙', '⛪'] },
+    ];
 
     // Suggested wishes
     const suggestedWishes = [
@@ -34,9 +45,33 @@ const Guestbook: React.FC = () => {
         "Chúc mừng ngày vui của hai bạn! Hãy luôn giữ gìn hạnh phúc này nhé! 💑",
     ];
 
-    const filteredWishes = suggestedWishes.filter(wish =>
-        wish.toLowerCase().includes(searchWish.toLowerCase())
-    );
+
+
+    // Close emoji picker when clicking outside
+    useEffect(() => {
+        const handleClickOutside = (event: MouseEvent) => {
+            const target = event.target as HTMLElement;
+
+            // Close emoji picker if clicking outside
+            if (showEmojiPicker && !target.closest('.emoji-picker-container')) {
+                setShowEmojiPicker(false);
+                setEmojiPage(0);
+            }
+
+            // Close wish suggestions if clicking outside
+            if (showWishSuggestions && !target.closest('.wish-suggestions-container')) {
+                setShowWishSuggestions(false);
+            }
+        };
+
+        if (showEmojiPicker || showWishSuggestions) {
+            document.addEventListener('mousedown', handleClickOutside);
+        }
+
+        return () => {
+            document.removeEventListener('mousedown', handleClickOutside);
+        };
+    }, [showEmojiPicker, showWishSuggestions]);
 
     // Real-time listener for guestbook entries
     useEffect(() => {
@@ -155,54 +190,168 @@ const Guestbook: React.FC = () => {
                                     disabled={isSubmitting}
                                     className="w-full px-4 py-3 border-2 border-dashed border-rose-300 rounded-lg focus:outline-none focus:border-rose-400 transition-colors resize-none disabled:opacity-50"
                                 />
-                                <div className="absolute right-4 bottom-4 flex gap-2">
-                                    <button
-                                        type="button"
-                                        onClick={() => setMessage(message + '💕')}
-                                        className="text-2xl hover:scale-125 transition-transform"
-                                        title="Thêm emoji trái tim"
-                                    >
-                                        💕
-                                    </button>
-                                    <button
-                                        type="button"
-                                        onClick={() => setMessage(message + '😊')}
-                                        className="text-2xl hover:scale-125 transition-transform"
-                                        title="Thêm emoji mặt cười"
-                                    >
-                                        😊
-                                    </button>
-                                    <button
-                                        type="button"
-                                        onClick={() => setMessage(message + '🎉')}
-                                        className="text-2xl hover:scale-125 transition-transform"
-                                        title="Thêm emoji pháo hoa"
-                                    >
-                                        🎉
-                                    </button>
-                                    <button
-                                        type="button"
-                                        onClick={() => setMessage(message + '🌸')}
-                                        className="text-2xl hover:scale-125 transition-transform"
-                                        title="Thêm emoji hoa"
-                                    >
-                                        🌸
-                                    </button>
-                                </div>
-                            </div>
+                                {/* Bottom row with wish suggestions (left) and emojis (right) */}
+                                <div className="absolute left-4 right-4 bottom-4 flex justify-between items-center">
+                                    {/* Wish Suggestions Button - Left */}
+                                    <div className="relative wish-suggestions-container">
+                                        <button
+                                            type="button"
+                                            onClick={() => setShowWishSuggestions(!showWishSuggestions)}
+                                            className="inline-flex items-center gap-1.5 px-3 py-1.5 bg-white border-2 border-rose-300 text-rose-600 rounded-lg hover:bg-rose-50 transition-colors text-xs font-medium"
+                                        >
+                                            <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z" />
+                                            </svg>
+                                            <span className="hidden sm:inline">Gợi ý</span>
+                                        </button>
 
-                            {/* Wish Suggestions Button */}
-                            <div className="text-center">
-                                <button
-                                    type="button"
-                                    onClick={() => setShowWishSuggestions(true)}
-                                    className="inline-flex items-center gap-2 px-4 py-2 bg-white border-2 border-rose-300 text-rose-600 rounded-lg hover:bg-rose-50 transition-colors text-sm font-medium"
-                                >
-                                    <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z" />
-                                    </svg>
-                                    Xem gợi ý lời chúc
-                                </button>
+                                        {/* Wish Suggestions Popover */}
+                                        {showWishSuggestions && (
+                                            <div className="absolute bottom-full left-0 mb-2 bg-white rounded-xl shadow-2xl border-2 border-rose-300 w-80 max-h-96 overflow-hidden z-50">
+                                                {/* Header */}
+                                                <div className="bg-rose-500 text-white px-4 py-2">
+                                                    <div className="flex items-center justify-between">
+                                                        <div className="flex items-center gap-2">
+                                                            <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                                                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z" />
+                                                            </svg>
+                                                            <span className="font-semibold text-sm">Gợi ý lời chúc</span>
+                                                        </div>
+                                                    </div>
+                                                </div>
+
+                                                {/* Wishes List */}
+                                                <div className="p-3 bg-white overflow-y-auto max-h-80">
+                                                    <div className="space-y-2">
+                                                        {suggestedWishes.map((wish, index) => (
+                                                            <button
+                                                                key={index}
+                                                                type="button"
+                                                                onClick={() => {
+                                                                    setMessage(wish);
+                                                                    setShowWishSuggestions(false);
+                                                                }}
+                                                                className="w-full text-left px-3 py-2 bg-rose-50 hover:bg-rose-100 border border-rose-200 hover:border-rose-300 rounded-lg transition-all text-xs text-slate-700 hover:text-rose-700"
+                                                            >
+                                                                {wish}
+                                                            </button>
+                                                        ))}
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        )}
+                                    </div>
+
+                                    {/* Emoji Buttons - Right */}
+                                    <div className="flex gap-2">
+                                        <button
+                                            type="button"
+                                            onClick={() => setMessage(message + '💕')}
+                                            className="text-2xl hover:scale-125 transition-transform"
+                                            title="Thêm emoji trái tim"
+                                        >
+                                            💕
+                                        </button>
+                                        <button
+                                            type="button"
+                                            onClick={() => setMessage(message + '😊')}
+                                            className="text-2xl hover:scale-125 transition-transform"
+                                            title="Thêm emoji mặt cười"
+                                        >
+                                            😊
+                                        </button>
+                                        <button
+                                            type="button"
+                                            onClick={() => setMessage(message + '🎉')}
+                                            className="text-2xl hover:scale-125 transition-transform"
+                                            title="Thêm emoji pháo hoa"
+                                        >
+                                            🎉
+                                        </button>
+                                        <button
+                                            type="button"
+                                            onClick={() => setMessage(message + '🌸')}
+                                            className="text-2xl hover:scale-125 transition-transform"
+                                            title="Thêm emoji hoa"
+                                        >
+                                            🌸
+                                        </button>
+                                        {/* More Emojis Button */}
+                                        <div className="relative emoji-picker-container">
+                                            <button
+                                                type="button"
+                                                onClick={() => setShowEmojiPicker(!showEmojiPicker)}
+                                                className="text-lg px-2 py-1 bg-rose-100 hover:bg-rose-200 text-rose-600 rounded transition-colors"
+                                                title="More emojis"
+                                            >
+                                                +
+                                            </button>
+
+                                            {/* Emoji Picker Popover */}
+                                            {showEmojiPicker && (
+                                                <div className="absolute bottom-full right-0 mb-2 bg-white rounded-xl shadow-2xl border-2 border-rose-300 w-72 overflow-hidden z-50">
+                                                    {/* Header with category navigation */}
+                                                    <div className="bg-rose-500 text-white px-3 py-2 flex items-center justify-between">
+                                                        <button
+                                                            type="button"
+                                                            onClick={() => setEmojiPage((prev) => (prev > 0 ? prev - 1 : emojiCategories.length - 1))}
+                                                            className="p-1 hover:bg-rose-600 rounded transition-colors"
+                                                        >
+                                                            <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                                                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
+                                                            </svg>
+                                                        </button>
+                                                        <div className="flex items-center gap-1.5">
+                                                            <span className="text-base">{emojiCategories[emojiPage].emojis[0]}</span>
+                                                            <span className="font-semibold text-xs">{emojiCategories[emojiPage].name}</span>
+                                                        </div>
+                                                        <button
+                                                            type="button"
+                                                            onClick={() => setEmojiPage((prev) => (prev < emojiCategories.length - 1 ? prev + 1 : 0))}
+                                                            className="p-1 hover:bg-rose-600 rounded transition-colors"
+                                                        >
+                                                            <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                                                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+                                                            </svg>
+                                                        </button>
+                                                    </div>
+
+                                                    {/* Emoji Grid */}
+                                                    <div className="p-3 bg-white">
+                                                        <div className="grid grid-cols-6 gap-1.5">
+                                                            {emojiCategories[emojiPage].emojis.map((emoji, index) => (
+                                                                <button
+                                                                    key={index}
+                                                                    type="button"
+                                                                    onClick={() => {
+                                                                        setMessage(message + emoji);
+                                                                        setShowEmojiPicker(false);
+                                                                    }}
+                                                                    className="text-xl p-1.5 hover:bg-rose-100 rounded transition-all hover:scale-110"
+                                                                >
+                                                                    {emoji}
+                                                                </button>
+                                                            ))}
+                                                        </div>
+                                                    </div>
+
+                                                    {/* Page indicator dots */}
+                                                    <div className="bg-rose-50 px-3 py-1.5 flex justify-center gap-1">
+                                                        {emojiCategories.map((_, index) => (
+                                                            <button
+                                                                key={index}
+                                                                type="button"
+                                                                onClick={() => setEmojiPage(index)}
+                                                                className={`w-1.5 h-1.5 rounded-full transition-all ${index === emojiPage ? 'bg-rose-500 w-3' : 'bg-rose-300 hover:bg-rose-400'
+                                                                    }`}
+                                                            />
+                                                        ))}
+                                                    </div>
+                                                </div>
+                                            )}
+                                        </div>
+                                    </div>
+                                </div>
                             </div>
 
                             <div className="text-center">
@@ -284,75 +433,7 @@ const Guestbook: React.FC = () => {
                 </div>
             </div>
 
-            {/* Wish Suggestions Modal */}
-            {showWishSuggestions && (
-                <div
-                    className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black bg-opacity-50 backdrop-blur-sm"
-                    onClick={() => setShowWishSuggestions(false)}
-                >
-                    <div
-                        className="bg-white rounded-2xl shadow-2xl w-full max-w-2xl max-h-[80vh] overflow-hidden"
-                        onClick={(e) => e.stopPropagation()}
-                    >
-                        {/* Modal Header */}
-                        <div className="bg-rose-500 text-white p-6 rounded-t-2xl relative">
-                            <button
-                                onClick={() => setShowWishSuggestions(false)}
-                                className="absolute top-4 right-4 text-white hover:text-rose-100 transition-colors"
-                            >
-                                <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
-                                </svg>
-                            </button>
-                            <div className="flex items-center justify-center gap-3">
-                                <svg xmlns="http://www.w3.org/2000/svg" className="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z" />
-                                </svg>
-                                <h2 className="font-vietnamese-script text-3xl md:text-4xl">Gợi ý lời chúc</h2>
-                            </div>
-                        </div>
 
-                        {/* Modal Content */}
-                        <div className="p-6 overflow-y-auto max-h-[calc(80vh-120px)]">
-                            {/* Search box */}
-                            <div className="relative mb-4">
-                                <input
-                                    type="text"
-                                    value={searchWish}
-                                    onChange={(e) => setSearchWish(e.target.value)}
-                                    placeholder="Tìm kiếm lời chúc..."
-                                    className="w-full px-4 py-3 pr-10 border-2 border-rose-200 rounded-lg focus:outline-none focus:border-rose-400 transition-colors"
-                                />
-                                <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 text-slate-400 absolute right-3 top-1/2 -translate-y-1/2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
-                                </svg>
-                            </div>
-
-                            {/* Suggested wishes list */}
-                            <div className="space-y-3">
-                                {filteredWishes.length > 0 ? (
-                                    filteredWishes.map((wish, index) => (
-                                        <button
-                                            key={index}
-                                            type="button"
-                                            onClick={() => {
-                                                setMessage(wish);
-                                                setShowWishSuggestions(false);
-                                                setSearchWish('');
-                                            }}
-                                            className="w-full text-left px-4 py-3 bg-rose-50 hover:bg-rose-100 border-2 border-rose-200 hover:border-rose-300 rounded-lg transition-all text-slate-700 hover:text-rose-700"
-                                        >
-                                            {wish}
-                                        </button>
-                                    ))
-                                ) : (
-                                    <p className="text-slate-500 text-center py-8">Không tìm thấy lời chúc phù hợp</p>
-                                )}
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            )}
         </section>
     );
 };
