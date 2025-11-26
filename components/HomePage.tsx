@@ -13,7 +13,7 @@ const base = import.meta.env.BASE_URL;
 // Preview images for the album section
 const previewImages = [
     { url: `${base}images/album_1/HAN02617.jpg`, alt: "Preview 1" },
-    { url: `${base}images/album_2/DMI_3802.jpg`, alt: "Preview 2" },
+    { url: `${base}images/album_2/DMI_3574.jpg`, alt: "Preview 2" },
     { url: `${base}images/album_1/HAN02963.jpg`, alt: "Preview 3" },
     { url: `${base}images/album_2/DMI_4575.jpg`, alt: "Preview 4" },
     { url: `${base}images/album_1/HAN02790.jpg`, alt: "Preview 5" },
@@ -74,9 +74,9 @@ const HomePage: React.FC = () => {
                             </svg>
                             Xem toàn bộ album
                         </Link>
-                        <p className="text-slate-400 text-sm mt-3">
+                        {/* <p className="text-slate-400 text-sm mt-3">
                             Hơn 100 khoảnh khắc đẹp đang chờ bạn khám phá
-                        </p>
+                        </p> */}
                     </div>
                 </div>
             </section>
