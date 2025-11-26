@@ -5,18 +5,26 @@ const navLinks = [
   // { href: '#hero', label: 'Home' },
   { href: '/#couple', label: 'Cặp đôi', isAnchor: true },
   { href: '/#story', label: 'Câu chuyện tình yêu', isAnchor: true },
-  { href: '/#album', label: 'Album ảnh', isAnchor: true },
+  // Album link removed - now using dropdown
   { href: '/#event', label: 'Thiệp mời cưới', isAnchor: true },
   { href: '/#rsvp', label: 'Xác nhận tham dự', isAnchor: true },
   { href: '/#guestbook', label: 'Sổ lưu bút', isAnchor: true },
 ];
 
+const albumLinks = [
+  { href: '/album#album-1', label: 'Album 1: Nhật Bản' },
+  { href: '/album#album-2', label: 'Album 2: Việt Nam' },
+  { href: '/album#album-3', label: 'Album 3: Chuyến đi' },
+];
+
 
 const Header: React.FC = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [isAlbumDropdownOpen, setIsAlbumDropdownOpen] = useState(false);
 
   const handleLinkClick = () => {
     setIsMenuOpen(false);
+    setIsAlbumDropdownOpen(false);
   };
 
   const handleGiftBoxClick = (e: React.MouseEvent) => {
@@ -36,7 +44,7 @@ const Header: React.FC = () => {
             Vân Anh &#9829; Quốc Tuấn
           </Link>
         </div>
-        <nav className="hidden md:flex space-x-8">
+        <nav className="hidden md:flex space-x-8 items-center">
           {navLinks.map((link) => (
             link.isAnchor ? (
               <a
@@ -56,13 +64,42 @@ const Header: React.FC = () => {
               </Link>
             )
           ))}
+
+          {/* Album Dropdown */}
+          <div
+            className="relative"
+            onMouseEnter={() => setIsAlbumDropdownOpen(true)}
+            onMouseLeave={() => setIsAlbumDropdownOpen(false)}
+          >
+            <a
+              href="/#album"
+              className="text-white/90 hover:text-white transition-colors duration-300 font-medium text-lg flex items-center gap-1"
+            >
+              Album ảnh
+              <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+              </svg>
+            </a>
+            {isAlbumDropdownOpen && (
+              <div className="absolute top-full left-0 mt-2 bg-rose-100 rounded-lg shadow-xl py-2 min-w-[200px] before:content-[''] before:absolute before:bottom-full before:left-0 before:right-0 before:h-2">
+                {albumLinks.map((album) => (
+                  <Link
+                    key={album.href}
+                    to={album.href}
+                    onClick={handleLinkClick}
+                    className="block px-4 py-2 text-slate-700 hover:bg-rose-200 hover:text-rose-600 transition-colors duration-200"
+                  >
+                    {album.label}
+                  </Link>
+                ))}
+              </div>
+            )}
+          </div>
+
           <button
             onClick={handleGiftBoxClick}
             className="text-white/90 hover:text-white transition-colors duration-300 font-medium text-lg flex items-center gap-1"
           >
-            {/* <svg xmlns="http://www.w3.org/2000/svg" className="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8v13m0-13V6a2 2 0 112 2h-2zm0 0V5.5A2.5 2.5 0 109.5 8H12zm-7 4h14M5 12a2 2 0 110-4h14a2 2 0 110 4M5 12v7a2 2 0 002 2h10a2 2 0 002-2v-7" />
-            </svg> */}
             Hộp mừng cưới
           </button>
         </nav>
@@ -104,13 +141,38 @@ const Header: React.FC = () => {
               </Link>
             )
           ))}
+
+          {/* Mobile Album Dropdown */}
+          <div className="w-full">
+            <button
+              onClick={() => setIsAlbumDropdownOpen(!isAlbumDropdownOpen)}
+              className="text-white/90 hover:text-white transition-colors duration-300 font-medium text-lg flex items-center gap-1 justify-center w-full"
+            >
+              Album ảnh
+              <svg xmlns="http://www.w3.org/2000/svg" className={`h-4 w-4 transition-transform ${isAlbumDropdownOpen ? 'rotate-180' : ''}`} fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+              </svg>
+            </button>
+            {isAlbumDropdownOpen && (
+              <div className="mt-2 space-y-2">
+                {albumLinks.map((album) => (
+                  <Link
+                    key={album.href}
+                    to={album.href}
+                    onClick={handleLinkClick}
+                    className="block text-white/80 hover:text-white transition-colors duration-200 text-base"
+                  >
+                    {album.label}
+                  </Link>
+                ))}
+              </div>
+            )}
+          </div>
+
           <button
             onClick={handleGiftBoxClick}
             className="text-white/90 hover:text-white transition-colors duration-300 font-medium text-lg flex items-center gap-2"
           >
-            {/* <svg xmlns="http://www.w3.org/2000/svg" className="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8v13m0-13V6a2 2 0 112 2h-2zm0 0V5.5A2.5 2.5 0 109.5 8H12zm-7 4h14M5 12a2 2 0 110-4h14a2 2 0 110 4M5 12v7a2 2 0 002 2h10a2 2 0 002-2v-7" />
-            </svg> */}
             Hộp mừng cưới
           </button>
         </nav>

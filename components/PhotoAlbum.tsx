@@ -258,7 +258,7 @@ const PhotoAlbum: React.FC = () => {
           </div>
 
           {/* First Gallery */}
-          <div className="mb-16">
+          <div id="album-1" className="mb-16">
             <h3 className="font-vietnamese-script text-xl md:text-3xl text-slate-600 mb-6 text-center">
               Album 1: Bộ ảnh cưới tại Nhật Bản - nơi tình yêu bắt đầu
             </h3>
@@ -281,7 +281,7 @@ const PhotoAlbum: React.FC = () => {
           </div>
 
           {/* Second Gallery */}
-          <div>
+          <div id="album-2">
             <h3 className="font-vietnamese-script text-xl md:text-3xl text-slate-600 mb-6 text-center">
               Album 2: Bộ ảnh cưới tại Việt Nam
             </h3>
@@ -304,7 +304,7 @@ const PhotoAlbum: React.FC = () => {
           </div>
 
           {/* Third Gallery */}
-          <div className="mt-16">
+          <div id="album-3" className="mt-16">
             <h3 className="font-vietnamese-script text-xl md:text-3xl text-slate-600 mb-6 text-center">
               Album 3: Những chuyến đi bên nhau
             </h3>

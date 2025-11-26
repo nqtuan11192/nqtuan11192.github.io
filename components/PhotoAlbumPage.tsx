@@ -1,12 +1,24 @@
 import React, { useEffect } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
 import PhotoAlbum from './PhotoAlbum';
 
 const PhotoAlbumPage: React.FC = () => {
-    // Scroll to top when component mounts
+    const location = useLocation();
+
+    // Scroll to top or hash when component mounts
     useEffect(() => {
-        window.scrollTo(0, 0);
-    }, []);
+        if (location.hash) {
+            // Wait a bit for the page to render before scrolling
+            setTimeout(() => {
+                const element = document.getElementById(location.hash.substring(1));
+                if (element) {
+                    element.scrollIntoView({ behavior: 'smooth' });
+                }
+            }, 100);
+        } else {
+            window.scrollTo(0, 0);
+        }
+    }, [location]);
 
     return (
         <div className="min-h-screen bg-white">
