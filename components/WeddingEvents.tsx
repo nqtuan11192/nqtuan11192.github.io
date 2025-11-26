@@ -258,7 +258,7 @@ const WeddingEvents: React.FC = () => {
                         đến tham dự lễ Vu Quy và lễ Thành Hôn. <br />
                         Sự hiện diện của Quý khách
                         là niềm vui và hạnh phúc của gia đình. <br />
-                        Hân hạnh được đón tiếp.
+                        <span className="text-rose-500 not-italic">💕💕💕</span> Hân hạnh được đón tiếp. <span className="text-rose-500 not-italic">💕💕💕</span>
                     </p>
                 </div>
 
