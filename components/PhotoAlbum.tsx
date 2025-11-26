@@ -159,6 +159,7 @@ const galleryImages3 = [
   { id: 39, url: `${base}images/album_3/IMG_7266.jpg`, alt: "Image IMG_7266" },
 
   { id: 40, url: `${base}images/album_3/IMG_7420.jpg`, alt: "Image IMG_7420" },
+  { id: 41, url: `${base}images/d3c91715-c1c5-4570-b17d-d671b7a54088.jpeg`, alt: "" },
 ];
 
 // export default galleryImages

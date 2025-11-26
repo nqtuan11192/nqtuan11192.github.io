@@ -48,7 +48,7 @@ const Header: React.FC = () => {
     <header
       className={`sticky top-0 z-50 w-full transition-all duration-300 ${isScrolled
         ? 'bg-rose-500 shadow-md'
-        : 'bg-rose-500/15 backdrop-blur-md shadow-lg border-b border-white/20'
+        : 'bg-rose-500/15 backdrop-blur-lg shadow-lg border-b border-white/30'
         }`}
     >
       <div className="container mx-auto px-6 py-4 flex justify-between items-center">
