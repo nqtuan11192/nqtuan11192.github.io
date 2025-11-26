@@ -16,6 +16,9 @@ interface LightboxProps {
 
 const Lightbox: React.FC<LightboxProps> = ({ images, currentIndex, onClose, onNext, onPrev, onSelect }) => {
   const activeThumbnailRef = useRef<HTMLButtonElement>(null);
+  const touchStartX = useRef<number>(0);
+  const touchEndX = useRef<number>(0);
+  const isDragging = useRef<boolean>(false);
 
   // Keyboard navigation
   useEffect(() => {
@@ -28,6 +31,71 @@ const Lightbox: React.FC<LightboxProps> = ({ images, currentIndex, onClose, onNe
     return () => window.removeEventListener('keydown', handleKeyDown);
   }, [onClose, onNext, onPrev]);
 
+  // Touch event handlers for swipe detection
+  const handleTouchStart = (e: React.TouchEvent) => {
+    touchStartX.current = e.touches[0].clientX;
+    touchEndX.current = e.touches[0].clientX; // Initialize end position
+  };
+
+  const handleTouchMove = (e: React.TouchEvent) => {
+    touchEndX.current = e.touches[0].clientX;
+  };
+
+  const handleTouchEnd = () => {
+    handleSwipeEnd();
+  };
+
+  // Mouse event handlers for drag-to-swipe on desktop
+  const handleMouseDown = (e: React.MouseEvent) => {
+    isDragging.current = true;
+    touchStartX.current = e.clientX;
+    touchEndX.current = e.clientX;
+  };
+
+  const handleMouseMove = (e: React.MouseEvent) => {
+    if (isDragging.current) {
+      touchEndX.current = e.clientX;
+    }
+  };
+
+  const handleMouseUp = () => {
+    if (isDragging.current) {
+      handleSwipeEnd();
+      isDragging.current = false;
+    }
+  };
+
+  const handleMouseLeave = () => {
+    if (isDragging.current) {
+      isDragging.current = false;
+      touchStartX.current = 0;
+      touchEndX.current = 0;
+    }
+  };
+
+  // Common swipe/drag end logic
+  const handleSwipeEnd = () => {
+    const swipeThreshold = 50; // Minimum distance for a swipe
+    const diff = touchStartX.current - touchEndX.current;
+
+    // Only trigger if we actually moved
+    if (touchStartX.current !== 0 && touchEndX.current !== 0) {
+      if (Math.abs(diff) > swipeThreshold) {
+        if (diff > 0) {
+          // Swiped/dragged left - go to next image
+          onNext();
+        } else {
+          // Swiped/dragged right - go to previous image
+          onPrev();
+        }
+      }
+    }
+
+    // Reset values
+    touchStartX.current = 0;
+    touchEndX.current = 0;
+  };
+
   // Scroll active thumbnail into view
   useEffect(() => {
     if (activeThumbnailRef.current) {
@@ -38,11 +106,11 @@ const Lightbox: React.FC<LightboxProps> = ({ images, currentIndex, onClose, onNe
       });
     }
   }, [currentIndex]);
-  
+
   if (currentIndex === null) return null;
 
   return (
-    <div 
+    <div
       className="fixed inset-0 bg-black/90 z-50 flex flex-col animate-fade-in"
       role="dialog"
       aria-modal="true"
@@ -51,7 +119,7 @@ const Lightbox: React.FC<LightboxProps> = ({ images, currentIndex, onClose, onNe
       {/* Top Bar */}
       <header className="flex-shrink-0 w-full flex justify-between items-center p-4 text-white z-20">
         <span className="font-semibold text-lg drop-shadow-md">{currentIndex + 1} / {images.length}</span>
-        <button 
+        <button
           onClick={onClose}
           className="text-white/80 hover:text-white transition-colors"
           aria-label="Close lightbox"
@@ -63,10 +131,13 @@ const Lightbox: React.FC<LightboxProps> = ({ images, currentIndex, onClose, onNe
       </header>
 
       {/* Main Viewport */}
-      <main className="flex-1 flex items-center justify-center relative w-full min-h-0" onClick={onClose}>
-        
+      <main
+        className="flex-1 flex items-center justify-center relative w-full min-h-0"
+        onClick={onClose}
+      >
+
         {/* Previous button */}
-        <button 
+        <button
           onClick={(e) => { e.stopPropagation(); onPrev(); }}
           className="absolute left-2 md:left-4 top-1/2 -translate-y-1/2 p-2 text-white/70 hover:text-white transition-colors z-10"
           aria-label="Previous image"
@@ -75,19 +146,30 @@ const Lightbox: React.FC<LightboxProps> = ({ images, currentIndex, onClose, onNe
         </button>
 
         {/* Image and Caption */}
-        <div className="relative h-full w-full flex items-center justify-center" onClick={e => e.stopPropagation()}>
+        <div
+          className="relative h-full w-full flex items-center justify-center touch-pan-y select-none cursor-grab active:cursor-grabbing"
+          style={{ touchAction: 'pan-y' }}
+          onClick={e => e.stopPropagation()}
+          onTouchStart={handleTouchStart}
+          onTouchMove={handleTouchMove}
+          onTouchEnd={handleTouchEnd}
+          onMouseDown={handleMouseDown}
+          onMouseMove={handleMouseMove}
+          onMouseUp={handleMouseUp}
+          onMouseLeave={handleMouseLeave}
+        >
           <img
             src={images[currentIndex].url}
             alt={images[currentIndex].alt}
-            className="block max-w-full max-h-full object-contain rounded-lg shadow-2xl"
+            className="block max-w-full max-h-full object-contain rounded-lg shadow-2xl pointer-events-none"
           />
-           <div className="absolute bottom-0 text-center p-4 text-white w-full bg-gradient-to-t from-black/50 to-transparent pointer-events-none rounded-b-lg">
+          <div className="absolute bottom-0 text-center p-4 text-white w-full bg-gradient-to-t from-black/50 to-transparent pointer-events-none rounded-b-lg">
             <p className="drop-shadow-md text-sm md:text-base">{images[currentIndex].alt}</p>
           </div>
         </div>
-        
+
         {/* Next button */}
-        <button 
+        <button
           onClick={(e) => { e.stopPropagation(); onNext(); }}
           className="absolute right-2 md:right-4 top-1/2 -translate-y-1/2 p-2 text-white/70 hover:text-white transition-colors z-10"
           aria-label="Next image"
@@ -95,7 +177,7 @@ const Lightbox: React.FC<LightboxProps> = ({ images, currentIndex, onClose, onNe
           <svg xmlns="http://www.w3.org/2000/svg" className="h-10 w-10 md:h-12 md:w-12" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" /></svg>
         </button>
       </main>
-      
+
       {/* Thumbnail Bar */}
       <footer className="flex-shrink-0 w-full p-4" onClick={e => e.stopPropagation()}>
         <div className="max-w-5xl mx-auto">
@@ -106,11 +188,10 @@ const Lightbox: React.FC<LightboxProps> = ({ images, currentIndex, onClose, onNe
                   key={image.url + index}
                   onClick={() => onSelect(index)}
                   ref={index === currentIndex ? activeThumbnailRef : null}
-                  className={`flex-shrink-0 w-16 h-16 md:w-20 md:h-20 rounded-md overflow-hidden transition-all duration-200 ${
-                    currentIndex === index
-                      ? 'border-2 border-white scale-105'
-                      : 'opacity-60 hover:opacity-100'
-                  }`}
+                  className={`flex-shrink-0 w-16 h-16 md:w-20 md:h-20 rounded-md overflow-hidden transition-all duration-200 ${currentIndex === index
+                    ? 'border-2 border-white scale-105'
+                    : 'opacity-60 hover:opacity-100'
+                    }`}
                   aria-label={`View image ${index + 1}`}
                 >
                   <img
