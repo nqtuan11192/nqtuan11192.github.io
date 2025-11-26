@@ -50,8 +50,8 @@ const events: WeddingEvent[] = [
         </>),
         addressText: 'Hội trường bến xe Nước Mát, Tổ dân phố Nước Mát, P. Âu Lâu, tỉnh Lào Cai',
         image: '/images/album_2/DMI_5705.jpg',
-        mapLink: 'https://maps.app.goo.gl/duiLH6DBvrXkGXRD8',
-        mapEmbed: 'https://www.google.com/maps/embed?pb=!1m18!1m12!1d5280.758006742002!2d104.8428742!3d21.696897000000003!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3133455c8777a10f%3A0xca3d6e9f1102124e!2zRG9hbmggTmdoaeG7h3AgVMawIE5ow6JuIEjDgCBUSOG7plkgQU5I!5e1!3m2!1sen!2s!4v1763575119975!5m2!1sen!2s',
+        mapLink: 'https://maps.app.goo.gl/bHscUNLXYvgDECcU6',
+        mapEmbed: 'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d987.4964994017387!2d104.83915400569491!3d21.70056265037665!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3133451727877f19%3A0xdaaae3f0ff8dff05!2zQuG6v24geGUga2jDoWNoIE7GsOG7m2MgTcOhdCAoeGUgSOG6o2kgUGjGsOG7o25nKQ!5e1!3m2!1sen!2sus!4v1764137746641!5m2!1sen!2sus',
     },
     {
         title: 'LỄ  THÀNH HÔN NHÀ TRAI',
