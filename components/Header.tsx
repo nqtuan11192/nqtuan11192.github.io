@@ -6,7 +6,7 @@ const navLinks = [
   { href: '#couple', label: 'Cặp đôi', isAnchor: true },
   { href: '#story', label: 'Câu chuyện tình yêu', isAnchor: true },
   { href: '/album', label: 'Album ảnh', isAnchor: false },
-  { href: '#event', label: 'Thiệp mới cưới', isAnchor: true },
+  { href: '#event', label: 'Thiệp mời cưới', isAnchor: true },
   { href: '#rsvp', label: 'Xác nhận tham dự', isAnchor: true },
   { href: '#guestbook', label: 'Sổ lưu bút', isAnchor: true },
 ];
