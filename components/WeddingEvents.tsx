@@ -254,9 +254,9 @@ const WeddingEvents: React.FC = () => {
                     </h2>
                     <div className="w-24 h-0.5 bg-rose-400 mx-auto mb-4"></div>
                     <p className="text-slate-500 italic max-w-2xl mx-auto text-xl">
-                        Gia đình trân trọng kính mời Quý khách
+                        Gia đình trân trọng kính mời Quý Khách
                         đến tham dự lễ Vu Quy và lễ Thành Hôn. <br />
-                        Sự hiện diện của Quý khách
+                        Sự hiện diện của Quý Khách
                         là niềm vui và hạnh phúc của gia đình. <br />
                         <span className="text-rose-500 not-italic">💕💕💕</span> Hân hạnh được đón tiếp. <span className="text-rose-500 not-italic">💕💕💕</span>
                     </p>
