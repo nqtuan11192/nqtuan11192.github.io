@@ -58,7 +58,8 @@ const Header: React.FC = () => {
           </Link>
         </div>
         <nav className="hidden md:flex space-x-8 items-center">
-          {navLinks.map((link) => (
+          {/* First 2 items */}
+          {navLinks.slice(0, 2).map((link) => (
             link.isAnchor ? (
               <a
                 key={link.href}
@@ -78,7 +79,7 @@ const Header: React.FC = () => {
             )
           ))}
 
-          {/* Album Dropdown */}
+          {/* Album Dropdown - 3rd position */}
           <div
             className="relative"
             onMouseEnter={() => setIsAlbumDropdownOpen(true)}
@@ -108,6 +109,27 @@ const Header: React.FC = () => {
               </div>
             )}
           </div>
+
+          {/* Remaining items */}
+          {navLinks.slice(2).map((link) => (
+            link.isAnchor ? (
+              <a
+                key={link.href}
+                href={link.href}
+                className="text-white/90 hover:text-white transition-colors duration-300 font-medium text-lg"
+              >
+                {link.label}
+              </a>
+            ) : (
+              <Link
+                key={link.href}
+                to={link.href}
+                className="text-white/90 hover:text-white transition-colors duration-300 font-medium text-lg"
+              >
+                {link.label}
+              </Link>
+            )
+          ))}
 
           <button
             onClick={handleGiftBoxClick}
