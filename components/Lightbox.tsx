@@ -1,4 +1,4 @@
-import React, { useEffect, useRef } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 
 interface Image {
   url: string;
@@ -19,6 +19,8 @@ const Lightbox: React.FC<LightboxProps> = ({ images, currentIndex, onClose, onNe
   const touchStartX = useRef<number>(0);
   const touchEndX = useRef<number>(0);
   const isDragging = useRef<boolean>(false);
+  const [isTransitioning, setIsTransitioning] = useState(false);
+  const [displayIndex, setDisplayIndex] = useState(currentIndex);
 
   // Keyboard navigation
   useEffect(() => {
@@ -39,6 +41,14 @@ const Lightbox: React.FC<LightboxProps> = ({ images, currentIndex, onClose, onNe
 
   const handleTouchMove = (e: React.TouchEvent) => {
     touchEndX.current = e.touches[0].clientX;
+
+    // Calculate horizontal movement
+    const diff = Math.abs(touchStartX.current - touchEndX.current);
+
+    // If horizontal movement is significant, prevent vertical scrolling
+    if (diff > 10) {
+      e.preventDefault();
+    }
   };
 
   const handleTouchEnd = () => {
@@ -96,6 +106,21 @@ const Lightbox: React.FC<LightboxProps> = ({ images, currentIndex, onClose, onNe
     touchEndX.current = 0;
   };
 
+  // Handle image transition animation
+  useEffect(() => {
+    if (currentIndex !== displayIndex) {
+      setIsTransitioning(true);
+
+      // Wait for fade out, then update image
+      const timer = setTimeout(() => {
+        setDisplayIndex(currentIndex);
+        setIsTransitioning(false);
+      }, 150); // Half of the transition duration
+
+      return () => clearTimeout(timer);
+    }
+  }, [currentIndex, displayIndex]);
+
   // Scroll active thumbnail into view
   useEffect(() => {
     if (activeThumbnailRef.current) {
@@ -147,8 +172,8 @@ const Lightbox: React.FC<LightboxProps> = ({ images, currentIndex, onClose, onNe
 
         {/* Image and Caption */}
         <div
-          className="relative h-full w-full flex items-center justify-center touch-pan-y select-none cursor-grab active:cursor-grabbing"
-          style={{ touchAction: 'pan-y' }}
+          className="relative h-full w-full flex items-center justify-center select-none cursor-grab active:cursor-grabbing"
+          style={{ touchAction: 'none' }}
           onClick={e => e.stopPropagation()}
           onTouchStart={handleTouchStart}
           onTouchMove={handleTouchMove}
@@ -159,12 +184,13 @@ const Lightbox: React.FC<LightboxProps> = ({ images, currentIndex, onClose, onNe
           onMouseLeave={handleMouseLeave}
         >
           <img
-            src={images[currentIndex].url}
-            alt={images[currentIndex].alt}
-            className="block max-w-full max-h-full object-contain rounded-lg shadow-2xl pointer-events-none"
+            src={images[displayIndex].url}
+            alt={images[displayIndex].alt}
+            className={`block max-w-full max-h-full object-contain rounded-lg shadow-2xl pointer-events-none transition-all duration-300 ${isTransitioning ? 'opacity-0 scale-95' : 'opacity-100 scale-100'
+              }`}
           />
           <div className="absolute bottom-0 text-center p-4 text-white w-full bg-gradient-to-t from-black/50 to-transparent pointer-events-none rounded-b-lg">
-            <p className="drop-shadow-md text-sm md:text-base">{images[currentIndex].alt}</p>
+            <p className="drop-shadow-md text-sm md:text-base">{images[displayIndex].alt}</p>
           </div>
         </div>
 
