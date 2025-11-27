@@ -53,7 +53,7 @@ const CoupleInfo: React.FC = () => {
                                 Tốt nghiệp Tiến sĩ Tin học tại Nhật Bản, Tuấn là chàng trai trầm tính, điềm đạm nhưng luôn ấm áp và tinh tế trong cách đối đãi với mọi người.
                                 Với châm ngôn “nói ít, làm nhiều”, Tuấn luôn suy nghĩ thấu đáo và tỉ mỉ trong từng hành động.
                                 Sự chững chạc và trách nhiệm khiến Tuấn trở thành điểm tựa vững vàng cho những người thân yêu.
-                                Hiện Tuấn là giảng viên trẻ của Trường CNTT&TT, ĐH Bách Khoa Hà Nội.
+                                Hiện Tuấn là một giảng viên trẻ của Trường CNTT&TT, ĐH Bách Khoa Hà Nội.
                             </p>
 
                             {/* View More Link
