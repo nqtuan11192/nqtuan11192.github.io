@@ -22,6 +22,10 @@ const Header: React.FC = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isAlbumDropdownOpen, setIsAlbumDropdownOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
+  const location = useLocation();
+
+  // Check if we're on the album page
+  const isAlbumPage = location.pathname === '/album';
 
   useEffect(() => {
     const handleScroll = () => {
@@ -46,9 +50,9 @@ const Header: React.FC = () => {
 
   return (
     <header
-      className={`sticky top-0 z-50 w-full transition-all duration-300 ${isScrolled
-        ? 'bg-rose-500 shadow-md'
-        : 'bg-rose-500/15 backdrop-blur-lg shadow-lg border-b border-white/30'
+      className={`sticky top-0 z-50 w-full transition-all duration-300 ${isAlbumPage || isScrolled
+          ? 'bg-rose-500 shadow-md'
+          : 'bg-rose-500/15 backdrop-blur-lg shadow-lg border-b border-white/30'
         }`}
     >
       <div className="container mx-auto px-6 py-4 flex justify-between items-center">
