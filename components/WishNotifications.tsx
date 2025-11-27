@@ -80,7 +80,7 @@ const WishNotifications: React.FC = () => {
     if (!currentWish) return null;
 
     return (
-        <div className="fixed top-20 right-4 z-40 max-w-sm hidden md:block">
+        <div className="fixed top-20 left-1/2 -translate-x-1/2 md:left-auto md:right-4 md:translate-x-0 z-40 max-w-sm w-11/12 md:w-auto">
             <div
                 className={`
                     bg-white/90 backdrop-blur-md 
