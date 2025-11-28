@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 
 const navLinks = [
@@ -28,6 +28,7 @@ const Header: React.FC = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isAlbumDropdownOpen, setIsAlbumDropdownOpen] = useState(false);
   const [isEventDropdownOpen, setIsEventDropdownOpen] = useState(false);
+  const mobileMenuRef = useRef<HTMLDivElement>(null);
   const [isScrolled, setIsScrolled] = useState(false);
   const location = useLocation();
 
@@ -42,6 +43,23 @@ const Header: React.FC = () => {
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
+
+  // Close mobile menu when clicking outside
+  useEffect(() => {
+    const handleClickOutside = (event: MouseEvent) => {
+      if (mobileMenuRef.current && !mobileMenuRef.current.contains(event.target as Node)) {
+        setIsMenuOpen(false);
+      }
+    };
+
+    if (isMenuOpen) {
+      document.addEventListener('mousedown', handleClickOutside);
+    }
+
+    return () => {
+      document.removeEventListener('mousedown', handleClickOutside);
+    };
+  }, [isMenuOpen]);
 
   const handleLinkClick = () => {
     setIsMenuOpen(false);
@@ -182,7 +200,7 @@ const Header: React.FC = () => {
             Hộp mừng cưới
           </button>
         </nav>
-        <div className="md:hidden">
+        <div className="md:hidden relative" ref={mobileMenuRef}>
           <button onClick={() => setIsMenuOpen(!isMenuOpen)} className="text-white focus:outline-none">
             <svg
               className="w-6 h-6"
@@ -194,119 +212,122 @@ const Header: React.FC = () => {
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d={isMenuOpen ? "M6 18L18 6M6 6l12 12" : "M4 6h16M4 12h16M4 18h16"} />
             </svg>
           </button>
+
+          {/* Mobile Menu Dropdown */}
+          {isMenuOpen && (
+            <div className="absolute top-full right-0 mt-2 bg-rose-500/60 backdrop-blur-lg rounded-lg shadow-xl py-3 min-w-[280px] max-w-[320px] z-50">
+              <nav className="flex flex-col space-y-2 px-4">
+                {/* First 2 items */}
+                {navLinks.slice(0, 2).map((link) => (
+                  link.isAnchor ? (
+                    <a
+                      key={link.href}
+                      href={link.href}
+                      onClick={handleLinkClick}
+                      className="text-white/90 hover:text-white hover:bg-rose-600/50 transition-colors duration-300 font-medium text-base py-2 px-3 rounded"
+                    >
+                      {link.label}
+                    </a>
+                  ) : (
+                    <Link
+                      key={link.href}
+                      to={link.href}
+                      onClick={handleLinkClick}
+                      className="text-white/90 hover:text-white hover:bg-rose-600/50 transition-colors duration-300 font-medium text-base py-2 px-3 rounded"
+                    >
+                      {link.label}
+                    </Link>
+                  )
+                ))}
+
+                {/* Mobile Album Dropdown - 3rd position */}
+                <div className="w-full">
+                  <button
+                    onClick={() => setIsAlbumDropdownOpen(!isAlbumDropdownOpen)}
+                    className="text-white/90 hover:text-white hover:bg-rose-600/50 transition-colors duration-300 font-medium text-base flex items-center gap-1 justify-between w-full py-2 px-3 rounded"
+                  >
+                    <span>Album ảnh</span>
+                    <svg xmlns="http://www.w3.org/2000/svg" className={`h-4 w-4 transition-transform ${isAlbumDropdownOpen ? 'rotate-180' : ''}`} fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+                    </svg>
+                  </button>
+                  {isAlbumDropdownOpen && (
+                    <div className="mt-1 ml-3 space-y-1">
+                      {albumLinks.map((album) => (
+                        <Link
+                          key={album.href}
+                          to={album.href}
+                          onClick={handleLinkClick}
+                          className="block text-white/80 hover:text-white hover:bg-rose-600/50 transition-colors duration-200 text-sm py-2 px-3 rounded"
+                        >
+                          {album.label}
+                        </Link>
+                      ))}
+                    </div>
+                  )}
+                </div>
+
+                {/* Mobile Event Dropdown - 4th position */}
+                <div className="w-full">
+                  <button
+                    onClick={() => setIsEventDropdownOpen(!isEventDropdownOpen)}
+                    className="text-white/90 hover:text-white hover:bg-rose-600/50 transition-colors duration-300 font-medium text-base flex items-center gap-1 justify-between w-full py-2 px-3 rounded"
+                  >
+                    <span>Thiệp mời cưới</span>
+                    <svg xmlns="http://www.w3.org/2000/svg" className={`h-4 w-4 transition-transform ${isEventDropdownOpen ? 'rotate-180' : ''}`} fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+                    </svg>
+                  </button>
+                  {isEventDropdownOpen && (
+                    <div className="mt-1 ml-3 space-y-1">
+                      {eventLinks.map((event, index) => (
+                        <a
+                          key={index}
+                          href={event.href}
+                          onClick={handleLinkClick}
+                          className="block text-white/80 hover:text-white hover:bg-rose-600/50 transition-colors duration-200 py-2 px-3 rounded"
+                        >
+                          <div className="font-medium text-sm">{event.label}</div>
+                          <div className="text-xs text-white/60">{event.time}</div>
+                        </a>
+                      ))}
+                    </div>
+                  )}
+                </div>
+
+                {/* Remaining items */}
+                {navLinks.slice(2).map((link) => (
+                  link.isAnchor ? (
+                    <a
+                      key={link.href}
+                      href={link.href}
+                      onClick={handleLinkClick}
+                      className="text-white/90 hover:text-white hover:bg-rose-600/50 transition-colors duration-300 font-medium text-base py-2 px-3 rounded"
+                    >
+                      {link.label}
+                    </a>
+                  ) : (
+                    <Link
+                      key={link.href}
+                      to={link.href}
+                      onClick={handleLinkClick}
+                      className="text-white/90 hover:text-white hover:bg-rose-600/50 transition-colors duration-300 font-medium text-base py-2 px-3 rounded"
+                    >
+                      {link.label}
+                    </Link>
+                  )
+                ))}
+
+                <button
+                  onClick={handleGiftBoxClick}
+                  className="text-white/90 hover:text-white hover:bg-rose-600/50 transition-colors duration-300 font-medium text-base flex items-center gap-2 py-2 px-3 rounded"
+                >
+                  Hộp mừng cưới
+                </button>
+              </nav>
+            </div>
+          )}
         </div>
-      </div>
-      {/* Mobile Menu */}
-      <div className={`md:hidden ${isMenuOpen ? 'block' : 'hidden'} bg-rose-500`}>
-        <nav className="flex flex-col items-center space-y-4 py-4">
-          {/* First 2 items */}
-          {navLinks.slice(0, 2).map((link) => (
-            link.isAnchor ? (
-              <a
-                key={link.href}
-                href={link.href}
-                onClick={handleLinkClick}
-                className="text-white/90 hover:text-white transition-colors duration-300 font-medium text-lg"
-              >
-                {link.label}
-              </a>
-            ) : (
-              <Link
-                key={link.href}
-                to={link.href}
-                onClick={handleLinkClick}
-                className="text-white/90 hover:text-white transition-colors duration-300 font-medium text-lg"
-              >
-                {link.label}
-              </Link>
-            )
-          ))}
-
-          {/* Mobile Album Dropdown - 3rd position */}
-          <div className="w-full">
-            <button
-              onClick={() => setIsAlbumDropdownOpen(!isAlbumDropdownOpen)}
-              className="text-white/90 hover:text-white transition-colors duration-300 font-medium text-lg flex items-center gap-1 justify-center w-full"
-            >
-              Album ảnh
-              <svg xmlns="http://www.w3.org/2000/svg" className={`h-4 w-4 transition-transform ${isAlbumDropdownOpen ? 'rotate-180' : ''}`} fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
-              </svg>
-            </button>
-            {isAlbumDropdownOpen && (
-              <div className="mt-2 space-y-2">
-                {albumLinks.map((album) => (
-                  <Link
-                    key={album.href}
-                    to={album.href}
-                    onClick={handleLinkClick}
-                    className="block text-white/80 hover:text-white transition-colors duration-200 text-base"
-                  >
-                    {album.label}
-                  </Link>
-                ))}
-              </div>
-            )}
-          </div>
-
-          {/* Mobile Event Dropdown - 4th position */}
-          <div className="w-full">
-            <button
-              onClick={() => setIsEventDropdownOpen(!isEventDropdownOpen)}
-              className="text-white/90 hover:text-white transition-colors duration-300 font-medium text-lg flex items-center gap-1 justify-center w-full"
-            >
-              Thiệp mời cưới
-              <svg xmlns="http://www.w3.org/2000/svg" className={`h-4 w-4 transition-transform ${isEventDropdownOpen ? 'rotate-180' : ''}`} fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
-              </svg>
-            </button>
-            {isEventDropdownOpen && (
-              <div className="mt-2 space-y-2">
-                {eventLinks.map((event, index) => (
-                  <a
-                    key={index}
-                    href={event.href}
-                    onClick={handleLinkClick}
-                    className="block text-white/80 hover:text-white transition-colors duration-200 text-base"
-                  >
-                    <div className="font-medium text-sm">{event.label}</div>
-                    <div className="text-xs text-white/60">{event.time}</div>
-                  </a>
-                ))}
-              </div>
-            )}
-          </div>
-
-          {/* Remaining items */}
-          {navLinks.slice(2).map((link) => (
-            link.isAnchor ? (
-              <a
-                key={link.href}
-                href={link.href}
-                onClick={handleLinkClick}
-                className="text-white/90 hover:text-white transition-colors duration-300 font-medium text-lg"
-              >
-                {link.label}
-              </a>
-            ) : (
-              <Link
-                key={link.href}
-                to={link.href}
-                onClick={handleLinkClick}
-                className="text-white/90 hover:text-white transition-colors duration-300 font-medium text-lg"
-              >
-                {link.label}
-              </Link>
-            )
-          ))}
-
-          <button
-            onClick={handleGiftBoxClick}
-            className="text-white/90 hover:text-white transition-colors duration-300 font-medium text-lg flex items-center gap-2"
-          >
-            Hộp mừng cưới
-          </button>
-        </nav>
       </div>
     </header>
   );
