@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 
 interface WeddingEvent {
+    id: string; // Unique identifier for navigation
     title: string;
     time: string;
     date: string | React.ReactElement;
@@ -21,6 +22,7 @@ interface WeddingEvent {
 
 const events: WeddingEvent[] = [
     {
+        id: 'event-an-hoi-nha-gai',
         title: 'LỄ ĂN HỎI NHÀ GÁI',
         time: '08:00 sáng',
         date: (<>
@@ -44,6 +46,7 @@ const events: WeddingEvent[] = [
         lunarDate: '02/11 Ất Tỵ',
     },
     {
+        id: 'event-tiec-cuoi-nha-gai',
         title: 'TIỆC CƯỚI NHÀ GÁI',
         time: '11:00 trưa',
         date: (<>
@@ -67,6 +70,7 @@ const events: WeddingEvent[] = [
         lunarDate: '02/11 Ất Tỵ',
     },
     {
+        id: 'event-thanh-hon-nha-trai',
         title: 'LỄ  THÀNH HÔN NHÀ TRAI',
         time: '09:00 sáng',
         date: (<>
@@ -90,6 +94,7 @@ const events: WeddingEvent[] = [
         lunarDate: '12/11 Ất Tỵ',
     },
     {
+        id: 'event-tiec-cuoi-nha-trai',
         title: 'TIỆC CƯỚI NHÀ TRAI',
         time: '11:30 trưa',
         date: (<>
@@ -412,7 +417,9 @@ const WeddingEvents: React.FC = () => {
                 {/* Events Grid */}
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 md:gap-8">
                     {events.map((event, index) => (
-                        <EventCard key={index} event={event} onShowMap={handleShowMap} />
+                        <div key={index} id={event.id}>
+                            <EventCard event={event} onShowMap={handleShowMap} />
+                        </div>
                     ))}
                 </div>
             </div>

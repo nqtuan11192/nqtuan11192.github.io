@@ -5,8 +5,7 @@ const navLinks = [
   // { href: '#hero', label: 'Home' },
   { href: '/#couple', label: 'Cặp đôi', isAnchor: true },
   { href: '/#story', label: 'Câu chuyện tình yêu', isAnchor: true },
-  // Album link removed - now using dropdown
-  { href: '/#event', label: 'Thiệp mời cưới', isAnchor: true },
+  // Album and Event links removed - now using dropdowns
   { href: '/#rsvp', label: 'Xác nhận tham dự', isAnchor: true },
   { href: '/#guestbook', label: 'Sổ lưu bút', isAnchor: true },
 ];
@@ -17,10 +16,18 @@ const albumLinks = [
   { href: '/album#album-3', label: 'Album 3: Chuyến đi' },
 ];
 
+const eventLinks = [
+  { href: '/#event-an-hoi-nha-gai', label: 'Lễ Ăn Hỏi Nhà Gái', time: '08:00 - 21/12' },
+  { href: '/#event-tiec-cuoi-nha-gai', label: 'Tiệc Cưới Nhà Gái', time: '11:00 - 21/12' },
+  { href: '/#event-thanh-hon-nha-trai', label: 'Lễ Thành Hôn Nhà Trai', time: '09:00 - 31/12' },
+  { href: '/#event-tiec-cuoi-nha-trai', label: 'Tiệc Cưới Nhà Trai', time: '11:30 - 31/12' },
+];
+
 
 const Header: React.FC = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isAlbumDropdownOpen, setIsAlbumDropdownOpen] = useState(false);
+  const [isEventDropdownOpen, setIsEventDropdownOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
   const location = useLocation();
 
@@ -39,6 +46,7 @@ const Header: React.FC = () => {
   const handleLinkClick = () => {
     setIsMenuOpen(false);
     setIsAlbumDropdownOpen(false);
+    setIsEventDropdownOpen(false);
   };
 
   const handleGiftBoxClick = (e: React.MouseEvent) => {
@@ -51,8 +59,8 @@ const Header: React.FC = () => {
   return (
     <header
       className={`sticky top-0 z-50 w-full transition-all duration-300 ${isAlbumPage || isScrolled
-          ? 'bg-rose-500 shadow-md'
-          : 'bg-rose-500/15 backdrop-blur-lg shadow-lg border-b border-white/30'
+        ? 'bg-rose-500 shadow-md'
+        : 'bg-rose-500/15 backdrop-blur-lg shadow-lg border-b border-white/30'
         }`}
     >
       <div className="container mx-auto px-6 py-4 flex justify-between items-center">
@@ -109,6 +117,38 @@ const Header: React.FC = () => {
                   >
                     {album.label}
                   </Link>
+                ))}
+              </div>
+            )}
+          </div>
+
+          {/* Event Dropdown - 4th position */}
+          <div
+            className="relative"
+            onMouseEnter={() => setIsEventDropdownOpen(true)}
+            onMouseLeave={() => setIsEventDropdownOpen(false)}
+          >
+            <a
+              href="/#event"
+              className="text-white/90 hover:text-white transition-colors duration-300 font-medium text-lg flex items-center gap-1"
+            >
+              Thiệp mời cưới
+              <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+              </svg>
+            </a>
+            {isEventDropdownOpen && (
+              <div className="absolute top-full left-0 mt-2 bg-rose-100 rounded-lg shadow-xl py-2 min-w-[240px] before:content-[''] before:absolute before:bottom-full before:left-0 before:right-0 before:h-2">
+                {eventLinks.map((event, index) => (
+                  <a
+                    key={index}
+                    href={event.href}
+                    onClick={handleLinkClick}
+                    className="block px-4 py-2 text-slate-700 hover:bg-rose-200 hover:text-rose-600 transition-colors duration-200"
+                  >
+                    <div className="font-medium text-sm">{event.label}</div>
+                    <div className="text-xs text-slate-500">{event.time}</div>
+                  </a>
                 ))}
               </div>
             )}
@@ -204,6 +244,34 @@ const Header: React.FC = () => {
                   >
                     {album.label}
                   </Link>
+                ))}
+              </div>
+            )}
+          </div>
+
+          {/* Mobile Event Dropdown - 4th position */}
+          <div className="w-full">
+            <button
+              onClick={() => setIsEventDropdownOpen(!isEventDropdownOpen)}
+              className="text-white/90 hover:text-white transition-colors duration-300 font-medium text-lg flex items-center gap-1 justify-center w-full"
+            >
+              Thiệp mời cưới
+              <svg xmlns="http://www.w3.org/2000/svg" className={`h-4 w-4 transition-transform ${isEventDropdownOpen ? 'rotate-180' : ''}`} fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+              </svg>
+            </button>
+            {isEventDropdownOpen && (
+              <div className="mt-2 space-y-2">
+                {eventLinks.map((event, index) => (
+                  <a
+                    key={index}
+                    href={event.href}
+                    onClick={handleLinkClick}
+                    className="block text-white/80 hover:text-white transition-colors duration-200 text-base"
+                  >
+                    <div className="font-medium text-sm">{event.label}</div>
+                    <div className="text-xs text-white/60">{event.time}</div>
+                  </a>
                 ))}
               </div>
             )}
