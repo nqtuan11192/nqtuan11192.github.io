@@ -12,6 +12,11 @@ interface WeddingEvent {
     image: string;
     mapLink?: string;
     mapEmbed?: string;
+    // Calendar display properties
+    month: string; // Vietnamese month name
+    day: string; // Day number
+    dayOfWeek: string; // Vietnamese day of week
+    lunarDate: string; // Lunar calendar date
 }
 
 const events: WeddingEvent[] = [
@@ -33,6 +38,10 @@ const events: WeddingEvent[] = [
         image: '/images/album_1/HAN02814.jpg',
         mapLink: 'https://maps.app.goo.gl/duiLH6DBvrXkGXRD8',
         mapEmbed: 'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d5280.758006742002!2d104.8428742!3d21.696897000000003!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3133455c8777a10f%3A0xca3d6e9f1102124e!2zRG9hbmggTmdoaeG7h3AgVMawIE5ow6JuIEjDgCBUSOG7plkgQU5I!5e1!3m2!1sen!2s!4v1763575119975!5m2!1sen!2s',
+        month: 'Tháng 12',
+        day: '21',
+        dayOfWeek: 'Chủ nhật',
+        lunarDate: '02/11 Ất Tỵ',
     },
     {
         title: 'TIỆC CƯỚI NHÀ GÁI',
@@ -52,6 +61,10 @@ const events: WeddingEvent[] = [
         image: '/images/album_2/DMI_5705.jpg',
         mapLink: 'https://maps.app.goo.gl/bHscUNLXYvgDECcU6',
         mapEmbed: 'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d987.4964994017387!2d104.83915400569491!3d21.70056265037665!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3133451727877f19%3A0xdaaae3f0ff8dff05!2zQuG6v24geGUga2jDoWNoIE7GsOG7m2MgTcOhdCAoeGUgSOG6o2kgUGjGsOG7o25nKQ!5e1!3m2!1sen!2sus!4v1764137746641!5m2!1sen!2sus',
+        month: 'Tháng 12',
+        day: '21',
+        dayOfWeek: 'Chủ nhật',
+        lunarDate: '02/11 Ất Tỵ',
     },
     {
         title: 'LỄ  THÀNH HÔN NHÀ TRAI',
@@ -70,7 +83,11 @@ const events: WeddingEvent[] = [
         addressText: 'Số 5-D1, phố Hồng Quang, P. Định Công, Hà Nội',
         image: '/images/album_1/HAN03207.jpg',
         mapLink: 'https://maps.app.goo.gl/bHKXmZNsxPZ7Q7Vw5',
-        mapEmbed: 'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1326.7090476779058!2d105.83216456965982!3d20.974301798791362!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3135ac59da230777%3A0x624697cca65ddbdd!2zUC4gSOG7k25nIFF1YW5nLCBIb8OgbmcgTWFpLCBIw6AgTuG7mWksIFZpZXRuYW0!5e1!3m2!1sen!2sus!4v1763576544631!5m2!1sen!2sus'
+        mapEmbed: 'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1326.7090476779058!2d105.83216456965982!3d20.974301798791362!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3135ac59da230777%3A0x624697cca65ddbdd!2zUC4gSOG7k25nIFF1YW5nLCBIb8OgbmcgTWFpLCBIw6AgTuG7mWksIFZpZXRuYW0!5e1!3m2!1sen!2sus!4v1763576544631!5m2!1sen!2sus',
+        month: 'Tháng 12',
+        day: '31',
+        dayOfWeek: 'Thứ tư',
+        lunarDate: '12/11 Ất Tỵ',
     },
     {
         title: 'TIỆC CƯỚI NHÀ TRAI',
@@ -89,7 +106,11 @@ const events: WeddingEvent[] = [
         addressText: 'Sảnh tầng 5 Trung tâm tiệc cưới Mipec Palace, số 229 Tây Sơn, P. Kim Liên, Hà Nội',
         image: '/images/album_2/DMI_3802.jpg',
         mapLink: 'https://maps.app.goo.gl/SfVF5pmYJRs8u4bD9',
-        mapEmbed: 'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d5305.746193351429!2d105.82437800000001!3d21.004978899999998!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3135ac8147919f77%3A0x10224af144ebb98e!2zVHJ1bmcgdMOibSBUaeG7h2MgY8aw4bubaSAmIEjhu5lpIE5naOG7iyBNaXBlYyBQYWxhY2UgLSBUw6J5IFPGoW4!5e1!3m2!1sen!2s!4v1763575903574!5m2!1sen!2s'
+        mapEmbed: 'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d5305.746193351429!2d105.82437800000001!3d21.004978899999998!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3135ac8147919f77%3A0x10224af144ebb98e!2zVHJ1bmcgdMOibSBUaeG7h2MgY8aw4bubaSAmIEjhu5lpIE5naOG7iyBNaXBlYyBQYWxhY2UgLSBUw6J5IFPGoW4!5e1!3m2!1sen!2s!4v1763575903574!5m2!1sen!2s',
+        month: 'Tháng 12',
+        day: '31',
+        dayOfWeek: 'Thứ tư',
+        lunarDate: '12/11 Ất Tỵ',
     },
 ];
 
@@ -163,6 +184,111 @@ const MapModal: React.FC<MapModalProps> = ({ isOpen, onClose, mapEmbed, title })
     );
 };
 
+interface CalendarCardProps {
+    month: string;
+    day: string;
+    dayOfWeek: string;
+    lunarDate: string;
+}
+
+const CalendarCard: React.FC<CalendarCardProps> = ({ month, day, dayOfWeek, lunarDate }) => {
+    return (
+        <div className="bg-gradient-to-br from-rose-500 to-pink-600 rounded-lg shadow-lg p-4 text-white text-center min-w-[120px] h-full flex flex-col justify-center">
+            {/* Month */}
+            <div className="text-sm font-semibold uppercase tracking-wider mb-1 opacity-90">
+                {month}
+            </div>
+
+            {/* Day */}
+            <div className="text-6xl font-bold leading-none mb-2">
+                {day}
+            </div>
+
+            {/* Day of Week */}
+            <div className="text-base font-medium mb-2 opacity-90">
+                {dayOfWeek}
+            </div>
+
+            {/* Divider */}
+            <div className="w-12 h-px bg-white/30 mx-auto mb-2"></div>
+
+            {/* Lunar Date */}
+            <div className="text-sm opacity-80">
+                {lunarDate}
+            </div>
+        </div>
+    );
+};
+
+interface MonthCalendarProps {
+    eventDate: string; // Day number to highlight (e.g., "21" or "31")
+}
+
+const MonthCalendar: React.FC<MonthCalendarProps> = ({ eventDate }) => {
+    // December 2025 calendar data
+    // December 1, 2025 is a Monday (day 1 of week)
+    const daysInMonth = 31;
+    const firstDayOfWeek = 1; // Monday (0 = Sunday, 1 = Monday, etc.)
+    const weekDays = ['CN', 'T2', 'T3', 'T4', 'T5', 'T6', 'T7'];
+
+    // Generate calendar grid
+    const calendarDays: (number | null)[] = [];
+
+    // Add empty cells for days before the 1st
+    for (let i = 0; i < firstDayOfWeek; i++) {
+        calendarDays.push(null);
+    }
+
+    // Add all days of the month
+    for (let day = 1; day <= daysInMonth; day++) {
+        calendarDays.push(day);
+    }
+
+    const highlightDay = parseInt(eventDate);
+
+    return (
+        <div className="bg-white rounded-lg border border-slate-200 p-2 shadow-sm h-full flex flex-col">
+            {/* Month Header */}
+            <div className="text-center mb-2">
+                <h4 className="font-semibold text-slate-700 text-xs">Tháng 12, 2025</h4>
+            </div>
+
+            {/* Weekday Headers */}
+            <div className="grid grid-cols-7 gap-0.5 mb-1">
+                {weekDays.map((day, index) => (
+                    <div
+                        key={index}
+                        className="text-center text-[10px] font-medium text-slate-500 py-0.5"
+                    >
+                        {day}
+                    </div>
+                ))}
+            </div>
+
+            {/* Calendar Grid */}
+            <div className="grid grid-cols-7 gap-0.5">
+                {calendarDays.map((day, index) => (
+                    <div
+                        key={index}
+                        className={`
+                            text-center text-[10px] py-1 rounded
+                            ${day === null ? '' : 'hover:bg-slate-50'}
+                            ${day === highlightDay
+                                ? 'bg-gradient-to-br from-rose-500 to-pink-600 text-white font-bold shadow-sm'
+                                : day === null
+                                    ? 'text-transparent'
+                                    : 'text-slate-700'
+                            }
+                        `}
+                    >
+                        {day || '-'}
+                    </div>
+                ))}
+            </div>
+        </div>
+    );
+};
+
 interface EventCardProps {
     event: WeddingEvent;
     onShowMap: (event: WeddingEvent) => void;
@@ -181,18 +307,39 @@ const EventCard: React.FC<EventCardProps> = ({ event, onShowMap }) => {
             </div>
 
             {/* Event Details */}
-            <div className="p-6 text-center">
-                <h3 className="font-vietnamese-script text-lg text-slate-700 mb-3 tracking-wide">
+            <div className="p-6">
+                {/* Title */}
+                <h3 className="font-vietnamese-script text-lg text-slate-700 mb-4 tracking-wide text-center">
                     {event.title}
                 </h3>
 
-                <div className="flex items-center justify-center text-rose-600 mb-2">
+                {/* Calendar Card and Google Calendar Embed */}
+                <div className="flex flex-col md:flex-row gap-4 mb-4 items-stretch">
+                    {/* Calendar Card */}
+                    <div className="flex-shrink-0 w-full md:w-auto min-h-[160px]">
+                        <CalendarCard
+                            month={event.month}
+                            day={event.day}
+                            dayOfWeek={event.dayOfWeek}
+                            lunarDate={event.lunarDate}
+                        />
+                    </div>
+
+                    {/* Custom Month Calendar */}
+                    <div className="flex-1 w-full min-h-[160px]">
+                        <MonthCalendar eventDate={event.day} />
+                    </div>
+                </div>
+
+                {/* Time */}
+                <div className="flex items-center justify-center text-rose-600 mb-3">
                     <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
                     </svg>
-                    <span className="font-semibold">{event.time} {event.date}</span>
+                    <span className="font-semibold">{event.time}</span>
                 </div>
 
+                {/* Address */}
                 <div className="flex items-start justify-center text-slate-600 text-sm mb-4">
                     <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 mr-2 mt-0.5 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
