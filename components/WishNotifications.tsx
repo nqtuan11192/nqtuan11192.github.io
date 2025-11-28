@@ -16,6 +16,19 @@ const WishNotifications: React.FC = () => {
     const wishQueue = useRef<GuestbookEntry[]>([]);
     const isProcessing = useRef(false);
 
+    // Load shown wish IDs from localStorage on mount
+    useEffect(() => {
+        const storedIds = localStorage.getItem('shownWishIds');
+        if (storedIds) {
+            try {
+                const idsArray = JSON.parse(storedIds);
+                shownWishIds.current = new Set(idsArray);
+            } catch (error) {
+                console.error('Error loading shown wish IDs:', error);
+            }
+        }
+    }, []);
+
     // Fetch wishes from Firestore and detect new ones
     useEffect(() => {
         const q = query(
@@ -60,6 +73,14 @@ const WishNotifications: React.FC = () => {
 
         // Mark as shown
         shownWishIds.current.add(nextWish.id);
+
+        // Save to localStorage
+        try {
+            const idsArray = Array.from(shownWishIds.current);
+            localStorage.setItem('shownWishIds', JSON.stringify(idsArray));
+        } catch (error) {
+            console.error('Error saving shown wish IDs:', error);
+        }
 
         // Show the wish
         setCurrentWish(nextWish);
