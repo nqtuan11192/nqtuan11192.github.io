@@ -13,6 +13,7 @@ export default {
                 'heavenly': ['SVN-Heavenly', 'cursive'],
                 'heavenly-bold': ['SVN-Heavenly-Bold', 'cursive'],
                 'script': ['Great Vibes', 'cursive'],
+
                 'vietnamese-script': ['Pacifico', 'cursive'],
                 'serif': ['Cormorant Garamond', 'serif'],
                 'body': ['Lato', 'sans-serif'],
