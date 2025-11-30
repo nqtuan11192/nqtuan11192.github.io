@@ -93,7 +93,8 @@ const SakuraFalling: React.FC<SakuraFallingProps> = ({
                 </div>
             ))}
 
-            <style jsx>{`
+
+            <style>{`
                 @keyframes sakura-fall {
                     0% {
                         transform: translateY(0) translateX(0) rotate(0deg);
