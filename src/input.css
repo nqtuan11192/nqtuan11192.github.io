@@ -1,0 +1,122 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* SVN-Heavenly */
+@font-face {
+    font-family: 'SVN-Heavenly';
+    src: url('./assets/fonts/SVN-Heavenly.otf') format('opentype');
+}
+
+@font-face {
+    font-family: 'SVN-Heavenly-Bold';
+    src: url('./assets/fonts/SVN-Heavenly-Bold.otf') format('opentype');
+}
+
+/* Cormorant Garamond */
+@font-face {
+    font-family: 'Cormorant Garamond';
+    font-style: italic;
+    font-weight: 400;
+    font-display: swap;
+    src: url('./assets/fonts/CormorantGaramond-Italic-400.ttf') format('truetype');
+}
+
+@font-face {
+    font-family: 'Cormorant Garamond';
+    font-style: normal;
+    font-weight: 300;
+    font-display: swap;
+    src: url('./assets/fonts/CormorantGaramond-Light-300.ttf') format('truetype');
+}
+
+@font-face {
+    font-family: 'Cormorant Garamond';
+    font-style: normal;
+    font-weight: 400;
+    font-display: swap;
+    src: url('./assets/fonts/CormorantGaramond-Regular-400.ttf') format('truetype');
+}
+
+@font-face {
+    font-family: 'Cormorant Garamond';
+    font-style: normal;
+    font-weight: 500;
+    font-display: swap;
+    src: url('./assets/fonts/CormorantGaramond-Medium-500.ttf') format('truetype');
+}
+
+@font-face {
+    font-family: 'Cormorant Garamond';
+    font-style: normal;
+    font-weight: 600;
+    font-display: swap;
+    src: url('./assets/fonts/CormorantGaramond-SemiBold-600.ttf') format('truetype');
+}
+
+@font-face {
+    font-family: 'Cormorant Garamond';
+    font-style: normal;
+    font-weight: 700;
+    font-display: swap;
+    src: url('./assets/fonts/CormorantGaramond-Bold-700.ttf') format('truetype');
+}
+
+/* Great Vibes */
+@font-face {
+    font-family: 'Great Vibes';
+    font-style: normal;
+    font-weight: 400;
+    font-display: swap;
+    src: url('./assets/fonts/GreatVibes-Regular-400.ttf') format('truetype');
+}
+
+/* Lato */
+@font-face {
+    font-family: 'Lato';
+    font-style: italic;
+    font-weight: 300;
+    font-display: swap;
+    src: url('./assets/fonts/Lato-LightItalic-300.ttf') format('truetype');
+}
+
+@font-face {
+    font-family: 'Lato';
+    font-style: italic;
+    font-weight: 400;
+    font-display: swap;
+    src: url('./assets/fonts/Lato-Italic-400.ttf') format('truetype');
+}
+
+@font-face {
+    font-family: 'Lato';
+    font-style: normal;
+    font-weight: 300;
+    font-display: swap;
+    src: url('./assets/fonts/Lato-Light-300.ttf') format('truetype');
+}
+
+@font-face {
+    font-family: 'Lato';
+    font-style: normal;
+    font-weight: 400;
+    font-display: swap;
+    src: url('./assets/fonts/Lato-Regular-400.ttf') format('truetype');
+}
+
+@font-face {
+    font-family: 'Lato';
+    font-style: normal;
+    font-weight: 700;
+    font-display: swap;
+    src: url('./assets/fonts/Lato-Bold-700.ttf') format('truetype');
+}
+
+/* Pacifico */
+@font-face {
+    font-family: 'Pacifico';
+    font-style: normal;
+    font-weight: 400;
+    font-display: swap;
+    src: url('./assets/fonts/Pacifico-Regular-400.ttf') format('truetype');
+}
