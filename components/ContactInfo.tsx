@@ -9,6 +9,19 @@ interface FamilyContact {
 const ContactInfo: React.FC = () => {
     const [isModalOpen, setIsModalOpen] = useState(false);
 
+    // Listen for custom event from FloatingMenu
+    React.useEffect(() => {
+        const handleOpenContactInfo = () => {
+            setIsModalOpen(true);
+        };
+
+        window.addEventListener('openContactInfo', handleOpenContactInfo);
+
+        return () => {
+            window.removeEventListener('openContactInfo', handleOpenContactInfo);
+        };
+    }, []);
+
     const brideFamily: FamilyContact[] = [
         { label: 'Ông:', name: 'Phạm Thanh Hà', phone: '0984790441' },
         { label: 'Bà:', name: 'Nguyễn Thị Thủy', phone: '0985426522' },
@@ -25,25 +38,7 @@ const ContactInfo: React.FC = () => {
 
     return (
         <>
-            {/* Floating Contact Button */}
-            <button
-                onClick={() => setIsModalOpen(true)}
-                className="fixed bottom-8 left-8 z-40 bg-rose-500 hover:bg-rose-600 text-white p-1 rounded-full shadow-2xl transition-all duration-300 hover:scale-110 group"
-                aria-label="Thông tin liên hệ"
-            >
-                <div className="relative">
-                    <svg xmlns="http://www.w3.org/2000/svg" className="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
-                    </svg>
-                    <span className="absolute -top-1 -right-1 flex h-3 w-3">
-                        <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-rose-400 opacity-75"></span>
-                        <span className="relative inline-flex rounded-full h-3 w-3 bg-rose-500"></span>
-                    </span>
-                </div>
-                <span className="absolute left-full ml-3 top-1/2 -translate-y-1/2 bg-slate-800 text-white px-3 py-1 rounded text-sm whitespace-nowrap opacity-0 group-hover:opacity-100 transition-opacity">
-                    Liên hệ
-                </span>
-            </button>
+
 
             {/* Modal */}
             {isModalOpen && (

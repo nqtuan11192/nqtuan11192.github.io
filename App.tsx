@@ -6,6 +6,7 @@ import PhotoAlbumPage from './components/PhotoAlbumPage';
 import Footer from './components/Footer';
 import GiftBox from './components/GiftBox';
 import ContactInfo from './components/ContactInfo';
+import FloatingMenu from './components/FloatingMenu';
 
 const App: React.FC = () => {
   return (
@@ -20,6 +21,7 @@ const App: React.FC = () => {
       <Footer />
       <GiftBox />
       <ContactInfo />
+      <FloatingMenu />
     </div>
   );
 };

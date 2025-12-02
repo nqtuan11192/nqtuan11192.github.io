@@ -51,25 +51,7 @@ const GiftBox: React.FC = () => {
 
     return (
         <>
-            {/* Floating Gift Button */}
-            <button
-                onClick={() => setIsModalOpen(true)}
-                className="fixed bottom-8 right-8 z-40 bg-rose-500 hover:bg-rose-600 text-white p-1 rounded-full shadow-2xl transition-all duration-300 hover:scale-110 group"
-                aria-label="Hộp mừng cưới"
-            >
-                <div className="relative">
-                    <svg xmlns="http://www.w3.org/2000/svg" className="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8v13m0-13V6a2 2 0 112 2h-2zm0 0V5.5A2.5 2.5 0 109.5 8H12zm-7 4h14M5 12a2 2 0 110-4h14a2 2 0 110 4M5 12v7a2 2 0 002 2h10a2 2 0 002-2v-7" />
-                    </svg>
-                    <span className="absolute -top-1 -right-1 flex h-3 w-3">
-                        <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-rose-400 opacity-75"></span>
-                        <span className="relative inline-flex rounded-full h-3 w-3 bg-rose-500"></span>
-                    </span>
-                </div>
-                <span className="absolute right-full mr-3 top-1/2 -translate-y-1/2 bg-slate-800 text-white px-3 py-1 rounded text-sm whitespace-nowrap opacity-0 group-hover:opacity-100 transition-opacity">
-                    Mừng cưới
-                </span>
-            </button>
+
 
             {/* Modal */}
             {isModalOpen && (
