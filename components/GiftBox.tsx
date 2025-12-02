@@ -18,10 +18,16 @@ const GiftBox: React.FC = () => {
             setIsModalOpen(true);
         };
 
+        const handleCloseGiftBox = () => {
+            setIsModalOpen(false);
+        };
+
         window.addEventListener('openGiftBox', handleOpenGiftBox);
+        window.addEventListener('openContactInfo', handleCloseGiftBox);
 
         return () => {
             window.removeEventListener('openGiftBox', handleOpenGiftBox);
+            window.removeEventListener('openContactInfo', handleCloseGiftBox);
         };
     }, []);
 

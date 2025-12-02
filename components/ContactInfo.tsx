@@ -15,10 +15,16 @@ const ContactInfo: React.FC = () => {
             setIsModalOpen(true);
         };
 
+        const handleCloseContactInfo = () => {
+            setIsModalOpen(false);
+        };
+
         window.addEventListener('openContactInfo', handleOpenContactInfo);
+        window.addEventListener('openGiftBox', handleCloseContactInfo);
 
         return () => {
             window.removeEventListener('openContactInfo', handleOpenContactInfo);
+            window.removeEventListener('openGiftBox', handleCloseContactInfo);
         };
     }, []);
 

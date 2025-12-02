@@ -40,7 +40,7 @@ const FloatingMenu: React.FC = () => {
     return (
         <div ref={menuRef} className="fixed bottom-8 right-8 z-50 flex flex-col items-end gap-4">
             {/* Menu Items */}
-            <div className={`flex flex-col gap-4 transition-all duration-300 ${isOpen ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10 pointer-events-none'}`}>
+            <div className={`flex flex-col items-end gap-4 transition-all duration-300 ${isOpen ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10 pointer-events-none'}`}>
 
                 {/* Scroll Top Button */}
                 <div className="flex items-center gap-3 group">
@@ -49,7 +49,7 @@ const FloatingMenu: React.FC = () => {
                     </span>
                     <button
                         onClick={handleScrollTopClick}
-                        className="bg-rose-500 hover:bg-rose-600 text-white p-3 rounded-full shadow-lg transition-transform duration-300 hover:scale-110 mr-1"
+                        className="bg-rose-500 hover:bg-rose-600 text-white w-12 h-12 flex items-center justify-center rounded-full shadow-lg transition-transform duration-300 hover:scale-110 mr-1"
                         aria-label="Lên đầu trang"
                     >
                         <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -65,7 +65,7 @@ const FloatingMenu: React.FC = () => {
                     </span>
                     <button
                         onClick={handleGiftBoxClick}
-                        className="bg-rose-500 hover:bg-rose-600 text-white p-3 rounded-full shadow-lg transition-transform duration-300 hover:scale-110 mr-1"
+                        className="bg-rose-500 hover:bg-rose-600 text-white w-12 h-12 flex items-center justify-center rounded-full shadow-lg transition-transform duration-300 hover:scale-110 mr-1"
                         aria-label="Hộp mừng cưới"
                     >
                         <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -81,7 +81,7 @@ const FloatingMenu: React.FC = () => {
                     </span>
                     <button
                         onClick={handleContactClick}
-                        className="bg-rose-500 hover:bg-rose-600 text-white p-3 rounded-full shadow-lg transition-transform duration-300 hover:scale-110 mr-1"
+                        className="bg-rose-500 hover:bg-rose-600 text-white w-12 h-12 flex items-center justify-center rounded-full shadow-lg transition-transform duration-300 hover:scale-110 mr-1"
                         aria-label="Thông tin liên hệ"
                     >
                         <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -94,7 +94,7 @@ const FloatingMenu: React.FC = () => {
             {/* Main Toggle Button */}
             <button
                 onClick={toggleMenu}
-                className={`bg-rose-500 hover:bg-rose-600 text-white p-4 rounded-full shadow-2xl transition-all duration-300 hover:scale-110 relative z-50 ${isOpen ? 'rotate-90' : 'rotate-0'}`}
+                className={`bg-rose-500 hover:bg-rose-600 text-white w-14 h-14 flex-none flex items-center justify-center rounded-full shadow-2xl transition-all duration-300 hover:scale-110 relative z-50 ${isOpen ? 'rotate-90' : 'rotate-0'}`}
                 aria-label="Menu"
             >
                 {isOpen ? (
