@@ -5,6 +5,7 @@ import HomePage from './components/HomePage';
 import PhotoAlbumPage from './components/PhotoAlbumPage';
 import Footer from './components/Footer';
 import GiftBox from './components/GiftBox';
+import ContactInfo from './components/ContactInfo';
 
 const App: React.FC = () => {
   return (
@@ -18,6 +19,7 @@ const App: React.FC = () => {
       </main>
       <Footer />
       <GiftBox />
+      <ContactInfo />
     </div>
   );
 };
