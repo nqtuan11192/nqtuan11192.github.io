@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 
 interface WeddingEvent {
     id: string; // Unique identifier for navigation
@@ -300,6 +301,7 @@ interface EventCardProps {
 }
 
 const EventCard: React.FC<EventCardProps> = ({ event, onShowMap }) => {
+    const navigate = useNavigate();
     return (
         <div className="bg-white rounded-lg shadow-lg overflow-hidden hover:shadow-xl transition-shadow duration-300">
             {/* Event Image */}
@@ -355,26 +357,42 @@ const EventCard: React.FC<EventCardProps> = ({ event, onShowMap }) => {
 
                 {/* Action Buttons */}
                 <div className="space-y-2">
-                    <button
-                        onClick={() => addToCalendar(event)}
-                        className="w-full py-2 px-4 border-2 border-slate-300 text-slate-700 rounded-full hover:bg-slate-50 transition-colors duration-200 flex items-center justify-center"
-                    >
-                        <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
-                        </svg>
-                        Thêm vào lịch
-                    </button>
+                    <div className="flex gap-2">
+                        <button
+                            onClick={() => addToCalendar(event)}
+                            className="flex-1 py-2 px-4 border-2 border-slate-300 text-slate-700 rounded-full hover:bg-slate-50 transition-colors duration-200 flex items-center justify-center text-sm md:text-base"
+                        >
+                            <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
+                            </svg>
+                            Thêm lịch
+                        </button>
+
+                        <button
+                            onClick={() => onShowMap(event)}
+                            className="flex-1 py-2 px-4 bg-rose-500 text-white rounded-full hover:bg-rose-600 transition-colors duration-200 flex items-center justify-center text-sm md:text-base uppercase"
+                        >
+                            <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 20l-5.447-2.724A1 1 0 013 16.382V5.618a1 1 0 011.447-.894L9 7m0 13l6-3m-6 3V7m6 10l4.553 2.276A1 1 0 0021 18.382V7.618a1 1 0 00-.553-.894L15 4m0 13V4m0 0L9 7" />
+                            </svg>
+                            Bản đồ
+                        </button>
+                    </div>
 
                     <button
-                        onClick={() => onShowMap(event)}
-                        className="w-full py-2 px-4 bg-rose-500 text-white rounded-full hover:bg-rose-600 transition-colors duration-200 flex items-center justify-center"
+                        onClick={() => {
+                            const side = event.dateISO === '20251221' ? 'nhagai' : 'nhatrai';
+                            navigate(`/events/${side}`);
+                        }}
+                        className="w-full py-2 px-4 bg-rose-500 text-white rounded-full hover:bg-rose-600 transition-colors duration-200 flex items-center justify-center font-medium shadow-md mt-3"
                     >
-                        <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 20l-5.447-2.724A1 1 0 013 16.382V5.618a1 1 0 011.447-.894L9 7m0 13l6-3m-6 3V7m6 10l4.553 2.276A1 1 0 0021 18.382V7.618a1 1 0 00-.553-.894L15 4m0 13V4m0 0L9 7" />
+                        XEM CHI TIẾT
+                        <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 ml-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M14 5l7 7m0 0l-7 7m7-7H3" />
                         </svg>
-                        XEM BẢN ĐỒ ›
                     </button>
                 </div>
+
             </div>
         </div>
     );

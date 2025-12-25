@@ -7,6 +7,7 @@ import Footer from './components/Footer';
 import GiftBox from './components/GiftBox';
 import ContactInfo from './components/ContactInfo';
 import FloatingMenu from './components/FloatingMenu';
+import DayDetailPage from './components/DayDetailPage';
 
 const App: React.FC = () => {
   return (
@@ -16,6 +17,7 @@ const App: React.FC = () => {
         <Routes>
           <Route path="/" element={<HomePage />} />
           <Route path="/album" element={<PhotoAlbumPage />} />
+          <Route path="/events/:side" element={<DayDetailPage />} />
         </Routes>
       </main>
       <Footer />
