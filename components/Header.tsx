@@ -14,7 +14,7 @@ const albumLinks = [
   { href: '/album#album-1', label: 'Album 1: Nhật Bản' },
   { href: '/album#album-2', label: 'Album 2: Việt Nam' },
   { href: '/album#album-3', label: 'Album 3: Chuyến đi' },
-  { href: '/album#album-4', label: 'Album 4: Lễ Ăn Hỏi và Tiệc Cưới nhà gái (to be updated)' },
+  { href: '/album#album-4', label: 'Album 4: Lễ Ăn Hỏi và Tiệc Cưới nhà gái' },
 ];
 
 const eventLinks = [

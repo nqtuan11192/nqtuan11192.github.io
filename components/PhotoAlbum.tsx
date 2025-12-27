@@ -162,6 +162,40 @@ const galleryImages3 = [
   { id: 41, url: `${base}images/d3c91715-c1c5-4570-b17d-d671b7a54088.jpeg`, alt: "" },
 ];
 
+// Fourth gallery
+const galleryImages4 = [
+  { id: 0, url: `${base}images/album_4/DAL00003.jpg`, alt: "Image DAL00003" },
+  { id: 1, url: `${base}images/album_4/DAL00116.jpg`, alt: "Image DAL00116" },
+  { id: 2, url: `${base}images/album_4/DAL00228.jpg`, alt: "Image DAL00228" },
+  { id: 3, url: `${base}images/album_4/DAL00252.jpg`, alt: "Image DAL00252" },
+  { id: 4, url: `${base}images/album_4/DAL00312.jpg`, alt: "Image DAL00312" },
+  { id: 5, url: `${base}images/album_4/DAL00411.jpg`, alt: "Image DAL00411" },
+  { id: 6, url: `${base}images/album_4/DAL00453.jpg`, alt: "Image DAL00453" },
+  { id: 7, url: `${base}images/album_4/DAL00474.jpg`, alt: "Image DAL00474" },
+  { id: 8, url: `${base}images/album_4/DAL00488.jpg`, alt: "Image DAL00488" },
+  { id: 9, url: `${base}images/album_4/DAL00543.jpg`, alt: "Image DAL00543" },
+
+  { id: 10, url: `${base}images/album_4/DAL00567.jpg`, alt: "Image DAL00567" },
+  { id: 11, url: `${base}images/album_4/DAL00608.jpg`, alt: "Image DAL00608" },
+  { id: 12, url: `${base}images/album_4/DAL00804.jpg`, alt: "Image DAL00804" },
+  { id: 13, url: `${base}images/album_4/DAL00847.jpg`, alt: "Image DAL00847" },
+  { id: 14, url: `${base}images/album_4/DAL00897.jpg`, alt: "Image DAL00897" },
+  { id: 15, url: `${base}images/album_4/DAL00913.jpg`, alt: "Image DAL00913" },
+  { id: 16, url: `${base}images/album_4/DAL00934.jpg`, alt: "Image DAL00934" },
+  { id: 17, url: `${base}images/album_4/DAL00986.jpg`, alt: "Image DAL00986" },
+  { id: 18, url: `${base}images/album_4/DAL01014.jpg`, alt: "Image DAL01014" },
+  { id: 19, url: `${base}images/album_4/DAL01034.jpg`, alt: "Image DAL01034" },
+
+  { id: 20, url: `${base}images/album_4/DAL01150.jpg`, alt: "Image DAL01150" },
+  { id: 21, url: `${base}images/album_4/DAL01222.jpg`, alt: "Image DAL01222" },
+  { id: 22, url: `${base}images/album_4/DAL01243.jpg`, alt: "Image DAL01243" },
+  { id: 23, url: `${base}images/album_4/DAL01266.jpg`, alt: "Image DAL01266" },
+  { id: 24, url: `${base}images/album_4/DAL01277.jpg`, alt: "Image DAL01277" },
+  { id: 25, url: `${base}images/album_4/DAL01312.jpg`, alt: "Image DAL01312" },
+  { id: 26, url: `${base}images/album_4/DAL01320.jpg`, alt: "Image DAL01320" },
+  { id: 27, url: `${base}images/album_4/DAL01455.jpg`, alt: "Image DAL01455" },
+];
+
 // export default galleryImages
 
 
@@ -169,6 +203,7 @@ const PhotoAlbum: React.FC = () => {
   const [currentImageIndex1, setCurrentImageIndex1] = useState<number | null>(null);
   const [currentImageIndex2, setCurrentImageIndex2] = useState<number | null>(null);
   const [currentImageIndex3, setCurrentImageIndex3] = useState<number | null>(null);
+  const [currentImageIndex4, setCurrentImageIndex4] = useState<number | null>(null);
 
   const openLightbox1 = (index: number) => {
     setCurrentImageIndex1(index);
@@ -238,9 +273,33 @@ const PhotoAlbum: React.FC = () => {
     setCurrentImageIndex3(index);
   };
 
+  // Fourth gallery functions
+  const openLightbox4 = (index: number) => {
+    setCurrentImageIndex4(index);
+  };
+
+  const closeLightbox4 = () => {
+    setCurrentImageIndex4(null);
+  };
+
+  const goToNext4 = () => {
+    if (currentImageIndex4 === null) return;
+    setCurrentImageIndex4((prevIndex) => (prevIndex! + 1) % galleryImages4.length);
+  };
+
+  const goToPrevious4 = () => {
+    if (currentImageIndex4 === null) return;
+    setCurrentImageIndex4((prevIndex) => (prevIndex! + galleryImages4.length - 1) % galleryImages4.length);
+  };
+
+  const goToImage4 = (index: number) => {
+    setCurrentImageIndex4(index);
+  };
+
   const isLightboxOpen1 = currentImageIndex1 !== null;
   const isLightboxOpen2 = currentImageIndex2 !== null;
   const isLightboxOpen3 = currentImageIndex3 !== null;
+  const isLightboxOpen4 = currentImageIndex4 !== null;
 
   return (
     <>
@@ -326,8 +385,31 @@ const PhotoAlbum: React.FC = () => {
               ))}
             </div>
           </div>
+
+          {/* Fourth Gallery */}
+          <div id="album-4" className="mt-16">
+            <h3 className="font-vietnamese-script text-xl md:text-3xl text-slate-600 mb-6 text-center">
+              Album 4: Ngày trọng đại tại Yên Bái
+            </h3>
+            <div className="columns-1 sm:columns-2 md:columns-3 lg:columns-4 gap-4 md:gap-6 space-y-4 md:space-y-6">
+              {galleryImages4.map((image, index) => (
+                <div
+                  key={image.id}
+                  className="break-inside-avoid group overflow-hidden rounded-xl shadow-md cursor-pointer"
+                  onClick={() => openLightbox4(index)}
+                >
+                  <img
+                    src={image.url}
+                    alt={image.alt}
+                    loading="lazy"
+                    className="w-full h-auto object-cover transition-transform duration-500 ease-in-out group-hover:scale-110"
+                  />
+                </div>
+              ))}
+            </div>
+          </div>
         </div>
-      </section>
+      </section >
 
       {isLightboxOpen1 && (
         <Lightbox
@@ -338,29 +420,47 @@ const PhotoAlbum: React.FC = () => {
           onPrev={goToPrevious1}
           onSelect={goToImage1}
         />
-      )}
+      )
+      }
 
-      {isLightboxOpen2 && (
-        <Lightbox
-          images={galleryImages2}
-          currentIndex={currentImageIndex2}
-          onClose={closeLightbox2}
-          onNext={goToNext2}
-          onPrev={goToPrevious2}
-          onSelect={goToImage2}
-        />
-      )}
+      {
+        isLightboxOpen2 && (
+          <Lightbox
+            images={galleryImages2}
+            currentIndex={currentImageIndex2}
+            onClose={closeLightbox2}
+            onNext={goToNext2}
+            onPrev={goToPrevious2}
+            onSelect={goToImage2}
+          />
+        )
+      }
 
-      {isLightboxOpen3 && (
-        <Lightbox
-          images={galleryImages3}
-          currentIndex={currentImageIndex3}
-          onClose={closeLightbox3}
-          onNext={goToNext3}
-          onPrev={goToPrevious3}
-          onSelect={goToImage3}
-        />
-      )}
+      {
+        isLightboxOpen3 && (
+          <Lightbox
+            images={galleryImages3}
+            currentIndex={currentImageIndex3}
+            onClose={closeLightbox3}
+            onNext={goToNext3}
+            onPrev={goToPrevious3}
+            onSelect={goToImage3}
+          />
+        )
+      }
+
+      {
+        isLightboxOpen4 && (
+          <Lightbox
+            images={galleryImages4}
+            currentIndex={currentImageIndex4}
+            onClose={closeLightbox4}
+            onNext={goToNext4}
+            onPrev={goToPrevious4}
+            onSelect={goToImage4}
+          />
+        )
+      }
     </>
   );
 };
