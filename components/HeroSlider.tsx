@@ -16,6 +16,11 @@ const slides = [
   { url: `${base}images/album_2/DMI_3802.jpg`, alt: 'DMI_3802' },
   { url: `${base}images/album_2/DMI_4604.JPG`, alt: 'DMI_4604' },
   { url: `${base}images/album_2/DMI_4922.JPG`, alt: 'DMI_4922' },
+  { url: `${base}images/album_4/DAL00003.jpg`, alt: 'DAL00003' },
+  { url: `${base}images/album_4/DAL00252.jpg`, alt: 'DAL00252' },
+  { url: `${base}images/album_4/DAL00474.jpg`, alt: 'DAL00474' },
+  { url: `${base}images/album_4/DAL00543.jpg`, alt: 'DAL00543' },
+  { url: `${base}images/album_4/DAL01150.jpg`, alt: 'DAL01150' },
 ]
 
 const HeroSlider: React.FC = () => {
