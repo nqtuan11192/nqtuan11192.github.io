@@ -194,6 +194,16 @@ const galleryImages4 = [
   { id: 25, url: `${base}images/album_4/DAL01312.jpg`, alt: "Image DAL01312" },
   { id: 26, url: `${base}images/album_4/DAL01320.jpg`, alt: "Image DAL01320" },
   { id: 27, url: `${base}images/album_4/DAL01455.jpg`, alt: "Image DAL01455" },
+  { id: 28, url: `${base}images/album_4/DAL01680.jpg`, alt: "Image DAL01680" },
+  { id: 29, url: `${base}images/album_4/DAL01755.jpg`, alt: "Image DAL01755" },
+
+  { id: 30, url: `${base}images/album_4/DAL01764.jpg`, alt: "Image DAL01764" },
+  { id: 31, url: `${base}images/album_4/DAL01806.jpg`, alt: "Image DAL01806" },
+  { id: 32, url: `${base}images/album_4/DAL01854.jpg`, alt: "Image DAL01854" },
+  { id: 33, url: `${base}images/album_4/DAL01983.jpg`, alt: "Image DAL01983" },
+  { id: 34, url: `${base}images/album_4/DAL02019.jpg`, alt: "Image DAL02019" },
+  { id: 35, url: `${base}images/album_4/DAL02065.jpg`, alt: "Image DAL02065" },
+  { id: 36, url: `${base}images/album_4/DAL02094.jpg`, alt: "Image DAL02094" },
 ];
 
 // export default galleryImages
