@@ -55,9 +55,10 @@ export const events: WeddingEvent[] = [
         lunarDate: '02/11 Ất Tỵ',
         timeline: [
             { time: '08:00', title: 'Nhà trai đến' },
-            { time: '08:15', title: 'Trao lễ vật & Phát biểu' },
-            { time: '09:00', title: 'Mời nước & Chụp ảnh' },
-            { time: '10:00', title: 'Hoàn tất lễ ăn hỏi' }
+            { time: '08:15', title: 'Lễ ăn hỏi, Trao lễ vật & Phát biểu' },
+            { time: '08:30', title: 'Mời nước & Chụp ảnh' },
+            { time: '09:00', title: 'Lễ  vu quy và xin dâu' },
+            { time: '10:00', title: 'Hoàn tất buổi lễ , di chuyển ra hội trường tiệc cưới' }
         ]
     },
     {
