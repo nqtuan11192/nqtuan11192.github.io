@@ -144,7 +144,7 @@ export const events: WeddingEvent[] = [
         lunarDate: '12/11 Ất Tỵ',
         timeline: [
             { time: '11:30', title: 'Đón khách' },
-            { time: '11:50', title: 'Làm lễ thành hôn' },
+            { time: '11:50', title: 'Cử hành lễ thành hôn' },
             { time: '12:00', title: 'Khai tiệc' },
             { time: '13:30', title: 'Tiễn khách' }
         ]
