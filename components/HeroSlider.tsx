@@ -4,23 +4,61 @@ import React, { useState, useEffect, useCallback } from 'react';
 const base = import.meta.env.BASE_URL
 
 const slides = [
+  // Album 1
   { url: `${base}images/album_1/HAN02210.jpg`, alt: 'HAN02210' },
   { url: `${base}images/album_1/HAN02296.jpg`, alt: 'HAN02296' },
-  { url: `${base}images/album_1/HAN02313.jpg`, alt: 'HAN02267' },
+  { url: `${base}images/album_1/HAN02313.jpg`, alt: 'HAN02313' },
+  { url: `${base}images/album_1/HAN02325.jpg`, alt: 'HAN02325' },
+  { url: `${base}images/album_1/HAN02473.jpg`, alt: 'HAN02473' },
   { url: `${base}images/album_1/HAN02565.jpg`, alt: 'HAN02565' },
   { url: `${base}images/album_1/HAN02641.jpg`, alt: 'HAN02641' },
-  { url: `${base}images/album_1/HAN02790.jpg`, alt: 'HAN02790' },
   { url: `${base}images/album_1/HAN02743.jpg`, alt: 'HAN02743' },
+  { url: `${base}images/album_1/HAN02744.jpg`, alt: 'HAN02744' },
+  { url: `${base}images/album_1/HAN02790.jpg`, alt: 'HAN02790' },
+  { url: `${base}images/album_1/HAN03183.jpg`, alt: 'HAN03183' },
+  // Album 2
   { url: `${base}images/album_2/DMI_3044.jpg`, alt: 'DMI_3044' },
   { url: `${base}images/album_2/DMI_3574.jpg`, alt: 'DMI_3574' },
   { url: `${base}images/album_2/DMI_3802.jpg`, alt: 'DMI_3802' },
   { url: `${base}images/album_2/DMI_4604.JPG`, alt: 'DMI_4604' },
+  { url: `${base}images/album_2/DMI_4904.jpg`, alt: 'DMI_4904' },
   { url: `${base}images/album_2/DMI_4922.JPG`, alt: 'DMI_4922' },
+  // Album 3
+  { url: `${base}images/album_3/IMG_0993.jpg`, alt: 'IMG_0993' },
+  { url: `${base}images/album_3/IMG_2907.jpg`, alt: 'IMG_2907' },
+  { url: `${base}images/album_3/IMG_2920.jpg`, alt: 'IMG_2920' },
+  { url: `${base}images/album_3/IMG_5347.jpg`, alt: 'IMG_5347' },
+  { url: `${base}images/album_3/IMG_5417.jpg`, alt: 'IMG_5417' },
+  { url: `${base}images/album_3/IMG_5499.jpg`, alt: 'IMG_5499' },
+  { url: `${base}images/album_3/IMG_5797.jpg`, alt: 'IMG_5797' },
+  { url: `${base}images/album_3/IMG_7167.jpg`, alt: 'IMG_7167' },
+  { url: `${base}images/album_3/IMG_7266.jpg`, alt: 'IMG_7266' },
+  { url: `${base}images/album_3/IMG_7420.jpg`, alt: 'IMG_7420' },
+  // Album 4
   { url: `${base}images/album_4/DAL00003.jpg`, alt: 'DAL00003' },
+  { url: `${base}images/album_4/DAL00116.jpg`, alt: 'DAL00116' },
+  { url: `${base}images/album_4/DAL00228.jpg`, alt: 'DAL00228' },
   { url: `${base}images/album_4/DAL00252.jpg`, alt: 'DAL00252' },
+  { url: `${base}images/album_4/DAL00312.jpg`, alt: 'DAL00312' },
+  { url: `${base}images/album_4/DAL00453.jpg`, alt: 'DAL00453' },
   { url: `${base}images/album_4/DAL00474.jpg`, alt: 'DAL00474' },
   { url: `${base}images/album_4/DAL00543.jpg`, alt: 'DAL00543' },
+  { url: `${base}images/album_4/DAL00804.jpg`, alt: 'DAL00804' },
+  { url: `${base}images/album_4/DAL00897.jpg`, alt: 'DAL00897' },
+  { url: `${base}images/album_4/DAL01014.jpg`, alt: 'DAL01014' },
+  { url: `${base}images/album_4/DAL01034.jpg`, alt: 'DAL01034' },
   { url: `${base}images/album_4/DAL01150.jpg`, alt: 'DAL01150' },
+  { url: `${base}images/album_4/DAL01222.jpg`, alt: 'DAL01222' },
+  { url: `${base}images/album_4/DAL01243.jpg`, alt: 'DAL01243' },
+  { url: `${base}images/album_4/DAL01266.jpg`, alt: 'DAL01266' },
+  { url: `${base}images/album_4/DAL01455.jpg`, alt: 'DAL01455' },
+  { url: `${base}images/album_4/DAL01680.jpg`, alt: 'DAL01680' },
+  { url: `${base}images/album_4/DAL01806.jpg`, alt: 'DAL01806' },
+  { url: `${base}images/album_4/DAL01854.jpg`, alt: 'DAL01854' },
+  { url: `${base}images/album_4/DAL01983.jpg`, alt: 'DAL01983' },
+  { url: `${base}images/album_4/DAL02019.jpg`, alt: 'DAL02019' },
+  { url: `${base}images/album_4/DAL02065.jpg`, alt: 'DAL02065' },
+  { url: `${base}images/album_4/DAL02094.jpg`, alt: 'DAL02094' },
 ]
 
 const HeroSlider: React.FC = () => {
@@ -64,12 +102,12 @@ const HeroSlider: React.FC = () => {
           ))}
         </div>
       </div>
-      <div className="absolute inset-0 bg-black/40"></div>
-      <div className="absolute inset-0 flex flex-col justify-center items-center text-center text-white p-4">
+      {/* <div className="absolute inset-0 bg-black/40"></div> */}
+      {/* <div className="absolute inset-0 flex flex-col justify-center items-center text-center text-white p-4">
         <h1 className="font-script text-5xl md:text-7xl lg:text-7xl drop-shadow-sm">Vân Anh &#9829; Quốc Tuấn</h1>
         <p className="mt-4 text-lg md:text-2xl font-verdana tracking-wider drop-shadow-md">We're Getting Married!</p>
         <p className="text-lg md:text-2xl font-verdana tracking-wider drop-shadow-md">December 31, 2025</p>
-      </div>
+      // </div> */}
 
       {/* Slider Controls */}
       <button onClick={goToPrevious} className="absolute top-1/2 left-4 md:left-8 -translate-y-1/2 p-2 rounded-full bg-white/30 hover:bg-white/50 text-white transition-colors">

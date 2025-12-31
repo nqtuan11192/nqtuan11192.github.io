@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
-import { events, getEventStatus } from '../src/data/events';
+import { events, getEventStatus, getEventDate } from '../src/data/events';
 
 interface TimelineItemProps {
     time: string;
@@ -146,51 +146,31 @@ const DayDetailPage: React.FC = () => {
                 <div className="bg-white rounded-2xl shadow-xl p-6 sm:p-10">
                     <ul className="relative">
                         {allTimelineItems.map((item, idx) => {
-                            // Determine status for this specific timeline item
-                            // This is a simplified check. A robust one compares item time vs 'now'.
-                            // Reusing logic from `getEventStatus` but granularly for items might be complex.
-                            // For simplicity, we check if the parent event is 'happening' AND if this item is strictly current?
-                            // Actually, let's just use the parent event status for broad highlighting,
-                            // or implement a granular Time vs Item.time check.
+                            // Calculate start time for this item
+                            const startTime = getEventDate(item.parentEvent.dateISO, item.time);
 
-                            // Let's implement a simple granular check:
-                            const [hours, minutes] = item.time.split(':').map(Number);
-                            const itemTime = new Date(now); // Clone today
-                            // We need to set the date to the EVENT's date
-                            // dateISO is usually YYYYMMDD
-                            const year = parseInt(firstEvent.dateISO.substring(0, 4));
-                            const month = parseInt(firstEvent.dateISO.substring(4, 6)) - 1;
-                            const day = parseInt(firstEvent.dateISO.substring(6, 8));
+                            // Calculate end time
+                            // If there is a next item, usage its start time as this item's end time
+                            // Otherwise, use the parent event's end time
+                            let endTime: Date;
+                            if (idx < allTimelineItems.length - 1) {
+                                const nextItem = allTimelineItems[idx + 1];
+                                endTime = getEventDate(nextItem.parentEvent.dateISO, nextItem.time);
+                            } else {
+                                endTime = getEventDate(item.parentEvent.dateISO, item.parentEvent.endTime);
+                            }
 
-                            itemTime.setFullYear(year, month, day);
-                            itemTime.setHours(hours, minutes, 0, 0);
-
-                            // Status logic:
-                            // If now > itemTime + 30mins -> completed
-                            // If now >= itemTime && now < itemTime + 30mins -> happening? 
-                            // This is arbitrary. Let's just stick to "passed" vs "upcoming".
-
-                            // Better yet, revert to simple visual style.
-                            // We highlight the whole parent event block if it's happening?
-                            // Or just highlight the item if it's "now".
-
-                            // Check if passed:
-                            const isPassed = now > itemTime; // True if current time is after item time
-                            // Check if "current" window (e.g. within last hour?)
-                            // Let's rely on the simple generic styling for now.
-
-                            const parentStatus = getEventStatus(item.parentEvent, now);
-                            // Highlight if parent event is happening?? 
-                            // No, let's keep it clean.
+                            // Determine status
+                            const isHappening = now >= startTime && now < endTime;
+                            const isCompleted = now >= endTime;
 
                             return (
                                 <TimelineNode
                                     key={idx}
                                     time={item.time}
                                     title={item.title}
-                                    isHappening={parentStatus === 'happening' && !isPassed && (now.getTime() - itemTime.getTime() > -3600000)} // Rough "upcoming soon" or "just started" logic? Too complex.
-                                    // Let's just use simple logic:
-                                    isCompleted={isPassed}
+                                    isHappening={isHappening}
+                                    isCompleted={isCompleted}
                                     isLast={idx === allTimelineItems.length - 1}
                                 />
                             );

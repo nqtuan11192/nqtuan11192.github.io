@@ -147,7 +147,7 @@ export const events: WeddingEvent[] = [
             { time: '11:30', title: 'Đón khách' },
             { time: '11:50', title: 'Cử hành lễ thành hôn' },
             { time: '12:00', title: 'Khai tiệc' },
-            { time: '13:30', title: 'Tiễn khách' }
+            { time: '13:30', title: 'Kết thúc tiệc' }
         ]
     },
 ];
