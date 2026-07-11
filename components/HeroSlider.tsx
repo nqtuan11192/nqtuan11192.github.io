@@ -59,6 +59,15 @@ const slides = [
   { url: `${base}images/album_4/DAL02019.jpg`, alt: 'DAL02019' },
   { url: `${base}images/album_4/DAL02065.jpg`, alt: 'DAL02065' },
   { url: `${base}images/album_4/DAL02094.jpg`, alt: 'DAL02094' },
+  // Album 5
+  { url: `${base}images/album_5/BAO06080.jpg`, alt: 'BAO06080' },
+  { url: `${base}images/album_5/BAO06543.jpg`, alt: 'BAO06543' },
+  { url: `${base}images/album_5/MRI06052.jpg`, alt: 'MRI06052' },
+  { url: `${base}images/album_5/MRI06277.jpg`, alt: 'MRI06277' },
+  { url: `${base}images/album_5/MRI06987.jpg`, alt: 'MRI06987' },
+  { url: `${base}images/album_5/MRI07308.jpg`, alt: 'MRI07308' },
+  { url: `${base}images/album_5/MRI07548.jpg`, alt: 'MRI07548' },
+  { url: `${base}images/album_5/MRI07776.jpg`, alt: 'MRI07776' },
 ]
 
 const HeroSlider: React.FC = () => {

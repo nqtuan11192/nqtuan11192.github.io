@@ -206,6 +206,22 @@ const galleryImages4 = [
   { id: 36, url: `${base}images/album_4/DAL02094.jpg`, alt: "Image DAL02094" },
 ];
 
+// Fifth gallery
+const galleryImages5 = [
+  { id: 0, url: `${base}images/album_5/A1_05771.jpg`, alt: "Image A1_05771" },
+  { id: 1, url: `${base}images/album_5/BAO06080.jpg`, alt: "Image BAO06080" },
+  { id: 2, url: `${base}images/album_5/BAO06543.jpg`, alt: "Image BAO06543" },
+  { id: 3, url: `${base}images/album_5/BAO06556.jpg`, alt: "Image BAO06556" },
+  { id: 4, url: `${base}images/album_5/LMD02570.jpg`, alt: "Image LMD02570" },
+  { id: 5, url: `${base}images/album_5/MRI06052.jpg`, alt: "Image MRI06052" },
+  { id: 6, url: `${base}images/album_5/MRI06277.jpg`, alt: "Image MRI06277" },
+  { id: 7, url: `${base}images/album_5/MRI06987.jpg`, alt: "Image MRI06987" },
+  { id: 8, url: `${base}images/album_5/MRI06996.jpg`, alt: "Image MRI06996" },
+  { id: 9, url: `${base}images/album_5/MRI07308.jpg`, alt: "Image MRI07308" },
+  { id: 10, url: `${base}images/album_5/MRI07548.jpg`, alt: "Image MRI07548" },
+  { id: 11, url: `${base}images/album_5/MRI07776.jpg`, alt: "Image MRI07776" },
+];
+
 // export default galleryImages
 
 
@@ -214,6 +230,7 @@ const PhotoAlbum: React.FC = () => {
   const [currentImageIndex2, setCurrentImageIndex2] = useState<number | null>(null);
   const [currentImageIndex3, setCurrentImageIndex3] = useState<number | null>(null);
   const [currentImageIndex4, setCurrentImageIndex4] = useState<number | null>(null);
+  const [currentImageIndex5, setCurrentImageIndex5] = useState<number | null>(null);
 
   const openLightbox1 = (index: number) => {
     setCurrentImageIndex1(index);
@@ -306,10 +323,34 @@ const PhotoAlbum: React.FC = () => {
     setCurrentImageIndex4(index);
   };
 
+  // Fifth gallery functions
+  const openLightbox5 = (index: number) => {
+    setCurrentImageIndex5(index);
+  };
+
+  const closeLightbox5 = () => {
+    setCurrentImageIndex5(null);
+  };
+
+  const goToNext5 = () => {
+    if (currentImageIndex5 === null) return;
+    setCurrentImageIndex5((prevIndex) => (prevIndex! + 1) % galleryImages5.length);
+  };
+
+  const goToPrevious5 = () => {
+    if (currentImageIndex5 === null) return;
+    setCurrentImageIndex5((prevIndex) => (prevIndex! + galleryImages5.length - 1) % galleryImages5.length);
+  };
+
+  const goToImage5 = (index: number) => {
+    setCurrentImageIndex5(index);
+  };
+
   const isLightboxOpen1 = currentImageIndex1 !== null;
   const isLightboxOpen2 = currentImageIndex2 !== null;
   const isLightboxOpen3 = currentImageIndex3 !== null;
   const isLightboxOpen4 = currentImageIndex4 !== null;
+  const isLightboxOpen5 = currentImageIndex5 !== null;
 
   return (
     <>
@@ -418,6 +459,29 @@ const PhotoAlbum: React.FC = () => {
               ))}
             </div>
           </div>
+
+          {/* Fifth Gallery */}
+          <div id="album-5" className="mt-16">
+            <h3 className="font-vietnamese-script text-xl md:text-3xl text-slate-600 mb-6 text-center">
+              Album 5: Ngày trọng đại tại Hà Nội
+            </h3>
+            <div className="columns-1 sm:columns-2 md:columns-3 lg:columns-4 gap-4 md:gap-6 space-y-4 md:space-y-6">
+              {galleryImages5.map((image, index) => (
+                <div
+                  key={image.id}
+                  className="break-inside-avoid group overflow-hidden rounded-xl shadow-md cursor-pointer"
+                  onClick={() => openLightbox5(index)}
+                >
+                  <img
+                    src={image.url}
+                    alt={image.alt}
+                    loading="lazy"
+                    className="w-full h-auto object-cover transition-transform duration-500 ease-in-out group-hover:scale-110"
+                  />
+                </div>
+              ))}
+            </div>
+          </div>
         </div>
       </section >
 
@@ -468,6 +532,19 @@ const PhotoAlbum: React.FC = () => {
             onNext={goToNext4}
             onPrev={goToPrevious4}
             onSelect={goToImage4}
+          />
+        )
+      }
+
+      {
+        isLightboxOpen5 && (
+          <Lightbox
+            images={galleryImages5}
+            currentIndex={currentImageIndex5}
+            onClose={closeLightbox5}
+            onNext={goToNext5}
+            onPrev={goToPrevious5}
+            onSelect={goToImage5}
           />
         )
       }
